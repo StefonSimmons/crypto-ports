@@ -1,4 +1,6 @@
 class User < ApplicationRecord
-  has_many :assets
-  has_many :accounts
+  has_many :assets, dependent: :destroy
+  has_many :accounts, dependent: :destroy
+
+  has_secure_password
 end
