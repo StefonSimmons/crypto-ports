@@ -1,13 +1,15 @@
 class Asset < ApplicationRecord
-  require "rest-client"
+  # require "rest-client"
 
   belongs_to :user
 
-
-
-  def allocation_currency_price
-    cmc_asset['quote']['USD']['price']
+  def self.sum_of_allocations curr
+    where(allocation_currency: curr).pluck(:allocation).sum
   end
+
+  # def self.allocations curr
+  #   where(allocation_currency: curr)
+  # end
 
   # making http request in model
   # def cmc_asset
