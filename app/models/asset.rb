@@ -12,4 +12,6 @@ class Asset < ApplicationRecord
   def self.allocation_currencies_as_str
     where.not(allocation_currency: "USD").pluck(:allocation_currency).uniq.join(",")
   end
+
+
 end
