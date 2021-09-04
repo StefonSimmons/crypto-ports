@@ -1,6 +1,6 @@
 class AssetsController < ApplicationController
   before_action :set_users_assets, only: [:index]
-  before_action :set_users_asset, only: [:update]
+  before_action :set_asset, only: [:update, :destroy]
 
   # GET /users/:user_id/assets
   def index
@@ -12,19 +12,28 @@ class AssetsController < ApplicationController
 
     render json: form_assets
   end
-
-  # PUT /users/:user_id/assets/:id
-  def update
-    if @user_asset.update(asset_params)
-      symbol = @user_asset.symbol
-      allocation_currency = @user_asset.allocation_currency
-      @user_cmc_assets = cmc_assets(symbol)
-      @cmc_allocation_currency_prices = allocation_currency != 'USD' ? cmc_assets(allocation_currency) : nil
-
-      asset = form_one_asset(@user_asset)
-      render json: add_to_formed_asset(asset)
+  
+  # POST /assets
+  def create
+    new_asset = Asset.new(asset_params)
+    if new_asset.save
+      render json: new_asset
     end
   end
+
+  # PUT /assets/:id
+  def update
+    if @asset.update(asset_params)
+      render json: @asset
+    end
+  end
+
+
+  # DELETE /assets/:id
+  def destroy
+    @asset.destroy
+  end
+
 
   private
 
@@ -34,12 +43,12 @@ class AssetsController < ApplicationController
     @user_assets = user.assets
   end
 
-  def set_users_asset
-    @user_asset = set_users_assets.find(params[:id])
+  def set_asset
+    @asset = Asset.find(params[:id])
   end
 
   def asset_params
-    params.require(:asset).permit(:allocation, :quantity)
+    params.require(:asset).permit(:symbol, :allocation, :quantity, :allocation_currency, :user_id)
   end
 
   # making http request for cmc data
@@ -54,15 +63,19 @@ class AssetsController < ApplicationController
 
   # FORM USER'S ASSETS
   def form_assets
-    @partially_formed_assets = @user_assets.map { |asset| form_one_asset(asset) }
-
-    formed_assets = @partially_formed_assets.map { |asset| add_to_formed_asset(asset) }
-
+    @partially_formed_assets = @user_assets.map { |asset| form_one_asset_1(asset) }
+    formed_assets = @partially_formed_assets.map { |asset| form_one_asset_2(asset) }
     return formed_assets
   end
 
+  # def form_asset
+  #   partially_formed_asset = form_one_asset_1(@user_asset)
+  #   formed_asset = form_one_asset_2(partially_formed_asset)
+  #   return form_asset
+  # end
+
   # FORM ONE ASSET pt. 1
-  def form_one_asset(asset)
+  def form_one_asset_1(asset)
     asset_price = @user_cmc_assets[asset["symbol"]]["quote"]["USD"]["price"]
     allocation_currency_usd_price = asset["allocation_currency"] != "USD" ? @cmc_allocation_currency_prices[asset["allocation_currency"]]["quote"]["USD"]["price"] : 1
     asset_priced_in_allocation_currency = asset_price / allocation_currency_usd_price
@@ -81,6 +94,7 @@ class AssetsController < ApplicationController
       :percent_of_port => percent_of_port,
       :cost_basis => cost_basis,
     }
+
     asset.attributes.merge(cmc_info)
   end
 
@@ -91,8 +105,9 @@ class AssetsController < ApplicationController
   end
 
   # FORM ONE ASSET pt. 2
-  def add_to_formed_asset(asset)
+  def form_one_asset_2(asset)
     percent_of_curr_port = (asset[:value] / sum_of_values(asset)) * 100
-    asset.merge({ :percent_of_curr_port => percent_of_curr_port })
+    cmc_info = { :percent_of_curr_port => percent_of_curr_port }
+    asset.merge(cmc_info)
   end
 end
