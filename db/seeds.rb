@@ -32,48 +32,70 @@ accounts = Account.create!([
 
 pp "Created #{Account.count} account(s)"
 
+
+portfolios = Portfolio.create!([
+  {
+    name: 'BTC',
+    alias: 'Trade-BTC',
+    user: stefon
+  },
+  {
+    name: 'USD',
+    alias: 'Hold-USD',
+    user: stefon
+  }
+])
+
+pp "Created #{Portfolio.count} portfolio(s)"
+
 assets= Asset.create!([
   {
     symbol: 'XRP',
     allocation: 494,
     quantity: 1011,
     allocation_currency: 'USD',
-    user: stefon
+    user: stefon,
+    portfolio: portfolios.second
   },
   {
     symbol: 'BTC',
     allocation: 2610,
     quantity: 0.25,
     allocation_currency: 'USD',
-    user: stefon
+    user: stefon,
+    portfolio: portfolios.second
   },
   {
     symbol: 'ADA',
     allocation: 50,
     quantity: 677,
     allocation_currency: 'USD',
-    user: stefon
+    user: stefon,
+    portfolio: portfolios.second
   },
   {
     symbol: 'ETH',
     allocation: 0.021,
     quantity: 0.31,
     allocation_currency: 'BTC',
-    user: stefon
+    user: stefon,
+    portfolio: portfolios.first
   },
   {
     symbol: 'SOL',
     allocation: 0.00145,
     quantity: 0.725,
     allocation_currency: 'BTC',
-    user: stefon
+    user: stefon,
+    portfolio: portfolios.first
   },
   {
     symbol: 'ADA',
     allocation: 0.00145,
     quantity: 30.34,
     allocation_currency: 'BTC',
-    user: stefon
+    user: stefon,
+    portfolio: portfolios.first
   }
 ])
 pp "Created #{Asset.count} asset(s)"

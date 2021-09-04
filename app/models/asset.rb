@@ -1,5 +1,6 @@
 class Asset < ApplicationRecord
   belongs_to :user
+  belongs_to :portfolio
 
   def self.sum_of_allocations curr
     where(allocation_currency: curr).pluck(:allocation).sum

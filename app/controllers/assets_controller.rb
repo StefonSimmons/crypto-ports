@@ -2,13 +2,13 @@ class AssetsController < ApplicationController
   before_action :set_users_assets, only: [:index]
   before_action :set_asset, only: [:update, :destroy]
 
-  # GET /users/:user_id/assets
+  # GET /users/:user_id/portfolios/:portfolio_id/assets
   def index
-    symbols = @user_assets.symbols_as_str
-    allocation_currencies = @user_assets.allocation_currencies_as_str
+    symbols = @user_ports_assets.symbols_as_str
+    allocation_currencies = @user_ports_assets.allocation_currencies_as_str
 
     @user_cmc_assets = cmc_assets(symbols)
-    @cmc_allocation_currency_prices = cmc_assets(allocation_currencies)
+    @cmc_allocation_currency_prices = allocation_currencies != '' ? cmc_assets(allocation_currencies) : nil
 
     render json: form_assets
   end
@@ -40,7 +40,7 @@ class AssetsController < ApplicationController
   # SETTERS
   def set_users_assets
     user = User.find(params[:user_id])
-    @user_assets = user.assets
+    @user_ports_assets = user.portfolios.find(params[:portfolio_id]).assets
   end
 
   def set_asset
@@ -63,7 +63,7 @@ class AssetsController < ApplicationController
 
   # FORM USER'S ASSETS
   def form_assets
-    @partially_formed_assets = @user_assets.map { |asset| form_one_asset_1(asset) }
+    @partially_formed_assets = @user_ports_assets.map { |asset| form_one_asset_1(asset) }
     formed_assets = @partially_formed_assets.map { |asset| form_one_asset_2(asset) }
     return formed_assets
   end
@@ -82,7 +82,7 @@ class AssetsController < ApplicationController
     value = asset.quantity * asset_priced_in_allocation_currency
     value_change = value - asset.allocation
     percent_change = (value_change / asset.allocation) * 100
-    percent_of_port = (asset.allocation / @user_assets.sum_of_allocations(asset.allocation_currency)) * 100
+    percent_of_port = (asset.allocation / @user_ports_assets.sum_of_allocations(asset.allocation_currency)) * 100
     cost_basis = asset.allocation / asset.quantity
 
     cmc_info = {
