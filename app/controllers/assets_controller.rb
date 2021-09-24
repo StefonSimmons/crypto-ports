@@ -8,11 +8,11 @@ class AssetsController < ApplicationController
     allocation_currencies = @user_ports_assets.allocation_currencies_as_str
 
     @user_cmc_assets = cmc_assets(symbols)
-    @cmc_allocation_currency_prices = allocation_currencies != '' ? cmc_assets(allocation_currencies) : nil
+    @cmc_allocation_currency_prices = allocation_currencies != "" ? cmc_assets(allocation_currencies) : nil
 
     render json: form_assets
   end
-  
+
   # POST /assets
   def create
     new_asset = Asset.new(asset_params)
@@ -28,12 +28,10 @@ class AssetsController < ApplicationController
     end
   end
 
-
   # DELETE /assets/:id
   def destroy
     @asset.destroy
   end
-
 
   private
 
@@ -48,7 +46,7 @@ class AssetsController < ApplicationController
   end
 
   def asset_params
-    params.require(:asset).permit(:symbol, :allocation, :quantity, :allocation_currency, :user_id)
+    params.require(:asset).permit(:symbol, :allocation, :quantity, :allocation_currency, :user_id, :portfolio_id)
   end
 
   # making http request for cmc data
