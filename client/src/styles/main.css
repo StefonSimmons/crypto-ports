@@ -1,8 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 nav {
   box-sizing: border-box;
   border: gold solid 2px;
   height: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav .links-lout {
+  width: 25%;
+}
+
+nav .links-lin {
+  width: 50%;
+}
+
+nav .links-lout, nav .links-lin {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .home-screen {
@@ -23,7 +49,6 @@ nav {
 
 .home-screen .home-content p {
   font-size: 67px;
-  font-family: "Questrial", sans-serif;
   text-transform: capitalize;
 }
 
@@ -42,9 +67,11 @@ nav {
 body, #root {
   border: red 2px solid;
   height: 100vh;
+  font-family: "Questrial", sans-serif;
 }
 
 a {
   text-decoration: none;
+  color: black;
 }
 /*# sourceMappingURL=main.css.map */

@@ -2,4 +2,19 @@ nav{
   box-sizing: border-box;
   border: gold solid 2px;
   height: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .links-lout{
+    width: 25%;
+  }
+  .links-lin{
+    width: 50%;
+  }
+  .links-lout, .links-lin{
+    font-size: 24px;
+    display: flex;
+    justify-content: space-evenly;
+  }
 }

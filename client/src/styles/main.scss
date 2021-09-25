@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 @import './vars';
+@import './animations';
 @import './layout/nav';
 @import './screens/home';
 
 body, #root{
   border: red 2px solid;
   height: 100vh;
+  font-family: $font;
 }
 
 a{
   text-decoration: none;
+  color: black;
 }
