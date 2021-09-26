@@ -107,9 +107,9 @@ nav .links-lout, nav .links-lin {
   display: flex;
   height: 90%;
   flex-direction: column;
-  justify-content: space-evenly;
   box-sizing: border-box;
   padding: 24px 45px;
+  justify-content: space-evenly;
 }
 
 .modal-bg .modal .forms .port-form {
@@ -121,11 +121,11 @@ nav .links-lout, nav .links-lin {
 }
 
 .modal-bg .modal .forms .port-form button {
-  background-color: #156b0d;
   height: 56px;
   width: 56px;
   border-radius: 15px;
   font-size: 24px;
+  background-color: #156b0d;
   border: #156b0d solid 1px;
   margin: 0 auto;
   color: white;
@@ -208,6 +208,35 @@ nav .links-lout, nav .links-lin {
 
 .modal-bg .modal header .close {
   position: absolute;
+}
+
+.modal-bg .modal .portfolios {
+  display: flex;
+  height: 90%;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 24px 45px;
+}
+
+.modal-bg .modal .portfolios .portfolio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.modal-bg .modal .portfolios .portfolio .mutables {
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-bg .modal .portfolios .portfolio .mutables p {
+  font-size: 18px;
+}
+
+.modal-bg .modal .portfolios .portfolio a {
+  font-size: 24px;
 }
 
 body, #root {

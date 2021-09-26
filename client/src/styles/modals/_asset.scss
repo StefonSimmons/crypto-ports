@@ -8,23 +8,19 @@
       @include modal-header;
     }
     .forms {
-      display: flex;
-      height: 90%;
-      flex-direction: column;
+      @include content-container;
       justify-content: space-evenly;
-      box-sizing: border-box;
-      padding: 24px 45px;
       .port-form {
         display: flex;
         input {
           width: 381px;
         }
         button {
-          background-color: #156b0d;
           height: 56px;
           width: 56px;
           border-radius: 15px;
           font-size: 24px;
+          background-color: #156b0d;
           border: #156b0d solid 1px;
           margin: 0 auto;
           color: white;

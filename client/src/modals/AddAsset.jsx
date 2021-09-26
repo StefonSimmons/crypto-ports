@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
 
 import { getAllSymbols } from '../services/symbols'
-import { getUserPortfolios } from '../services/portfolios'
 import ModalLayout from './ModalLayout'
 
 export default function AddAsset(props) {
   const [symbols, setSymbols] = useState([])
-  const [portfolios, setPortfolios] = useState([])
 
   useEffect(() => {
     const fetchSymbols = async () => {
@@ -16,21 +14,13 @@ export default function AddAsset(props) {
     // fetchSymbols()
   }, [])
 
-  useEffect(() => {
-    const fetchPortfolios = async () => {
-      const data = await getUserPortfolios(1)
-      setPortfolios(data)
-    }
-    fetchPortfolios()
-  }, [])
-
   return (
     <ModalLayout modal='asset' updateModal={props.updateModal}>
       <div className="forms">
         <form className="port-form">
           <input placeholder="PORTFOLIO" list="portfolios" />
           <datalist id="portfolios">
-            {portfolios.map(portfolio => (
+            {props.portfolios.map(portfolio => (
               <option key={portfolio.id} value={portfolio.id}>{portfolio.alias}</option>
             ))}
           </datalist>
