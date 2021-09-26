@@ -8,4 +8,5 @@ Rails.application.routes.draw do
       end
     end
   end
+  get "/symbols", to: "symbols#cmc_symbols"
 end
