@@ -1,15 +1,22 @@
 import { useState } from 'react'
 import Layout from '../layout/Layout'
 import AddAsset from '../modals/AddAsset'
+import Ports from '../modals/Ports'
 import Home from '../screens/Home'
 
 export default function Main() {
-  const [assetModal, updateAssetModal] = useState(true)
+  const [modal, updateModal] = useState({
+    asset: false,
+    port: false
+  })
 
   return (
-    <Layout updateAssetModal={updateAssetModal} >
+    <Layout
+      updateModal={updateModal}
+    >
       <Home />
-      {assetModal && <AddAsset updateAssetModal={updateAssetModal} />}
+      {modal.asset && <AddAsset updateModal={updateModal} />}
+      {modal.port && <Ports updateModal={updateModal} />}
     </Layout>
   )
 }

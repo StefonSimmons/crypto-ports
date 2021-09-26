@@ -1,0 +1,11 @@
+@import "./shared";
+
+.modal-bg {
+  @include modal-bg;
+  .modal {
+    @include modal;
+    header {
+      @include modal-header;
+    }
+  }
+}

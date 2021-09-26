@@ -4,7 +4,7 @@
 @import './animations';
 @import './layout/nav';
 @import './screens/home';
-@import './modals/add-asset';
+@import './modals/asset', './modals/ports';
 
 body, #root{
   border: red 2px solid;

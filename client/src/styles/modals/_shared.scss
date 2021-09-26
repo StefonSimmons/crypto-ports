@@ -1,11 +1,36 @@
-.modal-bg{
+@mixin modal-bg {
   position: absolute;
   top: 0;
-  background-color: rgba(0,0,0, .15);  
+  background-color: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(3px);
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin modal {
+  height: 630px;
+  width: 675px;
+  background-color: $modal-bg-color;
+  border-radius: 15px;
+}
+
+@mixin modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 10%;
+  padding: 0 30px;
+  position: relative;
+  background: $modal-header-bg-color;
+  h1 {
+    font-size: 24px;
+    margin: 0 auto;
+    text-transform: capitalize;
+  }
+  .close {
+    position: absolute;
+  }
 }

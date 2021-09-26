@@ -3,7 +3,7 @@ import Nav from "./Nav";
 export default function Layout(props) {
   return (
     <>
-      <Nav updateAssetModal={props.updateAssetModal} />
+      <Nav updateModal={props.updateModal}/>
       {props.children}
     </>
   )

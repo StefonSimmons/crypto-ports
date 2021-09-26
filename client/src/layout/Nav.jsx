@@ -1,14 +1,22 @@
 // import { Link } from 'react-router-dom'
 
-import { useState } from "react"
-
 export default function Nav(props) {
 
 
   const authenticated = (
     <div className="links-lin">
-      <p>Ports</p>
-      <p onClick={() => props.updateAssetModal(true)}>Add Asset</p>
+      <p onClick={() => {
+        props.updateModal(prevModal => ({
+          ...prevModal,
+          port: true
+        }))
+      }}>Ports</p>
+      <p onClick={() => {
+        props.updateModal(prevModal => ({
+          ...prevModal,
+          asset: true
+        }))
+      }}>Add Asset</p>
       <p>Stefon</p>
       <p>Logout</p>
     </div>
