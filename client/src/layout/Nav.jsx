@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Nav(props) {
 
@@ -31,6 +31,7 @@ export default function Nav(props) {
 
   return (
     <nav>
+      <Link to="/">Home</Link>
       {/* {unauthenticated} */}
       {authenticated}
     </nav>

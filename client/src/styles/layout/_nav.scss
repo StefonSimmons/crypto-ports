@@ -2,9 +2,9 @@ nav{
   box-sizing: border-box;
   height: 20%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  background-color: rgba(246, 241, 241, 1);
+  background-color: $head-color;
 
   .links-lout{
     width: 25%;

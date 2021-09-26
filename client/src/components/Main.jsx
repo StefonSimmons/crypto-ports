@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { Route } from 'react-router'
 import Layout from '../layout/Layout'
 import AddAsset from '../modals/AddAsset'
 import Ports from '../modals/Ports'
 import Home from '../screens/Home'
+import Port from '../screens/Port'
 import { getUserPortfolios } from '../services/portfolios'
 
 export default function Main() {
@@ -25,7 +27,9 @@ export default function Main() {
     <Layout
       updateModal={updateModal}
     >
-      <Home />
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/portfolios/:id" component={Port}/>
+      
       {modal.asset && <AddAsset
         updateModal={updateModal}
         portfolios={portfolios}
@@ -34,6 +38,7 @@ export default function Main() {
         updateModal={updateModal}
         portfolios={portfolios}
       />}
+
     </Layout>
   )
 }
