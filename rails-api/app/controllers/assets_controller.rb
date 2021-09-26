@@ -33,6 +33,9 @@ class AssetsController < ApplicationController
     @asset.destroy
   end
 
+
+
+  # PRIVATE
   private
 
   # SETTERS

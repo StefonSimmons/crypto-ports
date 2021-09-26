@@ -1,9 +1,21 @@
-import React from 'react'
+import { useEffect, useState } from "react"
+import { getPortfolioAssets } from "../services/assets"
 
 export default function Port() {
+  const [assets, setAssets] = useState([])
+  
+  
+  useEffect(() => {
+    const fetchPortfolioAssets = async () => {
+      const data = await getPortfolioAssets(1, 2)
+      setAssets(data)
+    }
+    // fetchPortfolioAssets()
+  },[])
+
   return (
-    <div>
-      PORT
-    </div>
+    <section className="port-screen">
+
+    </section>
   )
 }
