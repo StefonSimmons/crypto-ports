@@ -1,18 +1,30 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
-export default function Nav() {
+import { useState } from "react"
+
+export default function Nav(props) {
+
+
+  const authenticated = (
+    <div className="links-lin">
+      <p>Ports</p>
+      <p onClick={() => props.updateAssetModal(true)}>Add Asset</p>
+      <p>Stefon</p>
+      <p>Logout</p>
+    </div>
+  )
+
+  // const unauthenticated = (
+  //   <div className="links-lout">
+  //     <Link to="/sign-up">Sign-up</Link>
+  //     <Link to="/sign-in">Sign-in</Link>
+  //   </div>
+  // )
+
   return (
     <nav>
-      {/* <div className="links-lout">
-        <Link to="/sign-up">Sign-up</Link>
-        <Link to="/sign-in">Sign-in</Link>
-      </div> */}
-      <div className="links-lin">
-        <Link to="/ports">Ports</Link>
-        <Link to="/add-assets">Sign-in</Link>
-        <p>Stefon</p>
-        <p>Logout</p>
-      </div>
+      {/* {unauthenticated} */}
+      {authenticated}
     </nav>
   )
 }

@@ -64,6 +64,25 @@ nav .links-lout, nav .links-lin {
   color: #993030;
 }
 
+.modal-bg {
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(3px);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-asset-modal {
+  height: 630px;
+  width: 675px;
+  background-color: #FFFDFD;
+  border-radius: 15px;
+}
+
 body, #root {
   border: red 2px solid;
   height: 100vh;
