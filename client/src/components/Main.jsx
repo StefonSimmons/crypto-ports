@@ -7,9 +7,9 @@ export default function Main() {
   const [assetModal, updateAssetModal] = useState(true)
 
   return (
-    <Layout >
-      <Home updateAssetModal={updateAssetModal} />
-      {assetModal && <AddAsset />}
+    <Layout updateAssetModal={updateAssetModal} >
+      <Home />
+      {assetModal && <AddAsset updateAssetModal={updateAssetModal} />}
     </Layout>
   )
 }

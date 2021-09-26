@@ -83,6 +83,88 @@ nav .links-lout, nav .links-lin {
   border-radius: 15px;
 }
 
+.add-asset-modal header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 10%;
+  padding: 0 30px;
+  position: relative;
+  background: #f6f1f1;
+}
+
+.add-asset-modal header h1 {
+  font-size: 24px;
+  margin: 0 auto;
+}
+
+.add-asset-modal header .close {
+  position: absolute;
+}
+
+.add-asset-modal .forms {
+  display: flex;
+  height: 90%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  padding: 24px 45px;
+}
+
+.add-asset-modal .forms .port-form {
+  display: flex;
+}
+
+.add-asset-modal .forms .port-form input {
+  width: 381px;
+}
+
+.add-asset-modal .forms .port-form button {
+  background-color: #156B0D;
+  height: 56px;
+  width: 56px;
+  border-radius: 15px;
+  font-size: 24px;
+  border: #156B0D solid 1px;
+  margin: 0 auto;
+  color: white;
+}
+
+.add-asset-modal .forms .asset-form {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.add-asset-modal .forms .asset-form input {
+  width: auto;
+}
+
+.add-asset-modal .forms .asset-form button {
+  background-color: #FFA959;
+  border-radius: 15px;
+  font-size: 24px;
+  border: black solid 2px;
+  height: 56px;
+  width: 157px;
+  margin: 0 auto;
+}
+
+.add-asset-modal .forms input {
+  height: 56px;
+  padding: 0 45px;
+  background-color: #e9e2e2;
+  border: black solid 2px;
+  font-size: 24px;
+  color: #807d7d;
+}
+
+.add-asset-modal .forms input::placeholder {
+  font-size: 24px;
+  color: #807d7d;
+}
+
 body, #root {
   border: red 2px solid;
   height: 100vh;
