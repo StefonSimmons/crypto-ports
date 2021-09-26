@@ -2,15 +2,17 @@
 
 @import './vars';
 @import './animations';
-@import './layout/nav';
+@import './layout/nav', './layout/layout';
 @import './screens/home';
 @import './modals/asset', './modals/ports';
 
 body, #root{
-  border: red 2px solid;
+  box-sizing: border-box;
   height: 100vh;
   font-family: $font;
 }
+
+
 
 a{
   text-decoration: none;

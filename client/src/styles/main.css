@@ -10,11 +10,11 @@
 
 nav {
   box-sizing: border-box;
-  border: gold solid 2px;
   height: 20%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background-color: #f6f1f1;
 }
 
 nav .links-lout {
@@ -31,16 +31,27 @@ nav .links-lout, nav .links-lin {
   justify-content: space-evenly;
 }
 
+.layout-bg-circle {
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border: rgba(255, 169, 89, 0.17) solid 5px;
+  height: 90vh;
+  width: 55vw;
+  border-radius: 90%;
+}
+
 .home-screen {
   box-sizing: border-box;
-  border: blue solid 1px;
   height: 80%;
 }
 
 .home-screen .home-content {
   width: 50%;
   height: 100%;
-  border: green solid 1px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -240,7 +251,7 @@ nav .links-lout, nav .links-lin {
 }
 
 body, #root {
-  border: red 2px solid;
+  box-sizing: border-box;
   height: 100vh;
   font-family: "Questrial", sans-serif;
 }

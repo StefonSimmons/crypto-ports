@@ -1,0 +1,13 @@
+.layout-bg-circle{
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border: $sunrise solid 5px;
+  height: 90vh;
+  width: 55vw;
+  border-radius: 90%;
+}
+
