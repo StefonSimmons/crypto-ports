@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 export default function Home() {
 
-  const [action, setAction] = useState('add')
+  const [action, setAction] = useState('Welcome to Ports')
 
   useEffect(() => {
     let i = 0
@@ -10,7 +10,7 @@ export default function Home() {
     setInterval(() => {
       setAction(actions[i])
       i += 1
-      if (i > 2) i = 0
+      if (i > actions.length-1) i = 0
     }, 1500)
 
   }, [])
