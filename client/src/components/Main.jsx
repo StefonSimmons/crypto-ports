@@ -28,7 +28,9 @@ export default function Main() {
       updateModal={updateModal}
     >
       <Route exact path="/" component={Home}/>
-      <Route exact path="/portfolios/:id" component={Port}/>
+      <Route exact path="/portfolios/:id">
+        <Port portfolios={portfolios}/>
+      </Route>
       
       {modal.asset && <AddAsset
         updateModal={updateModal}

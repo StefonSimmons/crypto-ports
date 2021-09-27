@@ -1,0 +1,36 @@
+.port-screen{
+  box-sizing: border-box;
+  height: 80%;
+  border: green 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .port-name-container{
+    height: 20%;
+    display: flex;
+    align-items: center;
+    h1{
+      text-transform: uppercase;
+      font-size: 36px;
+    }
+  }
+  .port-asset-container{
+    min-height: 80%;
+    box-sizing: border-box;
+    border: red dashed 2px;
+    width: 100%;
+    padding: 0 45px;
+    .port-header{
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      h2{
+        font-size: 18px;
+        text-align: center;
+        border-left: solid black 1px;
+        &:nth-child(10){
+          border-right: solid black 1px;
+        }
+      }
+    }
+  }
+}

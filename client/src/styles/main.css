@@ -52,7 +52,7 @@ nav .links-lin {
 
 nav .links-lout,
 nav .links-lin {
-  font-size: 24px;
+  font-size: 18px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -99,6 +99,49 @@ nav .links-lin {
 
 .home-screen .home-content p#track {
   color: #993030;
+}
+
+.port-screen {
+  box-sizing: border-box;
+  height: 80%;
+  border: green 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.port-screen .port-name-container {
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.port-screen .port-name-container h1 {
+  text-transform: uppercase;
+  font-size: 36px;
+}
+
+.port-screen .port-asset-container {
+  min-height: 80%;
+  box-sizing: border-box;
+  border: red dashed 2px;
+  width: 100%;
+  padding: 0 45px;
+}
+
+.port-screen .port-asset-container .port-header {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.port-screen .port-asset-container .port-header h2 {
+  font-size: 18px;
+  text-align: center;
+  border-left: solid black 1px;
+}
+
+.port-screen .port-asset-container .port-header h2:nth-child(10) {
+  border-right: solid black 1px;
 }
 
 .modal-bg {
