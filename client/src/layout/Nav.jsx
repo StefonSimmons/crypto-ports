@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logo from '../assets/imgs/moon-transparent.png'
 
 export default function Nav(props) {
 
@@ -31,7 +32,9 @@ export default function Nav(props) {
 
   return (
     <nav>
-      <Link to="/">Home</Link>
+      <Link to="/">
+        <img src={logo} alt="logo" />
+      </Link>
       {/* {unauthenticated} */}
       {authenticated}
     </nav>

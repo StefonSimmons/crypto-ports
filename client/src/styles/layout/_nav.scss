@@ -1,4 +1,4 @@
-nav{
+nav {
   box-sizing: border-box;
   height: 20%;
   display: flex;
@@ -6,13 +6,22 @@ nav{
   align-items: center;
   background-color: $head-color;
 
-  .links-lout{
+  img {
+    width: 130px;
+    height: 136px;
+    margin-left: 30px;
+    &:hover {
+      animation: shake 0.75s infinite;
+    }
+  }
+  .links-lout {
     width: 25%;
   }
-  .links-lin{
+  .links-lin {
     width: 50%;
   }
-  .links-lout, .links-lin{
+  .links-lout,
+  .links-lin {
     font-size: 24px;
     display: flex;
     justify-content: space-evenly;

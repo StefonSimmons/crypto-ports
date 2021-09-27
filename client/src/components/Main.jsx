@@ -10,7 +10,7 @@ import { getUserPortfolios } from '../services/portfolios'
 export default function Main() {
   const [modal, updateModal] = useState({
     asset: false,
-    port: true
+    port: false
   })
 
   const [portfolios, setPortfolios] = useState([])

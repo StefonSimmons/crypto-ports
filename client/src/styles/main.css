@@ -8,6 +8,21 @@
   }
 }
 
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(1px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(-1px, 0, 0);
+  }
+}
+
 nav {
   box-sizing: border-box;
   height: 20%;
@@ -15,6 +30,16 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: #f6f1f1;
+}
+
+nav img {
+  width: 130px;
+  height: 136px;
+  margin-left: 30px;
+}
+
+nav img:hover {
+  animation: shake 0.75s infinite;
 }
 
 nav .links-lout {
@@ -25,7 +50,8 @@ nav .links-lin {
   width: 50%;
 }
 
-nav .links-lout, nav .links-lin {
+nav .links-lout,
+nav .links-lin {
   font-size: 24px;
   display: flex;
   justify-content: space-evenly;
