@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 // import { getPortfolioAssets } from "../services/assets"
-import data from './assets.json'
+import usdData from './usd.json'
+import btcData from './btc.json'
 
-export default function Port({portfolios}) {
+export default function Port({ portfolios }) {
   const [assets, setAssets] = useState([])
   const [portfolio, setPortfolio] = useState('')
 
@@ -20,7 +21,7 @@ export default function Port({portfolios}) {
     //   setAssets(data)
     // }
     // fetchPortfolioAssets()
-    setAssets(data)
+    setAssets(usdData)
   }, [])
 
 
@@ -31,6 +32,7 @@ export default function Port({portfolios}) {
         <h1>{portfolio}</h1>
       </div>
       <div className="port-asset-container">
+        <hr />
         <div className="port-header">
           <h2>Asset</h2>
           <h2>Allocation</h2>
@@ -42,6 +44,30 @@ export default function Port({portfolios}) {
           <h2>% of Port</h2>
           <h2>% of Curr Port</h2>
           <h2>Cost Basis</h2>
+        </div>
+        <hr />
+        <div className="port-assets">
+          {assets.map(asset => {
+            Number.prototype.round = function (dollar = true, percentage=false) {
+              if (asset.allocation_currency === 'USD' || percentage) {
+                return `${dollar ? '$' : ''}${this.toFixed(2)}`
+              }
+              return this.toFixed(8)
+            }
+            return (<div key={asset.id} className="asset">
+              <p>{asset.symbol}-{asset.allocation_currency}</p>
+              <p>{asset.allocation.round()}</p>
+              <p>{asset.quantity}</p>
+              <p>{asset.price.round()}</p>
+              <p>{asset.value.round()}</p>
+              <p>{asset.value_change.round()}</p>
+              <p>{`${asset.percent_change.round(false, true)}%`}</p>
+              <p>{`${asset.percent_of_port.round(false, true)}%`}</p>
+              <p>{`${asset.percent_of_curr_port.round(false, true)}%`}</p>
+              <p>{asset.cost_basis.round()}</p>
+            </div>
+            )
+          })}
         </div>
       </div>
     </section>

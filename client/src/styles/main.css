@@ -104,7 +104,6 @@ nav .links-lin {
 .port-screen {
   box-sizing: border-box;
   height: 80%;
-  border: green 1px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,7 +123,6 @@ nav .links-lin {
 .port-screen .port-asset-container {
   min-height: 80%;
   box-sizing: border-box;
-  border: red dashed 2px;
   width: 100%;
   padding: 0 45px;
 }
@@ -136,12 +134,16 @@ nav .links-lin {
 
 .port-screen .port-asset-container .port-header h2 {
   font-size: 18px;
-  text-align: center;
-  border-left: solid black 1px;
 }
 
-.port-screen .port-asset-container .port-header h2:nth-child(10) {
-  border-right: solid black 1px;
+.port-screen .port-asset-container .port-assets {
+  margin-top: 25px;
+}
+
+.port-screen .port-asset-container .port-assets .asset {
+  display: grid;
+  grid-template-columns: repeat(10, 134.39px);
+  margin-bottom: 25px;
 }
 
 .modal-bg {
