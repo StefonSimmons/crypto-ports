@@ -18,10 +18,10 @@ export default function AddAsset(props) {
     <ModalLayout modal='asset' updateModal={props.updateModal}>
       <div className="forms">
         <form className="port-form">
-          <input placeholder="PORTFOLIO" list="portfolios" />
+          <input placeholder="CHOOSE or CREATE PORT" list="portfolios" />
           <datalist id="portfolios">
             {props.portfolios.map(portfolio => (
-              <option key={portfolio.id} value={portfolio.id}>{portfolio.alias}</option>
+              <option key={portfolio.id} value={`${portfolio.alias} (ID: ${portfolio.id})`}>{portfolio.alias}</option>
             ))}
           </datalist>
           <button type="submit">P</button>

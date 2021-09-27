@@ -26,4 +26,11 @@ nav {
     display: flex;
     justify-content: space-evenly;
   }
+  p{
+    cursor: pointer;
+    transition: all .25s ease-in;
+    &:hover{
+      color: $sun;
+    }
+  }
 }
