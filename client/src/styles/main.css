@@ -139,6 +139,7 @@ nav p:hover {
 .port-screen .port-asset-container .port-header {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
+  padding-left: 5px;
 }
 
 .port-screen .port-asset-container .port-header h2 {
@@ -146,13 +147,26 @@ nav p:hover {
 }
 
 .port-screen .port-asset-container .port-assets {
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .port-screen .port-asset-container .port-assets .asset {
   display: grid;
   grid-template-columns: repeat(10, 135px);
-  margin-bottom: 25px;
+  height: 40px;
+  padding-left: 5px;
+  cursor: pointer;
+  transition: all .25s ease-in;
+}
+
+.port-screen .port-asset-container .port-assets .asset:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(1px);
+  border-radius: 5px;
+}
+
+.port-screen .port-asset-container .port-assets .asset p {
+  margin: auto 0;
 }
 
 .modal-bg {
