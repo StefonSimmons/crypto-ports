@@ -15,6 +15,8 @@ export default function Main() {
     edit: true
   })
 
+  const [asset, setAsset] = useState({})
+
   const [portfolios, setPortfolios] = useState([])
 
   useEffect(() => {
@@ -34,6 +36,7 @@ export default function Main() {
         <Port
           portfolios={portfolios}
           updateModal={updateModal}
+          setAsset={setAsset}
           />
       </Route>
       
@@ -44,9 +47,11 @@ export default function Main() {
       {modal.port && <Ports
         updateModal={updateModal}
         portfolios={portfolios}
-      />}
+        />}
       {modal.edit && <EditAsset
         updateModal={updateModal}
+        portfolios={portfolios}
+        asset={asset}
       />}
     </Layout>
   )

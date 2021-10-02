@@ -4,7 +4,7 @@ import { useParams } from "react-router"
 import usdData from './usd.json'
 import btcData from './btc.json'
 
-export default function Port({ portfolios, updateModal }) {
+export default function Port({ portfolios, updateModal, setAsset }) {
   const [assets, setAssets] = useState([])
   const [portfolio, setPortfolio] = useState('')
 
@@ -63,6 +63,7 @@ export default function Port({ portfolios, updateModal }) {
                     ...prevModal,
                     edit: true
                   }))
+                  setAsset(asset)
                 }}
               >
               <p>{asset.symbol}-{asset.allocation_currency}</p>

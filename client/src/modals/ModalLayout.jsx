@@ -5,7 +5,7 @@ export default function ModalLayout(props) {
     <div className="modal-bg">
       <section className='modal'>
         <header>
-          <h1>{props.modal}</h1>
+          <h1>{`${props.modal === 'edit' ? `${props.modal} asset`: props.modal}`}</h1>
           <img
             src={close}
             alt="close"

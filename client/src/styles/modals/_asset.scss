@@ -43,6 +43,12 @@
           width: 157px;
           margin: 0 auto;
         }
+        .submit-btn{
+          background-color: #ffa959;
+        }
+        .delete-btn{
+          background-color: #A93E37;  
+        }
       }
 
       input {
@@ -64,4 +70,9 @@
       }
     }
   }
+}
+
+
+.buttons{
+  display:flex;
 }

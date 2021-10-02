@@ -258,6 +258,14 @@ nav p:hover {
   margin: 0 auto;
 }
 
+.modal-bg .modal .forms .asset-form .submit-btn {
+  background-color: #ffa959;
+}
+
+.modal-bg .modal .forms .asset-form .delete-btn {
+  background-color: #A93E37;
+}
+
 .modal-bg .modal .forms input {
   height: 56px;
   padding: 0 45px;
@@ -276,6 +284,10 @@ nav p:hover {
 .modal-bg .modal .forms datalist {
   background-color: #e9e2e2;
   color: #807d7d;
+}
+
+.buttons {
+  display: flex;
 }
 
 .modal-bg {
