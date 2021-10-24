@@ -17,8 +17,8 @@ export default function Ports(props) {
               {portfolio.alias}
             </Link>
             <div className="mutables">
-              <p>Edit</p>
-              <p>Delete</p>
+              <p className="edit-btn">Edit</p>
+              <p className="delete-btn">Delete</p>
             </div>
           </div>
         ))}

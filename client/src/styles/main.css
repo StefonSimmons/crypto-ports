@@ -353,6 +353,16 @@ nav p:hover {
 
 .modal-bg .modal .portfolios .portfolio .mutables p {
   font-size: 18px;
+  transition: .25s color ease-in;
+  cursor: pointer;
+}
+
+.modal-bg .modal .portfolios .portfolio .mutables p.edit-btn:hover {
+  color: #ffa959;
+}
+
+.modal-bg .modal .portfolios .portfolio .mutables p.delete-btn:hover {
+  color: #A93E37;
 }
 
 .modal-bg .modal .portfolios .portfolio a {

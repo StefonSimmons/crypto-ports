@@ -35,7 +35,7 @@
           width: auto;
         }
         button {
-          background-color: #ffa959;
+          background-color: $sun;
           border-radius: 15px;
           font-size: 24px;
           border: black solid 2px;
@@ -44,10 +44,10 @@
           margin: 0 auto;
         }
         .submit-btn{
-          background-color: #ffa959;
+          background-color: $sun;
         }
         .delete-btn{
-          background-color: #A93E37;  
+          background-color: $mars;  
         }
       }
 

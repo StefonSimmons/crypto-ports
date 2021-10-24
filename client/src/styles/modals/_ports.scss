@@ -20,6 +20,18 @@
           justify-content: space-between;
           p{
             font-size: 18px;
+            transition: .25s color ease-in;
+            cursor: pointer;
+            &.edit-btn{
+              &:hover{
+                color: $sun;
+              }
+            }
+            &.delete-btn{
+              &:hover{
+                color: $mars;
+              }
+            }
           }
         }
 
