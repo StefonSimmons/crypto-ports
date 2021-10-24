@@ -411,6 +411,54 @@ nav p:hover {
   font-size: 24px;
 }
 
+.msg-modal {
+  width: 300px;
+  height: 150px;
+  background-color: #FFFDFD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.msg-modal .msg-btns {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
+.msg-modal .msg-btns button {
+  transition: .25s all ease-in;
+  cursor: pointer;
+}
+
+.msg-modal .msg-btns button.yes-btn {
+  border: solid 2px black;
+  border-radius: 5px;
+  background-color: #ffa959;
+}
+
+.msg-modal .msg-btns button.yes-btn:hover {
+  background-color: #FFFDFD;
+  border: solid 2px black;
+  color: #ffa959;
+}
+
+.msg-modal .msg-btns button.no-btn {
+  background-color: #FFFDFD;
+  border: none;
+  text-decoration: underline;
+}
+
+.msg-modal .msg-btns button.no-btn:hover {
+  color: #A93E37;
+}
+
+.msg-port-name {
+  font-weight: 900;
+}
+
 body, #root {
   box-sizing: border-box;
   height: 100vh;

@@ -1,0 +1,41 @@
+.msg-modal{
+  width: 300px;
+  height: 150px;
+  background-color: $full-moon;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .msg-btns{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+    button{
+      transition: .25s all ease-in;
+      cursor: pointer;
+      &.yes-btn{
+        border: solid 2px black;
+        border-radius: 5px;
+        background-color: $sun;
+        &:hover{
+          background-color: $full-moon;
+          border: solid 2px black;
+          color: $sun;
+        }
+      }
+      &.no-btn{
+        background-color: $full-moon;
+        border: none;
+        text-decoration: underline;
+        &:hover{
+          color: $mars;
+        }
+      }
+    }
+  }
+}
+
+.msg-port-name{
+  font-weight: 900;
+}

@@ -6,8 +6,9 @@ import EditAsset from '../modals/EditAsset'
 import Ports from '../modals/Ports'
 import Home from '../screens/Home'
 import Port from '../screens/Port'
-import { getUserPortfolios } from '../services/portfolios'
+import { destroyUserPortfolio, getUserPortfolios } from '../services/portfolios'
 import { updateUserPorfolio } from '../services/portfolios'
+import DeletePort from './DeletePort'
 
 export default function Main() {
   const [modal, updateModal] = useState({
@@ -15,6 +16,7 @@ export default function Main() {
     port: true,
     edit: false,
   })
+  const [deleteMsgModal, updateMsgModal] = useState(false)
 
   const [asset, setAsset] = useState({})
 
@@ -28,12 +30,22 @@ export default function Main() {
     fetchPortfolios()
   }, [])
 
+  // EDIT PORT
   const handleEditPort = async (e, portID, portData) => {
     e.preventDefault()
     const portfolio = await updateUserPorfolio(portID, portData)
     setPortfolios(prevPorts => (
       prevPorts.map(port => port.id === portID ? portfolio : port)
     ))
+  }
+
+  // DELETE PORT
+  const handleDeletePort = async (portID) => {
+    await destroyUserPortfolio(portID)
+    setPortfolios(prevPorts => (
+      prevPorts.filter(port => port.id != portID)
+    ))
+    updateMsgModal(false)
   }
 
   return (
@@ -57,12 +69,19 @@ export default function Main() {
         updateModal={updateModal}
         portfolios={portfolios}
         handleEditPort={handleEditPort}
+        updateMsgModal={updateMsgModal}
         />}
       {modal.edit && <EditAsset
         updateModal={updateModal}
         portfolios={portfolios}
         asset={asset}
       />}
+      {deleteMsgModal && <DeletePort
+        port={deleteMsgModal}
+        updateMsgModal={updateMsgModal}
+        handleDeletePort={handleDeletePort}
+      />
+      }
     </Layout>
   )
 }

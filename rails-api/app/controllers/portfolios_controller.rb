@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
-  
+  before_action :set_portfolio, only: [:update, :destroy]
+
   # GET /users/:user_id/portfolios
   def index
     user = User.find(params[:user_id])
@@ -18,7 +19,6 @@ class PortfoliosController < ApplicationController
 
   # PUT /portfolios/:id
   def update 
-    portfolio = Portfolio.find(params[:id])
     if portfolio.update(portfolio_params)
       render json: portfolio
     else
@@ -26,9 +26,17 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  # DELETE /portfolios/:id
+  def destroy
+    portfolio.destroy
+  end
 
   private
   def portfolio_params
     params.require(:portfolio).permit(:name, :alias, :user_id)
+  end
+
+  def set_portfolio
+    portfolio = Portfolio.find(params[:id])
   end
 end

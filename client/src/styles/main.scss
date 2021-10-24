@@ -4,7 +4,7 @@
 @import './animations';
 @import './layout/nav', './layout/layout';
 @import './screens/home', './screens/port';
-@import './modals/asset', './modals/ports';
+@import './modals/asset', './modals/ports', './modals/delete';
 
 body, #root{
   box-sizing: border-box;
