@@ -54,19 +54,19 @@
       input {
         height: 56px;
         padding: 0 45px;
-        background-color: #e9e2e2;
+        background-color: $moon;
         border: black solid 2px;
         font-size: 24px;
-        color: #807d7d;
+        color: $crater;
         text-transform: uppercase;
         &::placeholder {
           font-size: 24px;
-          color: #807d7d;
+          color: $crater;
         }
       }
       datalist {
         background-color: #e9e2e2;
-        color: #807d7d;
+        color: $crater;
       }
     }
   }

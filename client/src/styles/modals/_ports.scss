@@ -23,12 +23,12 @@
             transition: .25s all ease-in;
             cursor: pointer;
             &.edit-btn{
-              border: solid 1px black;
+              border: solid 2px black;
               border-radius: 5px;
               background-color: $sun;
               &:hover{
                 background-color: $full-moon;
-                border: solid 1px black;
+                border: solid 2px black;
                 color: $sun;
               }
             }
@@ -43,7 +43,32 @@
           }
         }
 
+        .port-alias{
+          height: 40px;
+          background-color: $moon;
+          border: solid 2px black;
+          border-radius: 5px;
+          color: $crater;
+          padding-left: 15px;
+          font-size: 24px;
+        }
+        .save-btn{
+          background-color: $sun;
+          border-radius: 5px;
+          font-size: 18px;
+          border: black solid 2px;
+          height: 100%;
+          width: 147px;
+          justify-self: flex-start;
+          transition: .25s all ease-in;
+          &:hover{
+            background-color: $full-moon;
+            border: solid 2px black;
+            color: $sun;
+          }
+        }
         a {
+          padding-left: 15px;
           font-size: 24px;
         }
       }
