@@ -7,12 +7,13 @@ import Ports from '../modals/Ports'
 import Home from '../screens/Home'
 import Port from '../screens/Port'
 import { getUserPortfolios } from '../services/portfolios'
+import { updateUserPorfolio } from '../services/portfolios'
 
 export default function Main() {
   const [modal, updateModal] = useState({
     asset: false,
-    port: false,
-    edit: true
+    port: true,
+    edit: false,
   })
 
   const [asset, setAsset] = useState({})
@@ -26,6 +27,14 @@ export default function Main() {
     }
     fetchPortfolios()
   }, [])
+
+  const handleEditPort = async (e, portID, portData) => {
+    e.preventDefault()
+    const portfolio = await updateUserPorfolio(portID, portData)
+    setPortfolios(prevPorts => (
+      prevPorts.map(port => port.id === portID ? portfolio : port)
+    ))
+  }
 
   return (
     <Layout
@@ -47,6 +56,7 @@ export default function Main() {
       {modal.port && <Ports
         updateModal={updateModal}
         portfolios={portfolios}
+        handleEditPort={handleEditPort}
         />}
       {modal.edit && <EditAsset
         updateModal={updateModal}
