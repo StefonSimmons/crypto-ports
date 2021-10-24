@@ -18,16 +18,24 @@
           width: 25%;
           display: flex;
           justify-content: space-between;
-          p{
+          button{
             font-size: 18px;
-            transition: .25s color ease-in;
+            transition: .25s all ease-in;
             cursor: pointer;
             &.edit-btn{
+              border: solid 1px black;
+              border-radius: 5px;
+              background-color: $sun;
               &:hover{
+                background-color: $modal-bg-color;
+                border: solid 1px black;
                 color: $sun;
               }
             }
             &.delete-btn{
+              background-color: $modal-bg-color;
+              border: none;
+              text-decoration: underline;
               &:hover{
                 color: $mars;
               }

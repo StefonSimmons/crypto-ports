@@ -351,17 +351,31 @@ nav p:hover {
   justify-content: space-between;
 }
 
-.modal-bg .modal .portfolios .portfolio .mutables p {
+.modal-bg .modal .portfolios .portfolio .mutables button {
   font-size: 18px;
-  transition: .25s color ease-in;
+  transition: .25s all ease-in;
   cursor: pointer;
 }
 
-.modal-bg .modal .portfolios .portfolio .mutables p.edit-btn:hover {
+.modal-bg .modal .portfolios .portfolio .mutables button.edit-btn {
+  border: solid 1px black;
+  border-radius: 5px;
+  background-color: #ffa959;
+}
+
+.modal-bg .modal .portfolios .portfolio .mutables button.edit-btn:hover {
+  background-color: #FFFDFD;
+  border: solid 1px black;
   color: #ffa959;
 }
 
-.modal-bg .modal .portfolios .portfolio .mutables p.delete-btn:hover {
+.modal-bg .modal .portfolios .portfolio .mutables button.delete-btn {
+  background-color: #FFFDFD;
+  border: none;
+  text-decoration: underline;
+}
+
+.modal-bg .modal .portfolios .portfolio .mutables button.delete-btn:hover {
   color: #A93E37;
 }
 
