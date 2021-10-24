@@ -1,7 +1,7 @@
 
 export default function DeletePort(props) {
   return (
-    <div onClick={() => props.updateMsgModal(false)} className="modal-bg">
+    <div className="modal-bg">
       <div className="msg-modal">
         <h1>Delete <span className="msg-port-name">"{props.port.alias}"</span>?</h1>
         <div className="msg-btns">
