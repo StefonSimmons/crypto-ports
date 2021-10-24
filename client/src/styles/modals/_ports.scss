@@ -27,13 +27,13 @@
               border-radius: 5px;
               background-color: $sun;
               &:hover{
-                background-color: $modal-bg-color;
+                background-color: $full-moon;
                 border: solid 1px black;
                 color: $sun;
               }
             }
             &.delete-btn{
-              background-color: $modal-bg-color;
+              background-color: $full-moon;
               border: none;
               text-decoration: underline;
               &:hover{

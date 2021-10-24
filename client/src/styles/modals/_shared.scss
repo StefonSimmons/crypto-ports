@@ -13,7 +13,7 @@
 @mixin modal {
   height: 630px;
   width: 675px;
-  background-color: $modal-bg-color;
+  background-color: $full-moon;
   border-radius: 15px;
 }
 
@@ -24,7 +24,7 @@
   height: 10%;
   padding: 0 30px;
   position: relative;
-  background: $head-color;
+  background: $moon;
   h1 {
     font-size: 24px;
     margin: 0 auto;
