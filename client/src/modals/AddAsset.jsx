@@ -7,6 +7,15 @@ export default function AddAsset(props) {
   const [symbols, setSymbols] = useState([])
   const [toggleDropdown, updateDropdown] = useState(false)
 
+  const [asset, setAsset] = useState({
+    symbol: "",
+    allocation: "",
+    quantity: "",
+    allocation_currency: "",
+    user_id: 1,
+    portfolio_id:""
+  })
+
   useEffect(() => {
     const fetchSymbols = async () => {
       const data = await getAllSymbols()
@@ -15,27 +24,40 @@ export default function AddAsset(props) {
     // fetchSymbols()
   }, [])
 
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setAsset((prevAsset) => ({
+      ...prevAsset,
+      [name]: value
+    }))
+  }
+
   return (
     <ModalLayout modal='asset' updateModal={props.updateModal}>
       <div className="forms">
         <form className="port-form">
-          {/* <input placeholder="CHOOSE or CREATE PORT" list="portfolios" />
-          <datalist id="portfolios">
-            {props.portfolios.map(portfolio => (
-              <option key={portfolio.id} value={`${portfolio.alias} (ID: ${portfolio.id})`}>{portfolio.alias}</option>
-            ))}
-          </datalist> */}
           <div
             className="port-form-dropdown"
             onMouseEnter={() => updateDropdown(prevTogg => !prevTogg)}
             onMouseLeave={() => updateDropdown(prevTogg => !prevTogg)}
           >
             <input
-              placeholder="CHOOSE or CREATE PORT"/>
+              placeholder="CHOOSE or CREATE PORT"
+              onChange={(e) => handleChange(e)}
+              value={asset.portfolio_id}
+              name="portfolio_id"
+              />
             <ul className={`port-form-options ${toggleDropdown ? 'open':'close'}`}>
               {props.portfolios.map(portfolio => (
                 <li key={portfolio.id}>
-                  <input id={portfolio.alias} type="checkbox" value={portfolio.id} />
+                  <input
+                    id={portfolio.alias}
+                    type="radio"
+                    value={portfolio.id}
+                    name="portfolio_id"
+                    onChange={(e) => handleChange(e)}
+                  />
                   <label htmlFor={portfolio.alias}>{portfolio.alias}</label>
                 </li>
               ))}
