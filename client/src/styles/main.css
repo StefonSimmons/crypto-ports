@@ -222,8 +222,51 @@ nav p:hover {
   display: flex;
 }
 
-.modal-bg .modal .forms .port-form input {
-  width: 381px;
+.modal-bg .modal .forms .port-form .port-form-dropdown {
+  position: relative;
+}
+
+.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f6f1f1;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options.close {
+  display: none;
+}
+
+.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options.open {
+  display: block;
+}
+
+.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li {
+  display: flex;
+  border-bottom: 1px solid #FFFDFD;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+}
+
+.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(1px);
+}
+
+.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li input {
+  width: 20px;
+  height: 20px;
+}
+
+.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li label {
+  margin-left: 10px;
+  font-size: 20px;
+  width: 100%;
+  cursor: pointer;
 }
 
 .modal-bg .modal .forms .port-form button {

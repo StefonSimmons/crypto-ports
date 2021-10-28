@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-
 import { getAllSymbols } from '../services/symbols'
 import ModalLayout from './ModalLayout'
 
+
 export default function AddAsset(props) {
   const [symbols, setSymbols] = useState([])
+  const [toggleDropdown, updateDropdown] = useState(false)
 
   useEffect(() => {
     const fetchSymbols = async () => {
@@ -18,13 +19,29 @@ export default function AddAsset(props) {
     <ModalLayout modal='asset' updateModal={props.updateModal}>
       <div className="forms">
         <form className="port-form">
-          <input placeholder="CHOOSE or CREATE PORT" list="portfolios" />
+          {/* <input placeholder="CHOOSE or CREATE PORT" list="portfolios" />
           <datalist id="portfolios">
             {props.portfolios.map(portfolio => (
               <option key={portfolio.id} value={`${portfolio.alias} (ID: ${portfolio.id})`}>{portfolio.alias}</option>
             ))}
-          </datalist>
-          <button type="submit">P</button>
+          </datalist> */}
+          <div
+            className="port-form-dropdown"
+            onMouseEnter={() => updateDropdown(prevTogg => !prevTogg)}
+            onMouseLeave={() => updateDropdown(prevTogg => !prevTogg)}
+          >
+            <input
+              placeholder="CHOOSE or CREATE PORT"/>
+            <ul className={`port-form-options ${toggleDropdown ? 'open':'close'}`}>
+              {props.portfolios.map(portfolio => (
+                <li key={portfolio.id}>
+                  <input id={portfolio.alias} type="checkbox" value={portfolio.id} />
+                  <label htmlFor={portfolio.alias}>{portfolio.alias}</label>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <button className="submit-btn" type="submit">P</button>
         </form>
 
         <form className="asset-form">

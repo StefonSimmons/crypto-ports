@@ -12,8 +12,46 @@
       justify-content: space-evenly;
       .port-form {
         display: flex;
-        input {
-          width: 381px;
+        .port-form-dropdown{
+          position: relative;
+          
+          .port-form-options{
+            position: absolute;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: $moon;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            &.close{
+              display: none;
+            }
+            &.open{
+              display: block;
+            }
+
+            li{
+              display: flex;
+              border-bottom: 1px solid $full-moon;
+              align-items: center;
+              justify-content: flex-start;
+              padding: 15px;
+              &:hover{
+                background-color: rgba(0, 0, 0, 0.05);
+                backdrop-filter: blur(1px);
+              }
+              input{
+                width: 20px;
+                height: 20px;
+              }
+              label{
+                margin-left: 10px;
+                font-size: 20px;
+                width: 100%;
+                cursor: pointer;
+              }
+            }
+          }
         }
         button {
           height: 56px;
