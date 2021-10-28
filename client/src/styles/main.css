@@ -342,7 +342,13 @@ nav p:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 15px 0;
+  padding: 15px 5px;
+}
+
+.modal-bg .modal .portfolios .portfolio:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(1px);
+  border-radius: 5px;
 }
 
 .modal-bg .modal .portfolios .portfolio .mutables {
@@ -354,23 +360,24 @@ nav p:hover {
 .modal-bg .modal .portfolios .portfolio .mutables button {
   font-size: 18px;
   transition: .25s all ease-in;
+  padding: 1px 10px;
   cursor: pointer;
 }
 
 .modal-bg .modal .portfolios .portfolio .mutables button.edit-btn {
-  border: solid 2px black;
+  border: solid 1px #ffa959;
   border-radius: 5px;
   background-color: #ffa959;
 }
 
 .modal-bg .modal .portfolios .portfolio .mutables button.edit-btn:hover {
   background-color: #FFFDFD;
-  border: solid 2px black;
+  border: solid 1px black;
   color: #ffa959;
 }
 
 .modal-bg .modal .portfolios .portfolio .mutables button.delete-btn {
-  background-color: #FFFDFD;
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   text-decoration: underline;
 }
@@ -382,7 +389,7 @@ nav p:hover {
 .modal-bg .modal .portfolios .portfolio .port-alias {
   height: 40px;
   background-color: #f6f1f1;
-  border: solid 2px black;
+  border: solid 1px black;
   border-radius: 5px;
   color: #807d7d;
   padding-left: 15px;
@@ -393,7 +400,7 @@ nav p:hover {
   background-color: #ffa959;
   border-radius: 5px;
   font-size: 18px;
-  border: black solid 2px;
+  border: #ffa959 solid 1px;
   height: 100%;
   width: 147px;
   justify-self: flex-start;
@@ -402,7 +409,7 @@ nav p:hover {
 
 .modal-bg .modal .portfolios .portfolio .save-btn:hover {
   background-color: #FFFDFD;
-  border: solid 2px black;
+  border: solid 1px black;
   color: #ffa959;
 }
 
