@@ -27,6 +27,7 @@ export default function Ports(props) {
         {props.portfolios.map(portfolio => (
           <React.Fragment key={portfolio.id}>
             {portID != portfolio.id ?
+              // All Ports
               <div className="portfolio">
                 <Link
                   to={`/portfolios/${portfolio.id}`}
@@ -50,6 +51,7 @@ export default function Ports(props) {
                 </div>
               </div>
               :
+              // Edit Form
               <form
                 className="portfolio"
                 onSubmit={(e) => {

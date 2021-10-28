@@ -36,12 +36,18 @@
         }
         button {
           background-color: $sun;
-          border-radius: 15px;
+          border-radius: 5px;
           font-size: 24px;
-          border: black solid 2px;
+          border: $sun solid 1px;
           height: 56px;
           width: 157px;
           margin: 0 auto;
+          transition: .25s all ease-in;
+          &:hover{
+            background-color: $full-moon;
+            border: solid 1px black;
+            color: $sun;
+          }
         }
         .submit-btn{
           background-color: $sun;
@@ -55,7 +61,7 @@
         height: 56px;
         padding: 0 45px;
         background-color: $moon;
-        border: black solid 2px;
+        border: black solid 1px;
         font-size: 24px;
         color: $crater;
         text-transform: uppercase;
