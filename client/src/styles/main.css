@@ -257,7 +257,7 @@ nav p:hover {
   backdrop-filter: blur(1px);
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li input {
+.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li .port-option {
   width: 20px;
   height: 20px;
 }
@@ -271,13 +271,17 @@ nav p:hover {
 
 .modal-bg .modal .forms .port-form button {
   height: 56px;
-  width: 56px;
-  border-radius: 15px;
+  border-radius: 5px;
   font-size: 24px;
-  background-color: #156b0d;
-  border: #156b0d solid 1px;
+  background-color: #ffa959;
+  border: #ffa959 solid 1px;
   margin: 0 auto;
-  color: white;
+}
+
+.modal-bg .modal .forms .port-form button:disabled {
+  background-color: #f6f1f1;
+  color: darkgray;
+  border: darkgray solid 1px;
 }
 
 .modal-bg .modal .forms .asset-form {

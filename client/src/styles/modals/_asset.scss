@@ -40,7 +40,7 @@
                 background-color: rgba(0, 0, 0, 0.05);
                 backdrop-filter: blur(1px);
               }
-              input{
+              .port-option{
                 width: 20px;
                 height: 20px;
               }
@@ -55,13 +55,17 @@
         }
         button {
           height: 56px;
-          width: 56px;
-          border-radius: 15px;
+          border-radius: 5px;
           font-size: 24px;
-          background-color: #156b0d;
-          border: #156b0d solid 1px;
+          background-color: $sun;
+          border: $sun solid 1px;
           margin: 0 auto;
-          color: white;
+
+          &:disabled{
+            background-color: $moon;
+            color: darkgray;
+            border: darkgray solid 1px;
+          }
         }
       }
       .asset-form {
