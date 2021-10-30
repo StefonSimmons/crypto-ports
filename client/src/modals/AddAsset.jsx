@@ -12,20 +12,24 @@ export default function AddAsset(props) {
     symbol2: false
   })
 
-  const [portfolio, setPortfolio] = useState({
-    name: "",
-    alias: "",
-    user_id: 1
-  })
+  // const [portfolio, setPortfolio] = useState({
+  //   name: "",
+  //   alias: "",
+  //   user_id: 1
+  // })
 
-  const [asset, setAsset] = useState({
+  const [formData, setFormData] = useState({
     symbol: "",
     allocation: "",
     quantity: "",
     allocation_currency: "",
-    user_id: 1,
     portfolio_id: "",
+    user_id: 1,
+    name: "",
+    alias: ""
   })
+
+  const [symbols, setSymbols] = useState([])
 
   const [queries, updateQuery] = useState({
     portfolioQueries: [],
@@ -35,16 +39,17 @@ export default function AddAsset(props) {
   useEffect(() => {
     const fetchSymbols = async () => {
       const symbols = await getAllSymbols()
+      setSymbols(symbols)
       updateQuery({
         symbolQueries: symbols,
         portfolioQueries: props.portfolios
       })
     }
-    // fetchSymbols()
+    fetchSymbols()
   }, [props.portfolios])
 
 
-  const filter = (value) => {
+  const portFilter = (value) => {
     if (value) {
       updateQuery((prevQuery) => ({
         ...prevQuery,
@@ -52,30 +57,53 @@ export default function AddAsset(props) {
           `${port.alias} ${port.name}`.toLowerCase().includes(value.toLowerCase())))
       }))
     } else {
-      updateQuery(props.portfolios)
+      updateQuery((prevQuery) => ({
+        ...prevQuery,
+        portfolioQueries: props.portfolios
+      }))
     }
   }
 
-  const handlePortChange = (e) => {
-    const { name, value } = e.target
-    setPortfolio(prevPort => ({
-      ...prevPort,
-      [name]: value,
-    }))
+  const symbolFilter = (value) => {
+    if (value) {
+      updateQuery((prevQuery) => ({
+        ...prevQuery,
+        symbolQueries: symbols.filter(symbol => (
+          symbol.symbol.toLowerCase().includes(value.toLowerCase())))
+      }))
+    } else {
+      updateQuery((prevQuery) => ({
+        ...prevQuery,
+        symbolQueries: symbols
+      }))
+    }
   }
+  
 
-  const handleAssetChange = (e, dropdown) => {
+
+
+  const handleChange = (e, dropdown) => {
     const { name, value, id } = e.target
-    setAsset((prevAsset) => ({
-      ...prevAsset,
+    
+    // set form data for assets or port
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
       portfolio_id: parseInt(id)
     }))
+
+    // toggle dropdown
     updateDropdown((prev) => ({
       ...prev,
       [dropdown]: true
     }))
-    filter(value)
+
+    // filter dropdown
+    if (dropdown.includes('portfolio')) {
+      portFilter(value)
+    } else {
+      symbolFilter(value)
+    }
   }
 
   return (
@@ -91,14 +119,14 @@ export default function AddAsset(props) {
             <input
               placeholder="PORTFOLIO"
               type="text"
-              onChange={(e) => handlePortChange(e, 'portfolio')}
-              value={asset.portfolio_alias}
+              onChange={(e) => handleChange(e, 'portfolio')}
+              value={formData.alias}
               name="alias"
               autocomplete="off"
             />
             <DropdowMenu
               toggleDropdown={toggleDropdowns.portfolio}
-              handleChange={handlePortChange}
+              handleChange={handleChange}
               noOptionsMsg="No port found! But, you can add a new one."
               queriedOptions={queries.portfolioQueries}
               value="alias"
@@ -107,20 +135,22 @@ export default function AddAsset(props) {
           </div>
           <div
             className="form-dropdown"
-            onMouseEnter={() => updateDropdown((prev) => ({ ...prev, symbol1: true }))}
+            onMouseEnter={() => updateDropdown((prev) => (!queries.portfolioQueries.length && { ...prev, symbol1: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, symbol1: false }))}
           >
             <input
               placeholder="I want more"
               type="text"
-              onChange={(e) => handlePortChange(e, 'symbol1')}
+              onChange={(e) => handleChange(e, 'symbol1')}
+              value={formData.name}
+              name="name"
               className="port-form-currency"
               disabled={queries.portfolioQueries.length}
-              autoComplete="false"
+              autoComplete="off"
             />
             <DropdowMenu
               toggleDropdown={toggleDropdowns.symbol1}
-              handleChange={handlePortChange}
+              handleChange={handleChange}
               noOptionsMsg="No symbols found!"
               queriedOptions={queries.symbolQueries}
               value="symbol"
@@ -134,25 +164,23 @@ export default function AddAsset(props) {
           <div className="form-dropdown"
             onMouseEnter={() => updateDropdown((prev) => ({ ...prev, symbol2: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, symbol2: false }))}
-
           >
             <input
               placeholder="SYMBOL"
+              onChange={(e) => handleChange(e, 'symbol2')}
+              value={formData.symbol}
+              name="symbol"
+              autoComplete="off"
             />
             <DropdowMenu
               toggleDropdown={toggleDropdowns.symbol2}
-              handleChange={handleAssetChange}
+              handleChange={handleChange}
               noOptionsMsg="No symbols found!"
               queriedOptions={queries.symbolQueries}
               value="symbol"
               name="portfolio_id"
             />
           </div>
-          {/* <datalist id="symbols">
-            {queries.symbolQueries.map((symbol, idx) => (
-              <option key={idx} value={symbol}>{symbol}</option>
-            ))}
-          </datalist> */}
           <input type="text" placeholder="ALLOCATION" />
           <input type="text" placeholder="QUANTITY" />
           <input type="text" placeholder="ALLOCATION CURRENCY" />
@@ -162,26 +190,3 @@ export default function AddAsset(props) {
     </ModalLayout>
   )
 }
-
-
-{/* <ul className={`port-form-options ${toggleDropdown ? 'open' : 'close'}`}>
-              {portfolioQueries.length ?
-                portfolioQueries.map((portfolio, _, ports) => (
-                  <li key={portfolio.id}>
-                    <input
-                      id={portfolio.id}
-                      className="port-option"
-                      type="radio"
-                      value={portfolio.alias}
-                      name="portfolio_id"
-                      onChange={(e) => handleChange(e, ports)}
-                    />
-                    <label htmlFor={portfolio.id}>{portfolio.alias}</label>
-                  </li>
-                ))
-                :
-                <li>
-                  <p>No port found! But, you can add a new one.</p>
-                </li>
-              }
-            </ul> */}

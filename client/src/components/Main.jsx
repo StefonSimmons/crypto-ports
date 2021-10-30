@@ -8,12 +8,12 @@ import Home from '../screens/Home'
 import Port from '../screens/Port'
 import { destroyUserPortfolio, getUserPortfolios } from '../services/portfolios'
 import { updateUserPorfolio } from '../services/portfolios'
-import DeletePort from './DeletePort'
+import DeletePort from '../modals/DeletePort'
 
 export default function Main() {
   const [modal, updateModal] = useState({
-    asset: false,
-    port: true,
+    asset: true,
+    port: false,
     edit: false,
   })
   const [deleteMsgModal, updateMsgModal] = useState(false)
@@ -22,6 +22,7 @@ export default function Main() {
 
   const [portfolios, setPortfolios] = useState([])
 
+  // GET USER'S PORTFOLIOS
   useEffect(() => {
     const fetchPortfolios = async () => {
       const data = await getUserPortfolios(1)
@@ -64,6 +65,7 @@ export default function Main() {
       {modal.asset && <AddAsset
         updateModal={updateModal}
         portfolios={portfolios}
+        setPortfolios={setPortfolios}
       />}
       {modal.port && <Ports
         updateModal={updateModal}
