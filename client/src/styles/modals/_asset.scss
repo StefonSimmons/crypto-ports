@@ -12,9 +12,15 @@
       justify-content: space-evenly;
       .port-form {
         display: flex;
+        justify-content: space-between;
+        width: 100%;
         .port-form-dropdown{
           position: relative;
-          
+          width: 40%;
+          input{
+            box-sizing: border-box;
+            width: 100%;
+          }
           .port-form-options{
             position: absolute;
             width: 100%;
@@ -53,16 +59,31 @@
             }
           }
         }
+
+        .port-form-currency{
+          width: 40%;
+          box-sizing: border-box;
+          padding: 0 30px;
+          
+          &:disabled{
+            background-color: $full-moon;
+            border: darkgray solid 1px;
+            &::placeholder{
+              color: darkgray;
+            }
+          }
+        }
+
         button {
           height: 56px;
+          width: 10%;
           border-radius: 5px;
           font-size: 24px;
           background-color: $sun;
           border: $sun solid 1px;
-          margin: 0 auto;
 
           &:disabled{
-            background-color: $moon;
+            background-color: $full-moon;
             color: darkgray;
             border: darkgray solid 1px;
           }
@@ -105,16 +126,12 @@
         background-color: $moon;
         border: black solid 1px;
         font-size: 24px;
-        color: $crater;
+        color: black;
         text-transform: uppercase;
         &::placeholder {
           font-size: 24px;
           color: $crater;
         }
-      }
-      datalist {
-        background-color: #e9e2e2;
-        color: $crater;
       }
     }
   }

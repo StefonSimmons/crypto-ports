@@ -220,10 +220,18 @@ nav p:hover {
 
 .modal-bg .modal .forms .port-form {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .modal-bg .modal .forms .port-form .port-form-dropdown {
   position: relative;
+  width: 40%;
+}
+
+.modal-bg .modal .forms .port-form .port-form-dropdown input {
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options {
@@ -269,17 +277,32 @@ nav p:hover {
   cursor: pointer;
 }
 
+.modal-bg .modal .forms .port-form .port-form-currency {
+  width: 40%;
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+
+.modal-bg .modal .forms .port-form .port-form-currency:disabled {
+  background-color: #FFFDFD;
+  border: darkgray solid 1px;
+}
+
+.modal-bg .modal .forms .port-form .port-form-currency:disabled::placeholder {
+  color: darkgray;
+}
+
 .modal-bg .modal .forms .port-form button {
   height: 56px;
+  width: 10%;
   border-radius: 5px;
   font-size: 24px;
   background-color: #ffa959;
   border: #ffa959 solid 1px;
-  margin: 0 auto;
 }
 
 .modal-bg .modal .forms .port-form button:disabled {
-  background-color: #f6f1f1;
+  background-color: #FFFDFD;
   color: darkgray;
   border: darkgray solid 1px;
 }
@@ -326,17 +349,12 @@ nav p:hover {
   background-color: #f6f1f1;
   border: black solid 1px;
   font-size: 24px;
-  color: #807d7d;
+  color: black;
   text-transform: uppercase;
 }
 
 .modal-bg .modal .forms input::placeholder {
   font-size: 24px;
-  color: #807d7d;
-}
-
-.modal-bg .modal .forms datalist {
-  background-color: #e9e2e2;
   color: #807d7d;
 }
 
