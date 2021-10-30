@@ -43,3 +43,55 @@
   box-sizing: border-box;
   padding: 24px 45px;
 }
+
+
+@mixin custom-dropdown($width){
+  .form-dropdown{
+    position: relative;
+    width: $width;
+    input{
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .form-options{
+      position: absolute;
+      z-index: 4;
+      width: 100%;
+      max-height: 300px;
+      overflow-y: scroll;
+      box-sizing: border-box;
+      background-color: $moon;
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      &.close{
+        display: none;
+      }
+      &.open{
+        display: block;
+      }
+
+      li{
+        display: flex;
+        border-bottom: 1px solid $full-moon;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 15px;
+        &:hover{
+          background-color: rgba(0, 0, 0, 0.05);
+          backdrop-filter: blur(1px);
+        }
+        .option{
+          width: 20px;
+          height: 20px;
+        }
+        label{
+          margin-left: 10px;
+          font-size: 20px;
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

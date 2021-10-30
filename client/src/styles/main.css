@@ -222,21 +222,26 @@ nav p:hover {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding-bottom: 25px;
+  border-bottom: solid #f6f1f1 2px;
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown {
+.modal-bg .modal .forms .port-form .form-dropdown {
   position: relative;
   width: 40%;
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown input {
+.modal-bg .modal .forms .port-form .form-dropdown input {
   box-sizing: border-box;
   width: 100%;
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options {
+.modal-bg .modal .forms .port-form .form-dropdown .form-options {
   position: absolute;
+  z-index: 4;
   width: 100%;
+  max-height: 300px;
+  overflow-y: scroll;
   box-sizing: border-box;
   background-color: #f6f1f1;
   border-left: 1px solid black;
@@ -244,15 +249,15 @@ nav p:hover {
   border-bottom: 1px solid black;
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options.close {
+.modal-bg .modal .forms .port-form .form-dropdown .form-options.close {
   display: none;
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options.open {
+.modal-bg .modal .forms .port-form .form-dropdown .form-options.open {
   display: block;
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li {
+.modal-bg .modal .forms .port-form .form-dropdown .form-options li {
   display: flex;
   border-bottom: 1px solid #FFFDFD;
   align-items: center;
@@ -260,17 +265,17 @@ nav p:hover {
   padding: 15px;
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li:hover {
+.modal-bg .modal .forms .port-form .form-dropdown .form-options li:hover {
   background-color: rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(1px);
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li .port-option {
+.modal-bg .modal .forms .port-form .form-dropdown .form-options li .option {
   width: 20px;
   height: 20px;
 }
 
-.modal-bg .modal .forms .port-form .port-form-dropdown .port-form-options li label {
+.modal-bg .modal .forms .port-form .form-dropdown .form-options li label {
   margin-left: 10px;
   font-size: 20px;
   width: 100%;
@@ -280,7 +285,6 @@ nav p:hover {
 .modal-bg .modal .forms .port-form .port-form-currency {
   width: 40%;
   box-sizing: border-box;
-  padding: 0 30px;
 }
 
 .modal-bg .modal .forms .port-form .port-form-currency:disabled {
@@ -314,6 +318,62 @@ nav p:hover {
   justify-content: space-around;
 }
 
+.modal-bg .modal .forms .asset-form .form-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.modal-bg .modal .forms .asset-form .form-dropdown input {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.modal-bg .modal .forms .asset-form .form-dropdown .form-options {
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  background-color: #f6f1f1;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.modal-bg .modal .forms .asset-form .form-dropdown .form-options.close {
+  display: none;
+}
+
+.modal-bg .modal .forms .asset-form .form-dropdown .form-options.open {
+  display: block;
+}
+
+.modal-bg .modal .forms .asset-form .form-dropdown .form-options li {
+  display: flex;
+  border-bottom: 1px solid #FFFDFD;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+}
+
+.modal-bg .modal .forms .asset-form .form-dropdown .form-options li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(1px);
+}
+
+.modal-bg .modal .forms .asset-form .form-dropdown .form-options li .option {
+  width: 20px;
+  height: 20px;
+}
+
+.modal-bg .modal .forms .asset-form .form-dropdown .form-options li label {
+  margin-left: 10px;
+  font-size: 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
 .modal-bg .modal .forms .asset-form input {
   width: auto;
 }
@@ -345,7 +405,7 @@ nav p:hover {
 
 .modal-bg .modal .forms input {
   height: 56px;
-  padding: 0 45px;
+  padding: 0 30px;
   background-color: #f6f1f1;
   border: black solid 1px;
   font-size: 24px;
