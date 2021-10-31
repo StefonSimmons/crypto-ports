@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 // import { getPortfolioAssets } from "../services/assets"
 import usdData from './usd.json'
-import btcData from './btc.json'
+// import btcData from './btc.json'
 
 export default function Port({ portfolios, updateModal, setAsset }) {
   const [assets, setAssets] = useState([])
@@ -13,7 +13,7 @@ export default function Port({ portfolios, updateModal, setAsset }) {
   useEffect(() => {
     const port = portfolios.find(port => port.id === parseInt(id))
     setPortfolio(port?.alias)
-  }, [id])
+  }, [id, portfolios])
 
   useEffect(() => {
     // const fetchPortfolioAssets = async () => {
@@ -48,6 +48,7 @@ export default function Port({ portfolios, updateModal, setAsset }) {
         <hr />
         <div className="port-assets">
           {assets.map(asset => {
+            // eslint-disable-next-line
             Number.prototype.round = function (dollar = true, percentage=false) {
               if (asset.allocation_currency === 'USD' || percentage) {
                 return `${dollar ? '$' : ''}${this.toFixed(2)}`

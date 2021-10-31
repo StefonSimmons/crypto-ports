@@ -44,7 +44,7 @@ export default function Main() {
   const handleDeletePort = async (portID) => {
     await destroyUserPortfolio(portID)
     setPortfolios(prevPorts => (
-      prevPorts.filter(port => port.id != portID)
+      prevPorts.filter(port => port.id !== portID)
     ))
     updateMsgModal(false)
   }

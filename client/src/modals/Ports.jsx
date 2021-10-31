@@ -26,7 +26,7 @@ export default function Ports(props) {
       <div className="portfolios">
         {props.portfolios.map(portfolio => (
           <React.Fragment key={portfolio.id}>
-            {portID != portfolio.id ?
+            {portID !== portfolio.id ?
               // All Ports
               <div className="portfolio">
                 <Link
