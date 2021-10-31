@@ -38,7 +38,7 @@
 
 @mixin content-container{
   display: flex;
-  height: 90%;
+  min-height: 90%;
   flex-direction: column;
   box-sizing: border-box;
   padding: 24px 45px;

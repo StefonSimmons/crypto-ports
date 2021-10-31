@@ -9,7 +9,7 @@ export default function DropdowMenu({toggleDropdown, handleChange, noOptionsMsg,
               id={`${option[value]}-${name}`}
               data-port-id={option.id}
               className="option"
-              type="checkbox"
+              type="radio"
               value={option[value]}
               name={name}
               onChange={(e) => handleChange(e)}

@@ -211,7 +211,7 @@ nav p:hover {
 
 .modal-bg .modal .forms {
   display: flex;
-  height: 90%;
+  min-height: 90%;
   flex-direction: column;
   box-sizing: border-box;
   padding: 24px 45px;
@@ -225,6 +225,7 @@ nav p:hover {
 .modal-bg .modal .forms .port-form {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
   padding-bottom: 20px;
   border-bottom: solid #f6f1f1 2px;
@@ -316,7 +317,7 @@ nav p:hover {
 }
 
 .modal-bg .modal .forms .asset-form {
-  height: 400px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -390,6 +391,7 @@ nav p:hover {
   height: 56px;
   width: 157px;
   margin: 0 auto;
+  margin-top: 15px;
   transition: .25s all ease-in;
 }
 
@@ -473,7 +475,7 @@ nav p:hover {
 
 .modal-bg .modal .portfolios {
   display: flex;
-  height: 90%;
+  min-height: 90%;
   flex-direction: column;
   box-sizing: border-box;
   padding: 24px 45px;

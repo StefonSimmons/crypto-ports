@@ -5,6 +5,11 @@ export const getUserPortfolios = async (userID) => {
   return res.data
 }
 
+export const addUserPortfolio = async (portfolio) => {
+  const res = await api.get("/portfolios/", { portfolio })
+  return res.data
+}
+
 export const updateUserPorfolio = async (portID, portfolio) => {
   const res = await api.put(`/portfolios/${portID}`, { portfolio })
   return res.data

@@ -1,23 +1,12 @@
 import { useEffect, useState } from 'react'
 import DropdowMenu from '../components/DropdowMenu'
 import { getAllSymbols } from '../services/symbols'
+import { addPortfolioAsset } from '../services/assets'
 import ModalLayout from './ModalLayout'
 
 
 export default function AddAsset(props) {
-  // const [symbols, setSymbols] = useState([])
-  const [toggleDropdowns, updateDropdown] = useState({
-    portfolio: false,
-    symbol1: false,
-    symbol2: false
-  })
-
-  // const [portfolio, setPortfolio] = useState({
-  //   name: "",
-  //   alias: "",
-  //   user_id: 1
-  // })
-
+  
   const [formData, setFormData] = useState({
     symbol: "",
     allocation: "",
@@ -30,10 +19,16 @@ export default function AddAsset(props) {
   })
 
   const [symbols, setSymbols] = useState([])
-
+  
   const [queries, updateQuery] = useState({
     portfolioQueries: [],
     symbolQueries: []
+  })
+
+  const [toggleDropdowns, updateDropdown] = useState({
+    portfolio: false,
+    symbol1: false,
+    symbol2: false
   })
 
   useEffect(() => {
@@ -45,7 +40,7 @@ export default function AddAsset(props) {
         portfolioQueries: props.portfolios
       })
     }
-    fetchSymbols()
+    // fetchSymbols()
   }, [props.portfolios])
 
 
@@ -115,8 +110,18 @@ export default function AddAsset(props) {
       console.log(id)
       setFormData((prevData) => ({
         ...prevData,
-        portfolio_id: parseInt(id)
+        portfolio_id: parseInt(id),
+        allocation_currency: props.portfolios.find(port=> port.id === parseInt(id)).name
       }))
+    }
+  }
+
+  const handleSubmit = async (e, form) => {
+    e.preventDefault()
+    if (form === "asset") {
+      const {name, alias, ...assetData} = formData
+      const asset = await addPortfolioAsset(assetData)
+      console.log(asset)
     }
   }
 
@@ -125,7 +130,7 @@ export default function AddAsset(props) {
     <ModalLayout modal='asset' updateModal={props.updateModal}>
       <div className="forms">
         <p>Choose a portfolio to add your asset to or start a new portfolio. </p>
-        <form className="port-form">
+        <form className="port-form" onSubmit={(e) => handleSubmit(e,'port')}>
           <div
             className="form-dropdown"
             onMouseEnter={() => updateDropdown((prev) => ({ ...prev, portfolio: true }))}
@@ -179,7 +184,7 @@ export default function AddAsset(props) {
           <button disabled={queries.portfolioQueries.length} className="submit-btn" type="submit">✔</button>
         </form>
 
-        <form className="asset-form">
+        <form className="asset-form" onSubmit={(e) => handleSubmit(e,'asset')}>
           <div className="form-dropdown"
             onMouseEnter={() => updateDropdown((prev) => ({ ...prev, symbol2: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, symbol2: false }))}
