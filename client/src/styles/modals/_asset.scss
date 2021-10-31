@@ -38,7 +38,7 @@
         }
 
         button {
-          height: 56px;
+          height: 42px;
           width: 10%;
           border-radius: 5px;
           font-size: 24px;
@@ -68,7 +68,7 @@
           border-radius: 5px;
           font-size: 24px;
           border: $sun solid 1px;
-          height: 56px;
+          height: 42px;
           width: 157px;
           margin: 0 auto;
           margin-top: 15px;
@@ -88,7 +88,7 @@
       }
 
       input {
-        height: 56px;
+        height: 42px;
         padding: 0 30px;
         background-color: $moon;
         border: black solid 1px;
@@ -98,6 +98,13 @@
         &::placeholder {
           font-size: 18px;
           color: $crater;
+        }
+        &:disabled{
+          background-color: $full-moon;
+          border: darkgray solid 1px;
+          &::placeholder{
+            color: darkgray;
+          }
         }
       }
     }

@@ -122,6 +122,8 @@ export default function AddAsset(props) {
       const {name, alias, ...assetData} = formData
       const asset = await addPortfolioAsset(assetData)
       console.log(asset)
+    } else {
+      
     }
   }
 
@@ -186,7 +188,7 @@ export default function AddAsset(props) {
 
         <form className="asset-form" onSubmit={(e) => handleSubmit(e,'asset')}>
           <div className="form-dropdown"
-            onMouseEnter={() => updateDropdown((prev) => ({ ...prev, symbol2: true }))}
+            onMouseEnter={() => updateDropdown((prev) => (!queries.portfolioQueries.length && { ...prev, symbol2: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, symbol2: false }))}
           >
             <label htmlFor="symbol">
@@ -198,6 +200,7 @@ export default function AddAsset(props) {
                 onChange={(e) => handleChange(e, 'symbol2')}
                 value={formData.symbol}
                 name="symbol"
+                disabled={!formData.portfolio_id}
                 autoComplete="off"
                 />
             <DropdowMenu
@@ -207,7 +210,7 @@ export default function AddAsset(props) {
               queriedOptions={queries.symbolQueries}
               value="symbol"
               name="symbol"
-            />
+              />
           </div>
           <label htmlFor="allocation">
             Allocation:
@@ -219,7 +222,8 @@ export default function AddAsset(props) {
             onChange={(e) => handleSelection(e)}
             value={formData.allocation}
             name="allocation"
-          />
+            disabled={!formData.portfolio_id}
+            />
           <label htmlFor="quantity">
             Quantity:
           </label>
@@ -230,7 +234,8 @@ export default function AddAsset(props) {
             onChange={(e) => handleSelection(e)}
             value={formData.quantity}
             name="quantity"
-          />
+            disabled={!formData.portfolio_id}
+            />
           <label htmlFor="allocation currency">
             Allocation Currency:
           </label>
@@ -240,6 +245,7 @@ export default function AddAsset(props) {
             onChange={(e) => handleSelection(e)}
             value={formData.allocation_currency}
             name="allocation_currency"
+            disabled={!formData.portfolio_id}
           />
           <button type="submit">SUBMIT</button>
         </form>

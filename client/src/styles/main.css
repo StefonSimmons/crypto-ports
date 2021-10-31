@@ -302,7 +302,7 @@ nav p:hover {
 }
 
 .modal-bg .modal .forms .port-form button {
-  height: 56px;
+  height: 42px;
   width: 10%;
   border-radius: 5px;
   font-size: 24px;
@@ -388,7 +388,7 @@ nav p:hover {
   border-radius: 5px;
   font-size: 24px;
   border: #ffa959 solid 1px;
-  height: 56px;
+  height: 42px;
   width: 157px;
   margin: 0 auto;
   margin-top: 15px;
@@ -410,7 +410,7 @@ nav p:hover {
 }
 
 .modal-bg .modal .forms input {
-  height: 56px;
+  height: 42px;
   padding: 0 30px;
   background-color: #f6f1f1;
   border: black solid 1px;
@@ -422,6 +422,15 @@ nav p:hover {
 .modal-bg .modal .forms input::placeholder {
   font-size: 18px;
   color: #807d7d;
+}
+
+.modal-bg .modal .forms input:disabled {
+  background-color: #FFFDFD;
+  border: darkgray solid 1px;
+}
+
+.modal-bg .modal .forms input:disabled::placeholder {
+  color: darkgray;
 }
 
 .buttons {
@@ -486,6 +495,7 @@ nav p:hover {
   align-items: center;
   justify-content: space-between;
   padding: 15px 5px;
+  transition: all .25s ease-in;
 }
 
 .modal-bg .modal .portfolios .portfolio:hover {
