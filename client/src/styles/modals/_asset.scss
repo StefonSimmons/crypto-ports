@@ -10,7 +10,7 @@
     .forms {
       @include content-container;
       justify-content: space-evenly;
-      p{
+      p {
         margin-bottom: 15px;
       }
       .port-form {
@@ -24,14 +24,14 @@
         @include custom-dropdown(40%);
 
         // custom custom dropdown input style
-        .port-form-currency{
+        .port-form-currency {
           width: 40%;
           box-sizing: border-box;
-          
-          &:disabled{
+
+          &:disabled {
             background-color: $full-moon;
             border: darkgray solid 1px;
-            &::placeholder{
+            &::placeholder {
               color: darkgray;
             }
           }
@@ -45,7 +45,7 @@
           background-color: $sun;
           border: $sun solid 1px;
 
-          &:disabled{
+          &:disabled {
             background-color: $full-moon;
             color: darkgray;
             border: darkgray solid 1px;
@@ -60,30 +60,35 @@
 
         @include custom-dropdown(100%);
 
-        input {
-          width: auto;
+        .asset-input-wrapper {
+          display: flex;
+          flex-direction: column;
+          input {
+            width: auto;
+          }
         }
         button {
           background-color: $sun;
           border-radius: 5px;
           font-size: 24px;
-          border: $sun solid 1px;
           height: 42px;
           width: 157px;
           margin: 0 auto;
           margin-top: 15px;
-          transition: .25s all ease-in;
-          &:hover{
+          transition: 0.25s all ease-in;
+          &:hover {
             background-color: $full-moon;
             border: solid 1px black;
             color: $sun;
           }
         }
-        .submit-btn{
+        .submit-btn {
           background-color: $sun;
+          border: $sun solid 1px;
         }
-        .delete-btn{
-          background-color: $mars;  
+        .delete-btn {
+          background-color: $mars;
+          border: $mars solid 1px;
         }
       }
 
@@ -99,10 +104,10 @@
           font-size: 18px;
           color: $crater;
         }
-        &:disabled{
+        &:disabled {
           background-color: $full-moon;
           border: darkgray solid 1px;
-          &::placeholder{
+          &::placeholder {
             color: darkgray;
           }
         }
@@ -111,13 +116,6 @@
   }
 }
 
-
-.buttons{
-  display:flex;
-}
-
-
-.label{
+.buttons {
   display: flex;
-  flex-direction: column;
 }

@@ -379,7 +379,12 @@ nav p:hover {
   cursor: pointer;
 }
 
-.modal-bg .modal .forms .asset-form input {
+.modal-bg .modal .forms .asset-form .asset-input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-bg .modal .forms .asset-form .asset-input-wrapper input {
   width: auto;
 }
 
@@ -387,12 +392,11 @@ nav p:hover {
   background-color: #ffa959;
   border-radius: 5px;
   font-size: 24px;
-  border: #ffa959 solid 1px;
   height: 42px;
   width: 157px;
   margin: 0 auto;
   margin-top: 15px;
-  transition: .25s all ease-in;
+  transition: 0.25s all ease-in;
 }
 
 .modal-bg .modal .forms .asset-form button:hover {
@@ -403,10 +407,12 @@ nav p:hover {
 
 .modal-bg .modal .forms .asset-form .submit-btn {
   background-color: #ffa959;
+  border: #ffa959 solid 1px;
 }
 
 .modal-bg .modal .forms .asset-form .delete-btn {
   background-color: #A93E37;
+  border: #A93E37 solid 1px;
 }
 
 .modal-bg .modal .forms input {
@@ -435,11 +441,6 @@ nav p:hover {
 
 .buttons {
   display: flex;
-}
-
-.label {
-  display: flex;
-  flex-direction: column;
 }
 
 .modal-bg {

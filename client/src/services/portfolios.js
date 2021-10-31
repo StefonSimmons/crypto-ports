@@ -6,7 +6,7 @@ export const getUserPortfolios = async (userID) => {
 }
 
 export const addUserPortfolio = async (portfolio) => {
-  const res = await api.get("/portfolios/", { portfolio })
+  const res = await api.post("/portfolios/", { portfolio })
   return res.data
 }
 
