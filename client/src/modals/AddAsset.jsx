@@ -56,6 +56,11 @@ export default function AddAsset(props) {
         ...prevQuery,
         portfolioQueries: props.portfolios
       }))
+      setFormData((prevData) => ({
+        ...prevData,
+        portfolio_id: "",
+        allocation_currency: ""
+      }))
     }
   }
 
@@ -97,23 +102,25 @@ export default function AddAsset(props) {
     }
   }
 
-  const handleSelection = (e) => {
+  const handleSelection = (e, dropdown) => {
     const { name, value } = e.target
     // set form data for assets or port
-    console.log(name, value)
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }))
     if (name === 'alias') {
       const id = e.target.getAttribute("data-port-id")
-      console.log(id)
       setFormData((prevData) => ({
         ...prevData,
         portfolio_id: parseInt(id),
         allocation_currency: props.portfolios.find(port=> port.id === parseInt(id)).name
       }))
     }
+    updateDropdown((prev) => ({
+      ...prev,
+      [dropdown]: false
+    }))
   }
 
   const handleSubmit = async (e, form) => {
@@ -149,7 +156,7 @@ export default function AddAsset(props) {
               autoComplete="off"
             />
             <DropdowMenu
-              toggleDropdown={toggleDropdowns.portfolio}
+              toggleDropdown={[toggleDropdowns.portfolio, 'portfolio']}
               handleChange={handleSelection}
               noOptionsMsg="No port found! But, you can add a new one."
               queriedOptions={queries.portfolioQueries}
@@ -175,7 +182,7 @@ export default function AddAsset(props) {
               autoComplete="off"
             />
             <DropdowMenu
-              toggleDropdown={toggleDropdowns.symbol1}
+              toggleDropdown={[toggleDropdowns.symbol1, 'symbol1']}
               handleChange={handleSelection}
               noOptionsMsg="No symbols found!"
               queriedOptions={queries.symbolQueries}
@@ -188,7 +195,7 @@ export default function AddAsset(props) {
 
         <form className="asset-form" onSubmit={(e) => handleSubmit(e,'asset')}>
           <div className="form-dropdown"
-            onMouseEnter={() => updateDropdown((prev) => (!queries.portfolioQueries.length && { ...prev, symbol2: true }))}
+            onMouseEnter={() => updateDropdown((prev) => (formData.portfolio_id && { ...prev, symbol2: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, symbol2: false }))}
           >
             <label htmlFor="symbol">
@@ -204,7 +211,7 @@ export default function AddAsset(props) {
                 autoComplete="off"
                 />
             <DropdowMenu
-              toggleDropdown={toggleDropdowns.symbol2}
+              toggleDropdown={[toggleDropdowns.symbol2, 'symbol2']}
               handleChange={handleSelection}
               noOptionsMsg="No symbols found!"
               queriedOptions={queries.symbolQueries}

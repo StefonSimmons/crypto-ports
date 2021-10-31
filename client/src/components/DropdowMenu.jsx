@@ -1,7 +1,7 @@
 
 export default function DropdowMenu({toggleDropdown, handleChange, noOptionsMsg, queriedOptions, value, name}) {
   return (
-    <ul className={`form-options ${toggleDropdown ? 'open' : 'close'}`}>
+    <ul className={`form-options ${toggleDropdown[0] ? 'open' : 'close'}`}>
       {queriedOptions.length ?
         queriedOptions.map((option) => (
           <li key={option.id}>
@@ -12,7 +12,7 @@ export default function DropdowMenu({toggleDropdown, handleChange, noOptionsMsg,
               type="radio"
               value={option[value]}
               name={name}
-              onChange={(e) => handleChange(e)}
+              onChange={(e) => handleChange(e, toggleDropdown[1])}
             />
             <label htmlFor={`${option[value]}-${name}`}>{option[value]}</label>
           </li>
