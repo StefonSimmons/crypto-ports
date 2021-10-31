@@ -13,7 +13,7 @@ import DeletePort from '../modals/DeletePort'
 
 export default function Main() {
   const [modal, updateModal] = useState({
-    asset: true,
+    asset: false,
     port: false,
     edit: false,
   })
@@ -58,7 +58,6 @@ export default function Main() {
     const { name, alias, ...assetData } = formData
     if (form === "asset") {
       const asset = await addPortfolioAsset(assetData)
-      console.log(asset)
       history.push(`/portfolios/${asset.portfolio_id}`)
       updateModal(prevModal => ({ ...prevModal, asset: false }))
     } else {

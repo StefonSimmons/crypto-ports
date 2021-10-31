@@ -146,7 +146,7 @@ export default function AddAsset(props) {
             onMouseEnter={() => updateDropdown((prev) => ({ ...prev, portfolio: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, portfolio: false }))}
           >
-            <label htmlFor="portfolio">Portfolio</label>
+            <label htmlFor="portfolio">Portfolio:</label>
             <input
               id="portfolio"
               placeholder="PORTFOLIO"
