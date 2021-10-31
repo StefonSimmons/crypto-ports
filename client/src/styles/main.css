@@ -218,6 +218,10 @@ nav p:hover {
   justify-content: space-evenly;
 }
 
+.modal-bg .modal .forms p {
+  margin-bottom: 15px;
+}
+
 .modal-bg .modal .forms .port-form {
   display: flex;
   justify-content: space-between;
@@ -408,18 +412,23 @@ nav p:hover {
   padding: 0 30px;
   background-color: #f6f1f1;
   border: black solid 1px;
-  font-size: 24px;
+  font-size: 18px;
   color: black;
   text-transform: uppercase;
 }
 
 .modal-bg .modal .forms input::placeholder {
-  font-size: 24px;
+  font-size: 18px;
   color: #807d7d;
 }
 
 .buttons {
   display: flex;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-bg {

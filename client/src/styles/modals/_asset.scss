@@ -10,6 +10,9 @@
     .forms {
       @include content-container;
       justify-content: space-evenly;
+      p{
+        margin-bottom: 15px;
+      }
       .port-form {
         display: flex;
         justify-content: space-between;
@@ -87,11 +90,11 @@
         padding: 0 30px;
         background-color: $moon;
         border: black solid 1px;
-        font-size: 24px;
+        font-size: 18px;
         color: black;
         text-transform: uppercase;
         &::placeholder {
-          font-size: 24px;
+          font-size: 18px;
           color: $crater;
         }
       }
@@ -102,4 +105,10 @@
 
 .buttons{
   display:flex;
+}
+
+
+.label{
+  display: flex;
+  flex-direction: column;
 }

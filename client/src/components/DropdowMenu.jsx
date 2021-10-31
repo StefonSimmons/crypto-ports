@@ -6,14 +6,15 @@ export default function DropdowMenu({toggleDropdown, handleChange, noOptionsMsg,
         queriedOptions.map((option) => (
           <li key={option.id}>
             <input
-              id={option.id}
+              id={`${option[value]}-${name}`}
+              data-port-id={option.id}
               className="option"
-              type="radio"
+              type="checkbox"
               value={option[value]}
-              name={`${name}`}
+              name={name}
               onChange={(e) => handleChange(e)}
             />
-            <label htmlFor={option.id}>{option[value]}</label>
+            <label htmlFor={`${option[value]}-${name}`}>{option[value]}</label>
           </li>
         ))
         :
