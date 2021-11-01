@@ -39,7 +39,7 @@ export default function AddAsset(props) {
         portfolioQueries: props.portfolios
       })
     }
-    // fetchSymbols()
+    fetchSymbols()
   }, [props.portfolios])
 
 

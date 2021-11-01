@@ -8,6 +8,7 @@ import Home from '../screens/Home'
 import Port from '../screens/Port'
 import { destroyUserPortfolio, getUserPortfolios } from '../services/portfolios'
 import { updateUserPorfolio, addUserPortfolio } from '../services/portfolios'
+import { destroyPortfolioAsset } from "../services/assets";
 import { updatePortfolioAsset, addPortfolioAsset } from '../services/assets'
 
 import DeletePort from '../modals/DeletePort'
@@ -65,6 +66,7 @@ export default function Main() {
       const asset = await addPortfolioAsset(assetData)
       history.push(`/portfolios/${asset.portfolio_id}`)
       updateModal(prevModal => ({ ...prevModal, asset: false }))
+      triggerReload(prev => !prev)
     } else {
       const portData = {
         name,
@@ -86,6 +88,17 @@ export default function Main() {
     await updatePortfolioAsset(asset.id, formData)
     updateModal(prevModal => ({ ...prevModal, edit: false }))
     triggerReload(prev => !prev)
+  }
+
+  // DELETE ASSET
+  const handleDeleteAsset = async () => {
+    const data = await destroyPortfolioAsset(asset.id)
+    if (data) {
+      setAssets(prevAssets => (
+        prevAssets.filter(a => a.id !== asset.id)
+      ))
+      updateModal(prevModal => ({ ...prevModal, edit: false }))
+    }
   }
 
   return (
@@ -120,6 +133,7 @@ export default function Main() {
         portfolios={portfolios}
         asset={asset}
         handleEditAsset={handleEditAsset}
+        handleDeleteAsset={handleDeleteAsset}
       />}
       {deleteMsgModal && <DeletePort
         port={deleteMsgModal}

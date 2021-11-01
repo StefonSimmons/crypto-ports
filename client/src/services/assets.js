@@ -14,3 +14,8 @@ export const updatePortfolioAsset = async (assetID, asset) => {
   const res = await api.put(`/assets/${assetID}`, { asset })
   return res.data
 }
+
+export const destroyPortfolioAsset = async (assetID) => {
+  const res = await api.delete(`/assets/${assetID}`)
+  return res.data
+}

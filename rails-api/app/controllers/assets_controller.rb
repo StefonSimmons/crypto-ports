@@ -31,6 +31,7 @@ class AssetsController < ApplicationController
   # DELETE /assets/:id
   def destroy
     @asset.destroy
+    render json: 'deleted'
   end
 
 

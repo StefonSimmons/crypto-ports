@@ -77,7 +77,11 @@ export default function EditAsset(props) {
           </div>
           <div className="buttons">
             <button type="submit" className="submit-btn">SAVE</button>
-            <button className="delete-btn">DELETE</button>
+            <button
+              type="button"
+              className="delete-btn"
+              onClick={() => props.handleDeleteAsset()}
+            >DELETE</button>
           </div>
         </form>
       </div>
