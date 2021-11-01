@@ -19,10 +19,10 @@ class PortfoliosController < ApplicationController
 
   # PUT /portfolios/:id
   def update 
-    if portfolio.update(portfolio_params)
-      render json: portfolio
+    if @portfolio.update(portfolio_params)
+      render json: @portfolio
     else
-      render json: portfolio.errors, status: :unprocessable_entity
+      render json: @portfolio.errors, status: :unprocessable_entity
     end
   end
 
