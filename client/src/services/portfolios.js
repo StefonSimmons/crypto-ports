@@ -16,5 +16,6 @@ export const updateUserPorfolio = async (portID, portfolio) => {
 }
 
 export const destroyUserPortfolio = async (portID) => {
-  await api.delete(`/portfolios/${portID}`)
+  const res = await api.delete(`/portfolios/${portID}`)
+  return res.data
 }

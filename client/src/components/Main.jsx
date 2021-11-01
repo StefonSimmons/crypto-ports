@@ -51,11 +51,13 @@ export default function Main() {
 
   // DELETE PORT
   const handleDeletePort = async (portID) => {
-    await destroyUserPortfolio(portID)
-    setPortfolios(prevPorts => (
-      prevPorts.filter(port => port.id !== portID)
-    ))
-    updateMsgModal(false)
+    const data = await destroyUserPortfolio(portID)
+    if (data) {
+      setPortfolios(prevPorts => (
+        prevPorts.filter(port => port.id !== portID)
+      ))
+      updateMsgModal(false)
+    }
   }
 
   // ADD PORTFOLIO AND ASSET

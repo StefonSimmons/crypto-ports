@@ -28,7 +28,8 @@ class PortfoliosController < ApplicationController
 
   # DELETE /portfolios/:id
   def destroy
-    portfolio.destroy
+    @portfolio.destroy
+    render json: 'deleted'
   end
 
   private
@@ -37,6 +38,6 @@ class PortfoliosController < ApplicationController
   end
 
   def set_portfolio
-    portfolio = Portfolio.find(params[:id])
+    @portfolio = Portfolio.find(params[:id])
   end
 end

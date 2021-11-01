@@ -150,6 +150,7 @@ export default function AddAsset(props) {
             <label htmlFor="portfolio">Portfolio:</label>
             <input
               id="portfolio"
+              required
               placeholder="PORTFOLIO"
               type="text"
               onChange={(e) => handleChange(e, 'portfolio')}
@@ -174,6 +175,7 @@ export default function AddAsset(props) {
             <label htmlFor="more">More:</label>
             <input
               id="more"
+              required
               placeholder="I want more"
               type="text"
               onChange={(e) => handleChange(e, 'symbol1')}
@@ -205,6 +207,7 @@ export default function AddAsset(props) {
             </label>
             <input
               id="symbol"
+              required
               placeholder="SYMBOL"
               onChange={(e) => handleChange(e, 'symbol2')}
               value={formData.symbol}
@@ -227,6 +230,7 @@ export default function AddAsset(props) {
             </label>
             <input
               id="allocation"
+              required
               type="text"
               placeholder="ALLOCATION"
               onChange={(e) => handleSelection(e)}
@@ -242,6 +246,7 @@ export default function AddAsset(props) {
             <input
               id="quantity"
               type="text"
+              required
               placeholder="QUANTITY"
               onChange={(e) => handleSelection(e)}
               value={formData.quantity}
@@ -250,16 +255,18 @@ export default function AddAsset(props) {
             />
           </div>
           <div className="asset-input-wrapper">
-            <label htmlFor="allocation currency">
+            <label htmlFor="allocation_currency">
               Allocation Currency:
             </label>
             <input
+              id="allocation_currency"
+              required
               type="text"
               placeholder="ALLOCATION CURRENCY"
               onChange={(e) => handleSelection(e)}
               value={formData.allocation_currency}
               name="allocation_currency"
-              disabled={!formData.portfolio_id}
+              disabled={true}
             />
           </div>
           <button type="submit">SUBMIT</button>
