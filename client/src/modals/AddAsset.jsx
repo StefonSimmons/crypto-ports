@@ -39,7 +39,7 @@ export default function AddAsset(props) {
         portfolioQueries: props.portfolios
       })
     }
-    fetchSymbols()
+    // fetchSymbols()
   }, [props.portfolios])
 
 
@@ -58,7 +58,8 @@ export default function AddAsset(props) {
       setFormData((prevData) => ({
         ...prevData,
         portfolio_id: "",
-        allocation_currency: ""
+        allocation_currency: "",
+        name: ""
       }))
     }
   }
@@ -84,7 +85,7 @@ export default function AddAsset(props) {
     // set form data for assets or port
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: value.toUpperCase(),
     }))
 
     // toggle dropdown

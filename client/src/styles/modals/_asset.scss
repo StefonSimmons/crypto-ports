@@ -92,6 +92,22 @@
         }
       }
 
+      .asset-read-only-info{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        border-bottom: solid $moon 2px;
+        .read-only-wrapper{
+          p{
+            background-color: $moon;
+            border: solid #000000 1px;
+            color: $crater;
+            padding: 5px;
+            width: 100px;
+          }
+        }
+      }
+
       input {
         height: 42px;
         padding: 0 30px;

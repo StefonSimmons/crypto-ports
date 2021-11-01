@@ -415,6 +415,21 @@ nav p:hover {
   border: #A93E37 solid 1px;
 }
 
+.modal-bg .modal .forms .asset-read-only-info {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: solid #f6f1f1 2px;
+}
+
+.modal-bg .modal .forms .asset-read-only-info .read-only-wrapper p {
+  background-color: #f6f1f1;
+  border: solid #000000 1px;
+  color: #807d7d;
+  padding: 5px;
+  width: 100px;
+}
+
 .modal-bg .modal .forms input {
   height: 42px;
   padding: 0 30px;

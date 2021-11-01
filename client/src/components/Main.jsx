@@ -8,20 +8,25 @@ import Home from '../screens/Home'
 import Port from '../screens/Port'
 import { destroyUserPortfolio, getUserPortfolios } from '../services/portfolios'
 import { updateUserPorfolio, addUserPortfolio } from '../services/portfolios'
-import { addPortfolioAsset } from '../services/assets'
+import { updatePortfolioAsset, addPortfolioAsset } from '../services/assets'
+
 import DeletePort from '../modals/DeletePort'
 
 export default function Main() {
   const [modal, updateModal] = useState({
     asset: false,
     port: false,
-    edit: false,
+    edit: true,
   })
   const [deleteMsgModal, updateMsgModal] = useState(false)
 
   const [asset, setAsset] = useState({})
 
   const [portfolios, setPortfolios] = useState([])
+
+  const [assets, setAssets] = useState([])
+
+  const [reload, triggerReload] = useState(false)
 
   const history = useHistory()
 
@@ -75,6 +80,14 @@ export default function Main() {
     }
   }
 
+  // EDIT ASSET
+  const handleEditAsset = async (e, formData) => {
+    e.preventDefault()
+    await updatePortfolioAsset(asset.id, formData)
+    updateModal(prevModal => ({ ...prevModal, edit: false }))
+    triggerReload(prev => !prev)
+  }
+
   return (
     <Layout
       updateModal={updateModal}
@@ -85,6 +98,9 @@ export default function Main() {
           portfolios={portfolios}
           updateModal={updateModal}
           setAsset={setAsset}
+          setAssets={setAssets}
+          assets={assets}
+          reload={reload}
           />
       </Route>
       
@@ -103,6 +119,7 @@ export default function Main() {
         updateModal={updateModal}
         portfolios={portfolios}
         asset={asset}
+        handleEditAsset={handleEditAsset}
       />}
       {deleteMsgModal && <DeletePort
         port={deleteMsgModal}

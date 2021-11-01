@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router"
-// import { getPortfolioAssets } from "../services/assets"
-import usdData from './usd.json'
-// import btcData from './btc.json'
+import { useParams } from "react-router-dom"
+import { getPortfolioAssets } from "../services/assets"
 
-export default function Port({ portfolios, updateModal, setAsset }) {
-  const [assets, setAssets] = useState([])
+
+export default function Port({ portfolios, updateModal, setAsset, setAssets, assets, reload }) {
   const [portfolio, setPortfolio] = useState('')
 
   const { id } = useParams()
@@ -16,13 +14,12 @@ export default function Port({ portfolios, updateModal, setAsset }) {
   }, [id, portfolios])
 
   useEffect(() => {
-    // const fetchPortfolioAssets = async () => {
-    //   const data = await getPortfolioAssets(1, 2)
-    //   setAssets(data)
-    // }
-    // fetchPortfolioAssets()
-    setAssets(usdData)
-  }, [])
+    const fetchPortfolioAssets = async () => {
+      const data = await getPortfolioAssets(1, parseInt(id))
+      setAssets(data)
+    }
+    fetchPortfolioAssets()
+  }, [id, reload])
 
 
 
