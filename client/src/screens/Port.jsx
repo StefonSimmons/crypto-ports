@@ -19,7 +19,7 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
       setAssets(data)
     }
     fetchPortfolioAssets()
-  }, [id, reload])
+  }, [id, reload, setAssets])
 
 
 

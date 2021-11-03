@@ -7,12 +7,14 @@ export default function Home() {
   useEffect(() => {
     let i = 0
     const actions = ['add', 'edit', 'track']
-    setInterval(() => {
+    const start = setInterval(() => {
       setAction(actions[i])
       i += 1
       if (i > actions.length-1) i = 0
     }, 1500)
-
+    return () => {
+      clearInterval(start)
+    }
   }, [])
 
   return (
