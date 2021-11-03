@@ -17,7 +17,7 @@ export default function Main() {
   const [modal, updateModal] = useState({
     asset: false,
     port: false,
-    edit: true,
+    edit: false,
   })
   const [deleteMsgModal, updateMsgModal] = useState(false)
 
