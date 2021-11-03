@@ -19,6 +19,7 @@ gem 'puma', '~> 5.0'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
 
 # allows me to make calls to a third-party API
 gem "rest-client"
