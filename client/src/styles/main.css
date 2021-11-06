@@ -649,10 +649,16 @@ p:hover {
 
 .signup-form {
   display: flex;
-  width: 50%;
+  width: 675px;
   height: 25%;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding-right: 30px;
+}
+
+.signup-form .close {
+  align-self: flex-start;
+  background-color: #A93E37;
 }
 
 .signup-form input {

@@ -5,6 +5,7 @@ export default function SignupForm(props) {
   const { signup, signin } = props.auth
 
   const [registerData, setRegisterData] = useState({
+    username: "",
     email: "",
     password: ""
   })
@@ -15,7 +16,7 @@ export default function SignupForm(props) {
     setRegisterData(prevData => ({
       ...prevData,
       [name]: value
-    })) 
+    }))
   }
 
   const handleSubmit = async (e) => {
@@ -25,19 +26,36 @@ export default function SignupForm(props) {
   }
   return (
     <form className="signup-form" onSubmit={handleSubmit}>
-      <input
-        type="text" 
-        placeholder="email"
-        name=""
-        value={""}
+      <button
+        type="button"
+        className="close"
+        onClick={() => props.setAuth(false)}
+      >
+        <span>&times;</span>
+      </button>
+        <input
+          type="text"
+          placeholder="username"
+        name="username"
+        required
+        value={registerData.username}
         onChange={(e) => handleChange(e)}
         />
-      <input
-        type="password" 
-        placeholder="password"
-        name=""
-        value={""}
-        onChange={(e) => handleChange(e)}
+        <input
+          type="email"
+          placeholder="email"
+          name="email"
+          required
+          value={registerData.email}
+          onChange={(e) => handleChange(e)}
+          />
+        <input
+          type="password"
+          placeholder="password"
+          name="password"
+          required
+          value={registerData.password}
+          onChange={(e) => handleChange(e)}
         />
       <button type="submit">Sign up</button>
     </form>
