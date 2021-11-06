@@ -1,42 +1,40 @@
-import { Link } from 'react-router-dom'
-import logo from '../assets/imgs/moon-transparent.png'
+import React from "react"
 
 export default function Nav(props) {
+  const { signup, signin } = props.auth
 
-
-  const authenticated = (
-    <div className="links-lin">
-      <p onClick={() => {
-        props.updateModal(prevModal => ({
-          ...prevModal,
-          port: true
-        }))
-      }}>Ports</p>
-      <p onClick={() => {
-        props.updateModal(prevModal => ({
-          ...prevModal,
-          asset: true
-        }))
-      }}>Add Asset</p>
-      <p>Stefon</p>
-      <p>Logout</p>
-    </div>
-  )
-
-  // const unauthenticated = (
-  //   <div className="links-lout">
-  //     <Link to="/sign-up">Sign-up</Link>
-  //     <Link to="/sign-in">Sign-in</Link>
-  //   </div>
+    // const authenticated = (
+  //   <nav className="links-lin">
+  //     <p onClick={() => {
+  //       props.updateModal(prevModal => ({
+  //         ...prevModal,
+  //         port: true
+  //       }))
+  //     }}>Ports</p>
+  //     <p onClick={() => {
+  //       props.updateModal(prevModal => ({
+  //         ...prevModal,
+  //         asset: true
+  //       }))
+  //     }}>Add Asset</p>
+  //     <p>Stefon</p>
+  //     <p>Logout</p>
+  //   </nav>
   // )
 
-  return (
-    <nav>
-      <Link to="/">
-        <img src={logo} alt="logo" />
-      </Link>
-      {/* {unauthenticated} */}
-      {authenticated}
+  const unauthenticated = (
+    <nav className="btns-lout">
+      <button
+        onClick={() => props.setAuth(prev => ({ ...prev, signup:true }) )}
+      >Sign-up</button>
+      <button>Sign-in</button>
     </nav>
+  )
+  
+  return (
+    <>
+      {unauthenticated}
+      {/* {authenticated} */}
+    </>
   )
 }

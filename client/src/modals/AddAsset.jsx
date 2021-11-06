@@ -39,7 +39,7 @@ export default function AddAsset(props) {
         portfolioQueries: props.portfolios
       })
     }
-    fetchSymbols()
+    // fetchSymbols()
   }, [props.portfolios])
 
 
@@ -128,6 +128,7 @@ export default function AddAsset(props) {
     <ModalLayout modal='asset' updateModal={props.updateModal}>
       <div className="forms">
         <p>Choose a portfolio to add your asset to or start a new portfolio. </p>
+        {/* CREATE PORT FORM */}
         <form
           className="port-form"
           onSubmit={(e) => {
@@ -196,7 +197,8 @@ export default function AddAsset(props) {
           </div>
           <button disabled={queries.portfolioQueries.length} className="submit-btn" type="submit">✔</button>
         </form>
-
+        
+        {/* CREATE ASSET FORM */}
         <form className="asset-form" onSubmit={(e) => props.handleAddAsset(e, 'asset', formData)}>
           <div className="form-dropdown"
             onMouseEnter={() => updateDropdown((prev) => (formData.portfolio_id && { ...prev, symbol2: true }))}

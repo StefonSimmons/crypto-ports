@@ -35,7 +35,7 @@ export default function Main() {
   useEffect(() => {
     const fetchPortfolios = async () => {
       const data = await getUserPortfolios(1)
-      setPortfolios(data)
+      // setPortfolios(data)
     }
     fetchPortfolios()
   }, [])

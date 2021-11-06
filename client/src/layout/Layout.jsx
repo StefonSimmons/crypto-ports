@@ -1,9 +1,11 @@
-import Nav from "./Nav";
+import Header from "./Header";
 
 export default function Layout(props) {
+
+
   return (
     <>
-      <Nav updateModal={props.updateModal} />
+      <Header updateModal={props.updateModal} />
       {props.children}
       <div className="layout-bg-circle"></div>
     </>

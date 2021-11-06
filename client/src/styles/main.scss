@@ -2,9 +2,10 @@
 
 @import './vars';
 @import './animations';
-@import './layout/nav', './layout/layout';
+@import './layout/header','./layout/nav', './layout/layout';
 @import './screens/home', './screens/port';
 @import './modals/asset', './modals/ports', './modals/delete';
+@import './components/signup';
 
 body, #root{
   box-sizing: border-box;
