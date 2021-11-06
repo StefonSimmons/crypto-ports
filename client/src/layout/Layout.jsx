@@ -5,7 +5,7 @@ export default function Layout(props) {
 
   return (
     <>
-      <Header updateModal={props.updateModal} />
+      <Header updateModal={props.updateModal} handleRegister={props.handleRegister} />
       {props.children}
       <div className="layout-bg-circle"></div>
     </>

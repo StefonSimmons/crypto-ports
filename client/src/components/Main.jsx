@@ -13,7 +13,7 @@ import { updatePortfolioAsset, addPortfolioAsset } from '../services/assets'
 
 import DeletePort from '../modals/DeletePort'
 
-export default function Main() {
+export default function Main(props) {
   const [modal, updateModal] = useState({
     asset: false,
     port: false,
@@ -35,9 +35,9 @@ export default function Main() {
   useEffect(() => {
     const fetchPortfolios = async () => {
       const data = await getUserPortfolios(1)
-      // setPortfolios(data)
+      setPortfolios(data)
     }
-    fetchPortfolios()
+    // fetchPortfolios()
   }, [])
 
   // EDIT PORT
@@ -106,6 +106,7 @@ export default function Main() {
   return (
     <Layout
       updateModal={updateModal}
+      handleRegister={props.handleRegister}
       >
       <Route exact path="/" component={Home}/>
       <Route exact path="/portfolios/:id">

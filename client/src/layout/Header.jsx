@@ -19,8 +19,8 @@ export default function Header(props) {
       {
           auth.signup ?
           <SignupForm
-            auth={auth}
             setAuth={setAuth}
+            handleRegister={props.handleRegister}
           />
           :
           <Nav

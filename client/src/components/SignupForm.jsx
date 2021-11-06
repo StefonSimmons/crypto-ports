@@ -1,8 +1,6 @@
 import { useState } from "react"
-import { register } from "../services/user"
 
 export default function SignupForm(props) {
-  const { signup, signin } = props.auth
 
   const [registerData, setRegisterData] = useState({
     username: "",
@@ -19,13 +17,9 @@ export default function SignupForm(props) {
     }))
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const user = await register(registerData)
-    console.log(user)
-  }
+
   return (
-    <form className="signup-form" onSubmit={handleSubmit}>
+    <form className="signup-form" onSubmit={(e) => props.handleRegister(e,registerData)}>
       <button
         type="button"
         className="close"

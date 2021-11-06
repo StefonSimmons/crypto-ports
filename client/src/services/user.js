@@ -1,10 +1,13 @@
 import api from './apiConfig'
 
 
-export const register = async (user) => {
-  const res = await api.post('/users', { user })
-  console.log(res.data)
-  return res.data
+export const register = async (userData) => {
+  const res = await api.post('/users', { user: userData })
+  const {token, user} = res.data 
+  if (token) {
+    localStorage.setItem('authToken', token)
+  }
+  return user
 }
 
 export const login = async (user) => {

@@ -1,7 +1,7 @@
 import React from "react"
 
 export default function Nav(props) {
-  const { signup, signin } = props.auth
+  // const { signup, signin } = props.auth
 
     // const authenticated = (
   //   <nav className="links-lin">
