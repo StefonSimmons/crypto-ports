@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/imgs/moon-transparent.png'
 import Nav from './Nav'
+import SigninForm from './SigninForm'
 import SignupForm from './SignupForm'
 
 export default function Header(props) {
@@ -21,6 +22,12 @@ export default function Header(props) {
           <SignupForm
             setAuth={setAuth}
             handleRegister={props.handleRegister}
+            />
+          :
+          auth.signin ?
+            <SigninForm
+              setAuth={setAuth}
+              handleLogin={props.handleLogin}
             />
             :
             <Nav

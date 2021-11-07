@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect } from "react";
 import Main from "./components/Main";
-import { logout, register, verify } from "./services/user"
+import { login, logout, register, verify } from "./services/user"
 import "./styles/main.css"
 
 export const UserContext = createContext();
@@ -24,6 +24,12 @@ function App() {
     setUser(userData)
   }
 
+  const handleLogin = async (e, loginData) => {
+    e.preventDefault()
+    const userData = await login(loginData)
+    setUser(userData)
+  }
+
   const handleLogout = () => {
     logout()
     setUser(null)
@@ -32,7 +38,11 @@ function App() {
   return (
     <>
       <UserContext.Provider value={user}>
-        <Main handleRegister={handleRegister} handleLogout={handleLogout} />
+        <Main
+          handleRegister={handleRegister}
+          handleLogout={handleLogout}
+          handleLogin={handleLogin}
+        />
       </UserContext.Provider>
     </>
   );

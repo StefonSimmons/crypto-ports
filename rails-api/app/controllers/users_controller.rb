@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   # POST /users/login
   def login
     user = User.find_by(email: user_login_params[:email])
-
     if user && user.authenticate(user_login_params[:password])
       token = create_token(user.id)
       render json: {

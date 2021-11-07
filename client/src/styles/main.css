@@ -720,6 +720,51 @@ header img:hover {
   color: #ffa959;
 }
 
+.signin-form {
+  display: flex;
+  width: 500px;
+  height: 25%;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.signin-form .close {
+  align-self: flex-start;
+  background-color: #A93E37;
+}
+
+.signin-form input {
+  height: 100%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  background-color: #f6f1f1;
+  border: black solid 1px;
+  font-size: 16px;
+  color: black;
+  text-transform: uppercase;
+}
+
+.signin-form input::placeholder {
+  font-size: 18px;
+  color: #807d7d;
+}
+
+.signin-form button {
+  height: 100%;
+  background-color: #ffa959;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: solid 1px black;
+  transition: 0.25s all ease-in;
+}
+
+.signin-form button:hover {
+  background-color: #FFFDFD;
+  border: solid 1px black;
+  color: #ffa959;
+}
+
 body, #root {
   box-sizing: border-box;
   height: 100vh;

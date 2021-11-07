@@ -112,6 +112,7 @@ export default function Main(props) {
       updateModal={updateModal}
       handleRegister={props.handleRegister}
       handleLogout={props.handleLogout}
+      handleLogin={props.handleLogin}
       >
       <Route exact path="/" component={Home}/>
       <Route exact path="/portfolios/:id">

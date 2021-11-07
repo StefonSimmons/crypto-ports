@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { UserContext } from "../App"
 
 export default function Nav(props) {
-  
+
   const user = useContext(UserContext);
 
 
@@ -28,9 +28,15 @@ export default function Nav(props) {
   const unauthenticated = (
     <nav className="btns-lout">
       <button
-        onClick={() => props.setAuth(prev => ({ ...prev, signup: true }))}
+        onClick={() => {
+          props.setAuth(prev => ({ ...prev, signup: true }))
+        }}
       >Sign-up</button>
-      <button>Sign-in</button>
+      <button
+        onClick={() => {
+          props.setAuth(prev => ({ ...prev, signin: true }))
+        }}
+      >Sign-in</button>
     </nav>
   )
 
