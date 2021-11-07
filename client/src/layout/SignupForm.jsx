@@ -19,7 +19,10 @@ export default function SignupForm(props) {
 
 
   return (
-    <form className="signup-form" onSubmit={(e) => props.handleRegister(e,registerData)}>
+    <form className="signup-form" onSubmit={(e) => {
+      props.handleRegister(e, registerData)
+      props.setAuth(prev => ({...prev, signup:false}))
+    }}>
       <button
         type="button"
         className="close"

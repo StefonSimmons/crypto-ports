@@ -4,7 +4,7 @@
   @include modal-bg;
   .modal {
     @include modal;
-    header {
+    .modal-header {
       @include modal-header;
     }
     .portfolios {

@@ -67,6 +67,15 @@ header img:hover {
 
 .links-lin {
   width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.links-lin .username {
+  border: solid 1px black;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 p {
@@ -200,7 +209,7 @@ p:hover {
   border-radius: 15px;
 }
 
-.modal-bg .modal header {
+.modal-bg .modal .modal-header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -210,13 +219,13 @@ p:hover {
   background: #f6f1f1;
 }
 
-.modal-bg .modal header h1 {
+.modal-bg .modal .modal-header h1 {
   font-size: 24px;
   margin: 0 auto;
   text-transform: capitalize;
 }
 
-.modal-bg .modal header .close {
+.modal-bg .modal .modal-header .close {
   position: absolute;
   cursor: pointer;
 }
@@ -489,7 +498,7 @@ p:hover {
   border-radius: 15px;
 }
 
-.modal-bg .modal header {
+.modal-bg .modal .modal-header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -499,13 +508,13 @@ p:hover {
   background: #f6f1f1;
 }
 
-.modal-bg .modal header h1 {
+.modal-bg .modal .modal-header h1 {
   font-size: 24px;
   margin: 0 auto;
   text-transform: capitalize;
 }
 
-.modal-bg .modal header .close {
+.modal-bg .modal .modal-header .close {
   position: absolute;
   cursor: pointer;
 }

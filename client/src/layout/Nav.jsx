@@ -1,40 +1,47 @@
-import React from "react"
+import { useContext } from "react"
+import { UserContext } from "../App"
 
 export default function Nav(props) {
+  const user = useContext(UserContext);
+
   // const { signup, signin } = props.auth
 
-    // const authenticated = (
-  //   <nav className="links-lin">
-  //     <p onClick={() => {
-  //       props.updateModal(prevModal => ({
-  //         ...prevModal,
-  //         port: true
-  //       }))
-  //     }}>Ports</p>
-  //     <p onClick={() => {
-  //       props.updateModal(prevModal => ({
-  //         ...prevModal,
-  //         asset: true
-  //       }))
-  //     }}>Add Asset</p>
-  //     <p>Stefon</p>
-  //     <p>Logout</p>
-  //   </nav>
-  // )
+  const authenticated = (
+    <nav className="links-lin">
+      <p onClick={() => {
+        props.updateModal(prevModal => ({
+          ...prevModal,
+          port: true
+        }))
+      }}>Ports</p>
+      <p onClick={() => {
+        props.updateModal(prevModal => ({
+          ...prevModal,
+          asset: true
+        }))
+      }}>Add Asset</p>
+      <p className="username">{user?.username}</p>
+      <p>Logout</p>
+    </nav>
+  )
 
   const unauthenticated = (
     <nav className="btns-lout">
       <button
-        onClick={() => props.setAuth(prev => ({ ...prev, signup:true }) )}
+        onClick={() => props.setAuth(prev => ({ ...prev, signup: true }))}
       >Sign-up</button>
       <button>Sign-in</button>
     </nav>
   )
-  
+
   return (
     <>
-      {unauthenticated}
-      {/* {authenticated} */}
+      {
+        user ?
+          authenticated
+          :
+          unauthenticated
+      }
     </>
   )
 }

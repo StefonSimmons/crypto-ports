@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/imgs/moon-transparent.png'
 import Nav from './Nav'
-import SignupForm from '../components/SignupForm'
+import SignupForm from './SignupForm'
 
 export default function Header(props) {
   const [auth, setAuth] = useState({
