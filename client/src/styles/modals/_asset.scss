@@ -81,6 +81,11 @@
             border: solid 1px black;
             color: $sun;
           }
+          &:disabled {
+            background-color: $full-moon;
+            color: darkgray;
+            border: darkgray solid 1px;
+          }
         }
         .submit-btn {
           background-color: $sun;

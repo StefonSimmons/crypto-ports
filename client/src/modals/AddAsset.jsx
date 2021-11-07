@@ -39,7 +39,7 @@ export default function AddAsset(props) {
         portfolioQueries: props.portfolios
       })
     }
-    // fetchSymbols()
+    fetchSymbols()
   }, [props.portfolios])
 
 
@@ -162,7 +162,7 @@ export default function AddAsset(props) {
             <DropdowMenu
               toggleDropdown={[toggleDropdowns.portfolio, 'portfolio']}
               handleChange={handleSelection}
-              noOptionsMsg="No port found! But, you can add a new one."
+              noOptionsMsg="No ports found, but you can create a new one here. You can name your portfolio anything. ('My Bitcoin Port', 'Trading-ETH' etc.)"
               queriedOptions={queries.portfolioQueries}
               value="alias"
               name="alias"
@@ -173,7 +173,7 @@ export default function AddAsset(props) {
             onMouseEnter={() => updateDropdown((prev) => (!queries.portfolioQueries.length && { ...prev, symbol1: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, symbol1: false }))}
           >
-            <label htmlFor="more">More:</label>
+            <label htmlFor="more">More of:</label>
             <input
               id="more"
               required
@@ -271,7 +271,7 @@ export default function AddAsset(props) {
               disabled={true}
             />
           </div>
-          <button type="submit">SUBMIT</button>
+          <button type="submit" disabled={!queries.portfolioQueries.length}>SUBMIT</button>
         </form>
       </div>
     </ModalLayout>

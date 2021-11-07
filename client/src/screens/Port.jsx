@@ -18,7 +18,7 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
       const data = await getPortfolioAssets(1, parseInt(id))
       setAssets(data)
     }
-    // fetchPortfolioAssets()
+    fetchPortfolioAssets()
   }, [id, reload, setAssets])
 
 

@@ -38,11 +38,11 @@ export default function Main(props) {
   // GET USER'S PORTFOLIOS
   useEffect(() => {
     const fetchPortfolios = async () => {
-      const data = await getUserPortfolios(user.id)
+      const data = await getUserPortfolios(user?.id)
       setPortfolios(data)
     }
-    // fetchPortfolios()
-  }, [])
+    fetchPortfolios()
+  }, [user?.id])
 
   // EDIT PORT
   const handleEditPort = async (e, portID, portData) => {

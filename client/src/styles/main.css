@@ -428,6 +428,12 @@ header img:hover {
   color: #ffa959;
 }
 
+.modal-bg .modal .forms .asset-form button:disabled {
+  background-color: #FFFDFD;
+  color: darkgray;
+  border: darkgray solid 1px;
+}
+
 .modal-bg .modal .forms .asset-form .submit-btn {
   background-color: #ffa959;
   border: #ffa959 solid 1px;
