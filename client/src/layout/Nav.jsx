@@ -21,7 +21,7 @@ export default function Nav(props) {
         }))
       }}>Add Asset</p>
       <p className="username">{user?.username}</p>
-      <p>Logout</p>
+      <p onClick={() => props.handleLogout()}>Logout</p>
     </nav>
   )
 

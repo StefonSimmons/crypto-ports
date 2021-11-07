@@ -21,9 +21,10 @@ export default function Header(props) {
           <SignupForm
             setAuth={setAuth}
             handleRegister={props.handleRegister}
-          />
-          :
-          <Nav
+            />
+            :
+            <Nav
+            handleLogout={props.handleLogout}
             updateModal={props.updateModal}
             setAuth={setAuth}
           />

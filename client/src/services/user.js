@@ -25,5 +25,6 @@ export const verify = async () => {
 }
 
 export const logout = () => {
+  localStorage.removeItem('authToken')
   return 'logged out'
 }
