@@ -12,17 +12,19 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  .username{
-    border: solid 1px black;
-    padding: 5px;
-    box-sizing: border-box;
+  p {
+    cursor: pointer;
+    transition: all 0.25s ease-in;
+    &:hover {
+      color: $sun;
+    }
+    &.username{
+      border: solid 1px black;
+      padding: 5px;
+      box-sizing: border-box;
+      cursor: default;
+      color: black;
+    }
   }
 }
 
-p {
-  cursor: pointer;
-  transition: all 0.25s ease-in;
-  &:hover {
-    color: $sun;
-  }
-}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Route, useHistory } from 'react-router'
 import Layout from '../layout/Layout'
 import AddAsset from '../modals/AddAsset'
@@ -10,8 +10,9 @@ import { destroyUserPortfolio, getUserPortfolios } from '../services/portfolios'
 import { updateUserPorfolio, addUserPortfolio } from '../services/portfolios'
 import { destroyPortfolioAsset } from "../services/assets";
 import { updatePortfolioAsset, addPortfolioAsset } from '../services/assets'
-
 import DeletePort from '../modals/DeletePort'
+
+import { UserContext } from '../App'
 
 export default function Main(props) {
   const [modal, updateModal] = useState({
@@ -19,6 +20,9 @@ export default function Main(props) {
     port: false,
     edit: false,
   })
+
+  const user = useContext(UserContext)
+
   const [deleteMsgModal, updateMsgModal] = useState(false)
 
   const [asset, setAsset] = useState({})
@@ -34,7 +38,7 @@ export default function Main(props) {
   // GET USER'S PORTFOLIOS
   useEffect(() => {
     const fetchPortfolios = async () => {
-      const data = await getUserPortfolios(1)
+      const data = await getUserPortfolios(user.id)
       setPortfolios(data)
     }
     // fetchPortfolios()

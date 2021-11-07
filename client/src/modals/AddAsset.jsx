@@ -127,7 +127,7 @@ export default function AddAsset(props) {
   return (
     <ModalLayout modal='asset' updateModal={props.updateModal}>
       <div className="forms">
-        <p>Choose a portfolio to add your asset to or start a new portfolio. </p>
+        <p>Add assets to an existing portfolio or start a new portfolio here.</p>
         {/* CREATE PORT FORM */}
         <form
           className="port-form"

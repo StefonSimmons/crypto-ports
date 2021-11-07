@@ -72,19 +72,21 @@ header img:hover {
   align-items: center;
 }
 
-.links-lin .username {
-  border: solid 1px black;
-  padding: 5px;
-  box-sizing: border-box;
-}
-
-p {
+.links-lin p {
   cursor: pointer;
   transition: all 0.25s ease-in;
 }
 
-p:hover {
+.links-lin p:hover {
   color: #ffa959;
+}
+
+.links-lin p.username {
+  border: solid 1px black;
+  padding: 5px;
+  box-sizing: border-box;
+  cursor: default;
+  color: black;
 }
 
 .layout-bg-circle {
@@ -606,6 +608,23 @@ p:hover {
 .modal-bg .modal .portfolios .portfolio a {
   padding-left: 15px;
   font-size: 24px;
+}
+
+.modal-bg .modal .portfolios h2 {
+  text-align: center;
+}
+
+.modal-bg .modal .portfolios h2 button {
+  background-color: #FFFDFD;
+  color: black;
+  border: #ffa959 solid 1px;
+  transition: .25s all ease-in;
+  border: solid 1px black;
+}
+
+.modal-bg .modal .portfolios h2 button:hover {
+  background-color: #ffa959;
+  color: black;
 }
 
 .msg-modal {

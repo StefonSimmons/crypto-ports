@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ModalLayout from "./ModalLayout";
+import { UserContext } from "../App";
 
 export default function EditAsset(props) {
 
+  const user = useContext(UserContext)
 
   const [formData, setFormData] = useState({
     symbol: props.asset.symbol,
@@ -10,7 +12,7 @@ export default function EditAsset(props) {
     quantity: props.asset.quantity,
     allocation_currency: props.asset.allocation_currency,
     portfolio_id: props.asset.portfolio_id,
-    user_id: 1
+    user_id: user.id
   })
 
   const [portfolio, setPortfolio] = useState('')

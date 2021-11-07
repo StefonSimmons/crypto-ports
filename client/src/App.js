@@ -15,7 +15,7 @@ function App() {
       setUser(userData)
     }
     
-    // getCurrUser()
+    getCurrUser()
   }, [])
 
   const handleRegister = async (e, registerData) => {
