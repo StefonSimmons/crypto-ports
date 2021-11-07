@@ -16,8 +16,12 @@ export const login = async (user) => {
 }
 
 export const verify = async () => {
-  const res = await api.get('/users/verify')
-  return res.data
+  const token = localStorage.getItem('authToken')
+  if (token) {
+    api.defaults.headers.common.authorization = `Bearer ${token}`
+    const res = await api.get('/users/verify')
+    return res.data
+  }
 }
 
 export const logout = () => {

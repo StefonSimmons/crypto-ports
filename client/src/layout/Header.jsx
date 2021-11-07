@@ -25,7 +25,6 @@ export default function Header(props) {
           :
           <Nav
             updateModal={props.updateModal}
-            auth={auth}
             setAuth={setAuth}
           />
       }

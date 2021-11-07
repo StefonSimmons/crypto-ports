@@ -1,12 +1,22 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import Main from "./components/Main";
-import { register } from "./services/user"
+import { register, verify } from "./services/user"
 import "./styles/main.css"
 
 export const UserContext = createContext();
 
 function App() {
   const [user, setUser] = useState(null)
+
+
+  useEffect(() => {
+    const getCurrUser = async () => {
+      const userData = await verify()
+      setUser(userData)
+    }
+    
+    // getCurrUser()
+  }, [])
 
   const handleRegister = async (e, registerData) => {
     e.preventDefault()

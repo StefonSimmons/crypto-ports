@@ -4,7 +4,6 @@ import { UserContext } from "../App"
 export default function Nav(props) {
   const user = useContext(UserContext);
 
-  // const { signup, signin } = props.auth
 
   const authenticated = (
     <nav className="links-lin">
