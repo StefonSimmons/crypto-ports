@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useParams } from "react-router-dom"
 import { getPortfolioAssets } from "../services/assets"
-
+import {UserContext} from "../App"
 
 export default function Port({ portfolios, updateModal, setAsset, setAssets, assets, reload }) {
   const [portfolio, setPortfolio] = useState('')
+
+  const user = useContext(UserContext)
 
   const { id } = useParams()
 
@@ -15,11 +17,11 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
 
   useEffect(() => {
     const fetchPortfolioAssets = async () => {
-      const data = await getPortfolioAssets(1, parseInt(id))
+      const data = await getPortfolioAssets(user.id, parseInt(id))
       setAssets(data)
     }
     fetchPortfolioAssets()
-  }, [id, reload, setAssets])
+  }, [id, user.id, reload, setAssets])
 
 
 
