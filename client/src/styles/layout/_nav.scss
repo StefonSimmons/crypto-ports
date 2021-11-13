@@ -10,8 +10,12 @@
 .links-lin {
   width: 50%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  @media (max-width: $xs) {
+    display: none;
+  }
   p {
     cursor: pointer;
     transition: all 0.25s ease-in;

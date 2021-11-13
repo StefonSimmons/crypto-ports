@@ -16,11 +16,18 @@
   .port-asset-container {
     min-height: 80%;
     box-sizing: border-box;
-    width: 100%;
+    max-width: 100%;
     padding: 0 45px;
+    overflow-x: scroll;
+    hr{
+      position: sticky;
+      width: 100%;
+      left: 0%;
+    }
     .port-header {
       display: grid;
       grid-template-columns: repeat(10, 1fr);
+      width: 1335px;
       padding-left: 5px;
       h2 {
         font-size: 18px;
@@ -28,6 +35,7 @@
     }
     .port-assets {
       margin-top: 15px;
+      max-width: 100%;
       .asset {
         display: grid;
         grid-template-columns: repeat(10, 135px);
