@@ -1,12 +1,14 @@
 import { Sling as Hamburger } from 'hamburger-react'
-import { useState } from 'react'
+import { useContext } from "react"
+import { UserContext } from "../App"
 
-export default function HamburgerMenu() {
+export default function HamburgerMenu(props) {
 
-  const [isOpen, setOpen] = useState(false)
+  const user = useContext(UserContext);
+
 
   return (
-    <div className="hamburger">
+    <>
       <div className="hamburger-icon">
         <Hamburger
           color="#222222"
@@ -14,13 +16,18 @@ export default function HamburgerMenu() {
           easing="ease-in"
           label="Show menu"
           rounded
-          toggled={isOpen}
-          toggle={setOpen}
+          toggled={props.isOpen}
+          toggle={props.setOpen}
           />
       </div>
-      <div className={`hamburger-menu ${isOpen ? 'opened' : 'closed'}`}>
-
+      <div className={`hamburger-menu ${props.isOpen ? 'opened' : 'closed'}`}>
+        {
+          user ?
+            props.authenticated
+            :
+            props.unauthenticated
+        }
       </div>
-    </div>
+    </>
   )
 }

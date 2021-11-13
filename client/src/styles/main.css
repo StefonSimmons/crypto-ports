@@ -72,18 +72,18 @@ header img:hover {
   animation: shake 0.75s infinite;
 }
 
-.btns-lout {
+header .btns-lout {
   width: 25%;
   display: flex;
   justify-content: space-around;
 }
 
-.btns-lout button {
+header .btns-lout button {
   border: none;
   background-color: transparent;
 }
 
-.links-lin {
+header .links-lin {
   width: 50%;
   display: flex;
   flex-wrap: wrap;
@@ -92,21 +92,21 @@ header img:hover {
 }
 
 @media (max-width: 576px) {
-  .links-lin {
+  header .links-lin {
     display: none;
   }
 }
 
-.links-lin p {
+header .links-lin p {
   cursor: pointer;
   transition: all 0.25s ease-in;
 }
 
-.links-lin p:hover {
+header .links-lin p:hover {
   color: #ffa959;
 }
 
-.links-lin p.username {
+header .links-lin p.username {
   border: solid 1px black;
   padding: 5px;
   box-sizing: border-box;
@@ -138,22 +138,38 @@ header img:hover {
 }
 
 .hamburger-menu {
-  background-color: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(10px);
+  background-color: #FFFDFD;
   height: 100vh;
   width: 100vw;
   position: fixed;
   left: 0;
+  z-index: 2;
 }
 
 .hamburger-menu.opened {
   top: 20%;
-  animation: swoop-in 1s ease-in;
+  animation: swoop-in .85s ease-in-out;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  .hamburger-menu.opened .links-lin {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+  }
+}
+
+.hamburger-menu.opened .links-lin p {
+  font-size: 24px;
+  margin: 5px 0;
+  letter-spacing: 4px;
 }
 
 .hamburger-menu.closed {
   top: 120%;
-  animation: swoop-out 1s ease-out;
+  animation: swoop-out .85s ease-out;
 }
 
 .home-screen {
@@ -265,6 +281,7 @@ header img:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 }
 
 .modal-bg .modal {
@@ -560,6 +577,7 @@ header img:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 }
 
 .modal-bg .modal {

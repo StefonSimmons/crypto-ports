@@ -134,7 +134,6 @@ export default function AddAsset(props) {
           onSubmit={(e) => {
             const getPort = async () => {
               const portfolio = await props.handleAddAsset(e, 'port', formData)
-              console.log(portfolio)
               setFormData((prevData) => ({
                 ...prevData,
                 portfolio_id: portfolio.id,

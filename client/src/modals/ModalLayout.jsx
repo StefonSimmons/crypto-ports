@@ -10,10 +10,12 @@ export default function ModalLayout(props) {
             src={close}
             alt="close"
             className="close"
-            onClick={() => props.updateModal(prevModal => ({
-              ...prevModal,
-              [props.modal]: false
-            }))}
+            onClick={() => {
+              props.updateModal(prevModal => ({
+                ...prevModal,
+                [props.modal]: false
+              }))
+            }}
           />
         </section>
         {props.children}

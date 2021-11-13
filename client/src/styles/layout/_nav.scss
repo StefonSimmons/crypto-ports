@@ -1,34 +1,37 @@
-.btns-lout {
-  width: 25%;
-  display: flex;
-  justify-content: space-around;
-  button {
-    border: none;
-    background-color: transparent;
-  }
-}
-.links-lin {
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  @media (max-width: $xs) {
-    display: none;
-  }
-  p {
-    cursor: pointer;
-    transition: all 0.25s ease-in;
-    &:hover {
-      color: $sun;
-    }
-    &.username{
-      border: solid 1px black;
-      padding: 5px;
-      box-sizing: border-box;
-      cursor: default;
-      color: black;
+header{
+  .btns-lout {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    button {
+      border: none;
+      background-color: transparent;
     }
   }
+  .links-lin {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    @media (max-width: $xs) {
+      display: none;
+    }
+    p {
+      cursor: pointer;
+      transition: all 0.25s ease-in;
+      &:hover {
+        color: $sun;
+      }
+      &.username{
+        border: solid 1px black;
+        padding: 5px;
+        box-sizing: border-box;
+        cursor: default;
+        color: black;
+      }
+    }
+  }
 }
-
+  
+  

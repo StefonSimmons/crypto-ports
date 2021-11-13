@@ -6,18 +6,32 @@
 }
 
 .hamburger-menu{
-  background-color: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(10px);
+  background-color:$full-moon;
   height: 100vh;
   width: 100vw;
   position: fixed;
   left: 0;
+  z-index: 2;
   &.opened{
     top: 20%;
-    animation: swoop-in 1s ease-in
+    animation: swoop-in .85s ease-in-out;
+    display: flex;
+    justify-content: center;
+    .links-lin{
+      @media (max-width: $xs) {
+        display: flex;
+        flex-direction: column;
+        height: 80%;
+      }
+      p{
+        font-size: 24px;
+        margin: 5px 0;
+        letter-spacing: 4px;
+      }
+    }
   }
   &.closed{
     top: 120%;
-    animation: swoop-out 1s ease-out;
+    animation: swoop-out .85s ease-out;
   }
 }
