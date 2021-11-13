@@ -32,6 +32,24 @@
   }
 }
 
+@keyframes swoop-in {
+  from {
+    top: 120%;
+  }
+  to {
+    top: 20%;
+  }
+}
+
+@keyframes swoop-out {
+  from {
+    top: 20%;
+  }
+  to {
+    top: 120%;
+  }
+}
+
 header {
   box-sizing: border-box;
   height: 20%;
@@ -107,6 +125,35 @@ header img:hover {
   height: 90vh;
   width: 55vw;
   border-radius: 90%;
+}
+
+.hamburger-icon {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .hamburger-icon {
+    display: block;
+  }
+}
+
+.hamburger-menu {
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+}
+
+.hamburger-menu.opened {
+  top: 20%;
+  animation: swoop-in 1s ease-in;
+}
+
+.hamburger-menu.closed {
+  top: 120%;
+  animation: swoop-out 1s ease-out;
 }
 
 .home-screen {

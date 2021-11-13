@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/imgs/moon-transparent.png'
+import HamburgerMenu from './HamburgerMenu'
 import Nav from './Nav'
 import SigninForm from './SigninForm'
 import SignupForm from './SignupForm'
@@ -30,11 +31,14 @@ export default function Header(props) {
               handleLogin={props.handleLogin}
             />
             :
-            <Nav
-            handleLogout={props.handleLogout}
-            updateModal={props.updateModal}
-            setAuth={setAuth}
-          />
+            <>
+              <Nav
+              handleLogout={props.handleLogout}
+              updateModal={props.updateModal}
+              setAuth={setAuth}
+              />
+              <HamburgerMenu/>
+            </>
       }
     </header>
   )
