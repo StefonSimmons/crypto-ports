@@ -42,7 +42,7 @@ export default function Ports(props) {
                     </Link>
 
                     <div className="mutables">
-                      <button onClick={() => initPortEdit(portfolio.id)} className="edit-btn">Edit</button>
+                      <button onClick={() => initPortEdit(portfolio.id)} className="edit-btn">Rename</button>
                       <button
                         onClick={() => {
                           props.updateMsgModal({
@@ -50,7 +50,7 @@ export default function Ports(props) {
                             id: portfolio.id
                           })
                         }}
-                        className="delete-btn">Delete</button>
+                        className="delete-btn">🗑</button>
                     </div>
                   </div>
                   :

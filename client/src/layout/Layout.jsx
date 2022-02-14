@@ -7,9 +7,9 @@ export default function Layout(props) {
     <>
       <Header
         updateModal={props.updateModal}
-        handleRegister={props.handleRegister}
         handleLogout={props.handleLogout}
         handleLogin={props.handleLogin}
+        handleRegister={props.handleRegister}
       />
       {props.children}
       <div className="layout-bg-circle"></div>

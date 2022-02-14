@@ -110,10 +110,10 @@ export default function Main(props) {
   return (
     <Layout
       updateModal={updateModal}
-      handleRegister={props.handleRegister}
       handleLogout={props.handleLogout}
       handleLogin={props.handleLogin}
-      >
+      handleRegister={props.handleRegister}
+    >
       <Route exact path="/" component={Home}/>
       <Route exact path="/portfolios/:id">
         <Port

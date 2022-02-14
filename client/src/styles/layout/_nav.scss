@@ -3,6 +3,9 @@ header{
     width: 25%;
     display: flex;
     justify-content: space-around;
+    @media (max-width: $xs) {
+      display: none;
+    }
     button {
       border: none;
       background-color: transparent;
@@ -33,5 +36,3 @@ header{
     }
   }
 }
-  
-  

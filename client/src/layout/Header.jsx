@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/imgs/moon-transparent.png'
-import HamburgerMenu from './HamburgerMenu'
+// import HamburgerMenu from './HamburgerMenu'
 import Nav from './Nav'
 import SigninForm from './SigninForm'
 import SignupForm from './SignupForm'
@@ -64,7 +64,7 @@ export default function Header(props) {
       </Link>
 
       {
-          auth.signup ?
+        auth.signup ?
           <SignupForm
             setAuth={setAuth}
             handleRegister={props.handleRegister}
@@ -78,18 +78,18 @@ export default function Header(props) {
             :
             <>
               <Nav
+              unauthenticated={unauthenticated}
+              authenticated={authenticated}
               // handleLogout={props.handleLogout}
               // updateModal={props.updateModal}
               // setAuth={setAuth}
-                unauthenticated={unauthenticated}
-                authenticated={authenticated}
               />
-              <HamburgerMenu
+              {/* <HamburgerMenu
                 unauthenticated={unauthenticated}
                 authenticated={authenticated}
                 isOpen={isOpen}
                 setOpen={setOpen}
-              />
+              /> */}
             </>
       }
     </header>
