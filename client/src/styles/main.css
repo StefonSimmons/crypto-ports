@@ -863,6 +863,20 @@ header .links-lin p.auth:hover {
   color: #ffa959;
 }
 
+.signin-cta, .signup-cta {
+  text-align: center;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  color: black;
+  transition: color .15s linear;
+}
+
+.signin-cta:hover, .signup-cta:hover {
+  color: #807d7d;
+}
+
 body, #root {
   box-sizing: border-box;
   height: 100vh;

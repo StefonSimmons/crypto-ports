@@ -45,5 +45,16 @@
     }
   }
 }
-
+.signin-cta, .signup-cta {
+  text-align: center;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  color: black;
+  transition: color .15s linear;
+  &:hover {
+    color: $crater;
+  }
+}
 
