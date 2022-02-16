@@ -30,9 +30,9 @@ export default function Header(props) {
 
       {
         logoutHovered ?
-        <p className="user" onMouseLeave={() => setLOHover(false)} onClick={() => props.handleLogout()}>Logout</p>
-        :
-        <p className="user" onMouseEnter={() => setLOHover(true)}>{user?.username}</p>
+          <p className="user" onMouseLeave={() => setLOHover(false)} onClick={() => props.handleLogout()}>Logout</p>
+          :
+          <p className="user" onMouseEnter={() => setLOHover(true)}>{user?.username}</p>
       }
     </nav>
   )
@@ -80,30 +80,13 @@ export default function Header(props) {
       <Nav
         unauthenticated={unauthenticated}
         authenticated={authenticated}
-      />    
-
-      {/* {
-        auth.signup ?
-          <SignupForm
-            setAuth={setAuth}
-            handleRegister={props.handleRegister}
-            />
-          :
-          auth.signin ?
-            <SigninForm
-              setAuth={setAuth}
-              handleLogin={props.handleLogin}
-            />
-            :
-            <>
-              <HamburgerMenu
-                unauthenticated={unauthenticated}
-                authenticated={authenticated}
-                isOpen={isOpen}
-                setOpen={setOpen}
-              />
-            </>
-      } */}
+      />
+      {/* <HamburgerMenu
+        unauthenticated={unauthenticated}
+        authenticated={authenticated}
+        isOpen={isOpen}
+        setOpen={setOpen}
+      /> */}
     </header>
   )
 }

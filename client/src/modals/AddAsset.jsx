@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import DropdowMenu from '../components/DropdowMenu'
 import { getAllSymbols } from '../services/symbols'
 import ModalLayout from './ModalLayout'
+import { UserContext } from "../App";
 
 
 export default function AddAsset(props) {
+
+  const user = useContext(UserContext)
+
 
   const [formData, setFormData] = useState({
     symbol: "",
@@ -12,7 +16,7 @@ export default function AddAsset(props) {
     quantity: "",
     allocation_currency: "",
     portfolio_id: "",
-    user_id: 1,
+    user_id: user.id,
     name: "",
     alias: ""
   })
