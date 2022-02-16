@@ -776,7 +776,7 @@ header .links-lin p.user:hover {
   font-weight: 900;
 }
 
-.signin-form {
+.auth-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -785,7 +785,7 @@ header .links-lin p.user:hover {
   margin: 0 auto;
 }
 
-.signin-form input {
+.auth-form input {
   height: 42px;
   padding: 0 30px;
   background-color: #f6f1f1;
@@ -794,26 +794,30 @@ header .links-lin p.user:hover {
   color: black;
 }
 
-.signin-form input:nth-child(2) {
+.auth-form input:nth-child(2) {
   margin-top: 30px;
 }
 
-.signin-form input::placeholder {
+.auth-form input:nth-child(3) {
+  margin-top: 30px;
+}
+
+.auth-form input::placeholder {
   text-transform: uppercase;
   font-size: 18px;
   color: #807d7d;
 }
 
-.signin-form input::placeholder {
+.auth-form input::placeholder {
   font-size: 18px;
   color: #807d7d;
 }
 
-.signin-form button {
+.auth-form button {
   background-color: #ffa959;
   border-radius: 5px;
   font-size: 24px;
-  height: 42px;
+  height: 40px;
   width: 116px;
   margin: 0 auto;
   margin-top: 30px;
@@ -821,53 +825,8 @@ header .links-lin p.user:hover {
   border: solid 1px black;
 }
 
-.signin-form button:hover {
+.auth-form button:hover {
   background-color: #FFFDFD;
-  color: #ffa959;
-}
-
-.signup-form {
-  display: flex;
-  width: 675px;
-  height: 25%;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 30px;
-}
-
-.signup-form .close {
-  align-self: flex-start;
-  background-color: #A93E37;
-}
-
-.signup-form input {
-  height: 100%;
-  padding: 5px 10px;
-  box-sizing: border-box;
-  background-color: #f6f1f1;
-  border: black solid 1px;
-  font-size: 16px;
-  color: black;
-  text-transform: uppercase;
-}
-
-.signup-form input::placeholder {
-  font-size: 18px;
-  color: #807d7d;
-}
-
-.signup-form button {
-  height: 100%;
-  background-color: #ffa959;
-  border-radius: 5px;
-  box-sizing: border-box;
-  border: solid 1px black;
-  transition: 0.25s all ease-in;
-}
-
-.signup-form button:hover {
-  background-color: #FFFDFD;
-  border: solid 1px black;
   color: #ffa959;
 }
 

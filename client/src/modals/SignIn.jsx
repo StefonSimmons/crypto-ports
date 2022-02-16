@@ -17,7 +17,7 @@ export default function SignIn(props) {
   }
   return (
     <ModalLayout modal='sign in' updateModal={props.updateModal}>
-      <form className="signin-form" onSubmit={(e) => {
+      <form className="auth-form" onSubmit={(e) => {
         props.handleLogin(e, loginData)
         props.updateModal(prevModal => ({
           ...prevModal,

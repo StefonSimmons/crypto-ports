@@ -2,10 +2,6 @@
 export default function DropdowMenu({toggleDropdown, handleChange, noOptionsMsg, queriedOptions, value, name}) {
   return (
     <ul className={`form-options ${toggleDropdown[0] ? 'open' : 'close'}`}>
-      {toggleDropdown[1] === 'portfolio' && <li>
-        <input id="read" className="option" type="radio" disabled />
-        <label htmlFor="read" className="read">Existing Ports</label>
-      </li>}
       {queriedOptions.length ?
         queriedOptions.map((option) => (
           <li key={option.id}>

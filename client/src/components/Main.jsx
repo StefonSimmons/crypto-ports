@@ -14,13 +14,15 @@ import DeletePort from '../modals/DeletePort'
 import SignIn from '../modals/SignIn'
 
 import { UserContext } from '../App'
+import SignUp from '../modals/SignUp'
 
 export default function Main(props) {
   const [modal, updateModal] = useState({
     asset: false,
     port: false,
     edit: false,
-    signin: false
+    signin: false,
+    signup: false
   })
 
   const user = useContext(UserContext)
@@ -113,7 +115,6 @@ export default function Main(props) {
     <Layout
       updateModal={updateModal}
       handleLogout={props.handleLogout}
-      handleRegister={props.handleRegister}
     >
       <Route exact path="/" component={Home}/>
       <Route exact path="/portfolios/:id">
@@ -148,6 +149,10 @@ export default function Main(props) {
       {modal.signin && <SignIn
         updateModal={updateModal}
         handleLogin={props.handleLogin}
+      />}
+      {modal.signup && <SignUp
+        updateModal={updateModal}
+        handleRegister={props.handleRegister}
       />}
       {deleteMsgModal && <DeletePort
         port={deleteMsgModal}

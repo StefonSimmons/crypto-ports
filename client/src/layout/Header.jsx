@@ -53,6 +53,10 @@ export default function Header(props) {
       }}>Add Asset</p>
       <button
         onClick={() => {
+          props.updateModal(prevModal => ({
+            ...prevModal,
+            signup: true
+          }))
         }}
       >Sign-up</button>
       <button
