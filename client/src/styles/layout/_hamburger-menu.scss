@@ -1,6 +1,6 @@
 .hamburger-icon{
   display: none;
-  @media (max-width: $xs) {
+  @media (max-width: $sm) {
     display: block;
   }
 }
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     .links-lin{
-      @media (max-width: $xs) {
+      @media (max-width: $sm) {
         display: flex;
         flex-direction: column;
         height: 80%;

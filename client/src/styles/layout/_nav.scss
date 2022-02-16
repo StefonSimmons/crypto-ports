@@ -17,7 +17,7 @@ header{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    @media (max-width: $xs) {
+    @media (max-width: $sm) {
       display: none;
     }
     p {

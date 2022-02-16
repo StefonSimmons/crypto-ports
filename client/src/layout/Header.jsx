@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/imgs/moon-transparent.png'
-// import HamburgerMenu from './HamburgerMenu'
+import HamburgerMenu from './HamburgerMenu'
 import Nav from './Nav'
 import { useContext } from "react"
 import { UserContext } from "../App"
@@ -11,7 +11,8 @@ export default function Header(props) {
   const [logoutHovered, setLOHover] = useState(false)
 
   const user = useContext(UserContext);
-
+  
+  const [isOpen, setOpen] = useState(false)
 
   const authenticated = (
     <nav className="links-lin">
@@ -20,12 +21,14 @@ export default function Header(props) {
           ...prevModal,
           port: true
         }))
+        setOpen(prev => !prev)
       }}>Ports</p>
       <p onClick={() => {
         props.updateModal(prevModal => ({
           ...prevModal,
           asset: true
         }))
+        setOpen(prev => !prev)
       }}>Add Asset</p>
 
       {
@@ -81,12 +84,12 @@ export default function Header(props) {
         unauthenticated={unauthenticated}
         authenticated={authenticated}
       />
-      {/* <HamburgerMenu
+      <HamburgerMenu
         unauthenticated={unauthenticated}
         authenticated={authenticated}
         isOpen={isOpen}
         setOpen={setOpen}
-      /> */}
+      />
     </header>
   )
 }
