@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
+import ModalLayout from './ModalLayout'
 
-export default function SigninForm(props) {
+export default function SignIn(props) {
+
   const [loginData, setLoginData] = useState({
     email: "",
     password: ""
   })
-
 
   const handleChange = (e) => {
     const { value, name } = e.target
@@ -14,20 +15,15 @@ export default function SigninForm(props) {
       [name]: value
     }))
   }
-
-
   return (
-    <form className="signin-form" onSubmit={(e) => {
-      props.handleLogin(e, loginData)
-      props.setAuth(prev => ({...prev, signin:false}))
-    }}>
-      <button
-        type="button"
-        className="close"
-        onClick={() => props.setAuth(false)}
-      >
-        <span>&times;</span>
-      </button>
+    <ModalLayout modal='sign in' updateModal={props.updateModal}>
+      <form className="signin-form" onSubmit={(e) => {
+        props.handleLogin(e, loginData)
+        props.updateModal(prevModal => ({
+          ...prevModal,
+          signin: false
+        }))
+      }}>
         <input
           type="email"
           placeholder="email"
@@ -35,7 +31,7 @@ export default function SigninForm(props) {
           required
           value={loginData.email}
           onChange={(e) => handleChange(e)}
-          />
+        />
         <input
           type="password"
           placeholder="password"
@@ -44,7 +40,8 @@ export default function SigninForm(props) {
           value={loginData.password}
           onChange={(e) => handleChange(e)}
         />
-      <button type="submit">Sign in</button>
-    </form>
+        <button type="submit">Enter</button>
+      </form>
+    </ModalLayout>
   )
 }

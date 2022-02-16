@@ -3,19 +3,12 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/imgs/moon-transparent.png'
 // import HamburgerMenu from './HamburgerMenu'
 import Nav from './Nav'
-import SigninForm from './SigninForm'
-import SignupForm from './SignupForm'
-
 import { useContext } from "react"
 import { UserContext } from "../App"
 
 export default function Header(props) {
-  const [auth, setAuth] = useState({
-    signup: false,
-    signin: false
-  })
 
-  const [isOpen, setOpen] = useState(false)
+  const [logoutHovered, setLOHover] = useState(false)
 
   const user = useContext(UserContext);
 
@@ -27,30 +20,48 @@ export default function Header(props) {
           ...prevModal,
           port: true
         }))
-        setOpen(prev => prev && !prev)
       }}>Ports</p>
       <p onClick={() => {
         props.updateModal(prevModal => ({
           ...prevModal,
           asset: true
         }))
-        setOpen(prev => prev && !prev)
       }}>Add Asset</p>
-      <p className="username">{user?.username}</p>
-      <p onClick={() => props.handleLogout()}>Logout</p>
+
+      {
+        logoutHovered ?
+        <p className="user" onMouseLeave={() => setLOHover(false)} onClick={() => props.handleLogout()}>Logout</p>
+        :
+        <p className="user" onMouseEnter={() => setLOHover(true)}>{user?.username}</p>
+      }
     </nav>
   )
 
   const unauthenticated = (
-    <nav className="btns-lout">
+    <nav className="links-lin">
+      <p onClick={() => {
+        props.updateModal(prevModal => ({
+          ...prevModal,
+          port: true
+        }))
+      }}>Ports</p>
+      <p onClick={() => {
+        props.updateModal(prevModal => ({
+          ...prevModal,
+          asset: true
+        }))
+      }}>Add Asset</p>
       <button
         onClick={() => {
-          setAuth(prev => ({ ...prev, signup: true }))
         }}
       >Sign-up</button>
       <button
+        className="user"
         onClick={() => {
-          setAuth(prev => ({ ...prev, signin: true }))
+          props.updateModal(prevModal => ({
+            ...prevModal,
+            signin: true
+          }))
         }}
       >Sign-in</button>
     </nav>
@@ -62,8 +73,12 @@ export default function Header(props) {
       <Link to="/">
         <img src={logo} alt="logo" />
       </Link>
+      <Nav
+        unauthenticated={unauthenticated}
+        authenticated={authenticated}
+      />    
 
-      {
+      {/* {
         auth.signup ?
           <SignupForm
             setAuth={setAuth}
@@ -77,21 +92,14 @@ export default function Header(props) {
             />
             :
             <>
-              <Nav
-              unauthenticated={unauthenticated}
-              authenticated={authenticated}
-              // handleLogout={props.handleLogout}
-              // updateModal={props.updateModal}
-              // setAuth={setAuth}
-              />
-              {/* <HamburgerMenu
+              <HamburgerMenu
                 unauthenticated={unauthenticated}
                 authenticated={authenticated}
                 isOpen={isOpen}
                 setOpen={setOpen}
-              /> */}
+              />
             </>
-      }
+      } */}
     </header>
   )
 }

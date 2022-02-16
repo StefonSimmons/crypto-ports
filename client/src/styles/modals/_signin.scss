@@ -1,0 +1,46 @@
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 60%;
+  margin: 0 auto;
+
+  input {
+    height: 42px;
+    padding: 0 30px;
+    background-color: $moon;
+    border: black solid 1px;
+    font-size: 18px;
+    color: black;
+    &:nth-child(2){
+      margin-top: 30px;
+    }
+    &::placeholder {
+      text-transform: uppercase;
+      font-size: 18px;
+      color: $crater;
+    }
+    &::placeholder {
+      font-size: 18px;
+      color: $crater;
+    }
+  }
+  button {
+    background-color: $sun;
+    border-radius: 5px;
+    font-size: 24px;
+    height: 42px;
+    width: 116px;
+    margin: 0 auto;
+    margin-top: 30px;
+    transition: 0.15s all ease-in;
+    border: solid 1px black;
+    &:hover {
+      background-color: $full-moon;
+      color: $sun;
+    }
+  }
+}
+
+

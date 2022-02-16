@@ -11,6 +11,7 @@ import { updateUserPorfolio, addUserPortfolio } from '../services/portfolios'
 import { destroyPortfolioAsset } from "../services/assets";
 import { updatePortfolioAsset, addPortfolioAsset } from '../services/assets'
 import DeletePort from '../modals/DeletePort'
+import SignIn from '../modals/SignIn'
 
 import { UserContext } from '../App'
 
@@ -19,6 +20,7 @@ export default function Main(props) {
     asset: false,
     port: false,
     edit: false,
+    signin: false
   })
 
   const user = useContext(UserContext)
@@ -111,7 +113,6 @@ export default function Main(props) {
     <Layout
       updateModal={updateModal}
       handleLogout={props.handleLogout}
-      handleLogin={props.handleLogin}
       handleRegister={props.handleRegister}
     >
       <Route exact path="/" component={Home}/>
@@ -143,6 +144,10 @@ export default function Main(props) {
         asset={asset}
         handleEditAsset={handleEditAsset}
         handleDeleteAsset={handleDeleteAsset}
+        />}
+      {modal.signin && <SignIn
+        updateModal={updateModal}
+        handleLogin={props.handleLogin}
       />}
       {deleteMsgModal && <DeletePort
         port={deleteMsgModal}
