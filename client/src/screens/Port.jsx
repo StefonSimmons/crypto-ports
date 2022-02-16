@@ -17,11 +17,11 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
 
   useEffect(() => {
     const fetchPortfolioAssets = async () => {
-      const data = await getPortfolioAssets(user.id, parseInt(id))
+      const data = await getPortfolioAssets(user?.id, parseInt(id))
       setAssets(data)
     }
     fetchPortfolioAssets()
-  }, [id, user.id, reload, setAssets])
+  }, [id, user?.id, reload, setAssets])
 
 
 
