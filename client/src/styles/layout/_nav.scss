@@ -1,3 +1,17 @@
+@mixin nav-auth-links($width){
+  border: solid 1px black;
+  padding: 5px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  transition: all 0.25s ease-in;
+  width: $width;
+  text-align: center;
+  &:hover{
+    background-color: $mars;
+    opacity: .8;
+  }
+}
 header{
   .btns-lout {
     width: 25%;
@@ -27,17 +41,12 @@ header{
         color: $sun;
       }
       &.user{
-        border: solid 1px black;
-        padding: 5px;
-        box-sizing: border-box;
-        color: black;
-        cursor: pointer;
-        transition: all 0.25s ease-in;
-        width: 175px;
-        text-align: center;
-        &:hover{
-          background-color: $mars;
-          opacity: .8;
+        @include nav-auth-links(175px);
+      }
+      &.auth{
+        @include nav-auth-links(85px);
+        @media (max-width: $sm) {
+          @include nav-auth-links(175px);
         }
       }
     }

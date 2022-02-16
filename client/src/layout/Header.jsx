@@ -54,23 +54,24 @@ export default function Header(props) {
           asset: true
         }))
       }}>Add Asset</p>
-      <button
+      <p
+        className="auth"
         onClick={() => {
           props.updateModal(prevModal => ({
             ...prevModal,
             signup: true
           }))
         }}
-      >Sign-up</button>
-      <button
-        className="user"
+      >Sign-up</p>
+      <p
+        className="auth"
         onClick={() => {
           props.updateModal(prevModal => ({
             ...prevModal,
             signin: true
           }))
         }}
-      >Sign-in</button>
+      >Sign-in</p>
     </nav>
   )
 

@@ -128,6 +128,39 @@ header .links-lin p.user:hover {
   opacity: .8;
 }
 
+header .links-lin p.auth {
+  border: solid 1px black;
+  padding: 5px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  transition: all 0.25s ease-in;
+  width: 85px;
+  text-align: center;
+}
+
+header .links-lin p.auth:hover {
+  background-color: #A93E37;
+  opacity: .8;
+}
+
+@media (max-width: 768px) {
+  header .links-lin p.auth {
+    border: solid 1px black;
+    padding: 5px;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    transition: all 0.25s ease-in;
+    width: 175px;
+    text-align: center;
+  }
+  header .links-lin p.auth:hover {
+    background-color: #A93E37;
+    opacity: .8;
+  }
+}
+
 .layout-bg-circle {
   position: absolute;
   box-sizing: border-box;
