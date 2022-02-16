@@ -112,12 +112,20 @@ header .links-lin p:hover {
   color: #ffa959;
 }
 
-header .links-lin p.username {
+header .links-lin p.user {
   border: solid 1px black;
   padding: 5px;
   box-sizing: border-box;
-  cursor: default;
   color: black;
+  cursor: pointer;
+  transition: all 0.25s ease-in;
+  width: 175px;
+  text-align: center;
+}
+
+header .links-lin p.user:hover {
+  background-color: #A93E37;
+  opacity: .8;
 }
 
 .layout-bg-circle {
