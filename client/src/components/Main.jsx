@@ -22,7 +22,7 @@ export default function Main(props) {
     port: false,
     edit: false,
     signin: false,
-    signup: false
+    createanaccount: false
   })
 
   const user = useContext(UserContext)
@@ -150,7 +150,7 @@ export default function Main(props) {
         updateModal={updateModal}
         handleLogin={props.handleLogin}
       />}
-      {modal.signup && <SignUp
+      {modal.createanaccount && <SignUp
         updateModal={updateModal}
         handleRegister={props.handleRegister}
       />}

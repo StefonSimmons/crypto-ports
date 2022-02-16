@@ -19,12 +19,12 @@ export default function SignUp(props) {
   }
 
   return (
-    <ModalLayout modal='sign up' updateModal={props.updateModal}>
+    <ModalLayout modal='create an account' updateModal={props.updateModal}>
       <form className="auth-form" onSubmit={(e) => {
         props.handleRegister(e, registerData)
         props.updateModal(prevModal => ({
           ...prevModal,
-          signup: false
+          createanaccount: false
         }))
       }}>
         <input

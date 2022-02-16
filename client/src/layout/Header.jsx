@@ -11,7 +11,7 @@ export default function Header(props) {
   const [logoutHovered, setLOHover] = useState(false)
 
   const user = useContext(UserContext);
-  
+
   const [isOpen, setOpen] = useState(false)
 
   const authenticated = (
@@ -59,19 +59,19 @@ export default function Header(props) {
         onClick={() => {
           props.updateModal(prevModal => ({
             ...prevModal,
-            signup: true
+            signin: true
           }))
         }}
-      >Sign-up</p>
+      >Sign in</p>
       <p
         className="auth"
         onClick={() => {
           props.updateModal(prevModal => ({
             ...prevModal,
-            signin: true
+            createanaccount: true
           }))
         }}
-      >Sign-in</p>
+      >Get Started</p>
     </nav>
   )
 

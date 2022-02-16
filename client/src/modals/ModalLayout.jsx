@@ -13,7 +13,7 @@ export default function ModalLayout(props) {
             onClick={() => {
               props.updateModal(prevModal => ({
                 ...prevModal,
-                [props.modal.replace(" ", "")]: false
+                [props.modal.replaceAll(" ", "")]: false
               }))
             }}
           />
