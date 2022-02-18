@@ -43,27 +43,21 @@ export default function Header(props) {
   const unauthenticated = (
     <nav className="links-lin">
       <p onClick={() => {
-        props.updateModal(prevModal => {
-          return user ? {
+        props.updateModal(prevModal => ({
           ...prevModal,
-          port: true
-          } : {
-            ...prevModal,
-            createanaccount: true
-            }
-        })
-      }}>Ports</p>
+          createanaccount: true
+        }))
+      }}><span class="material-icons">
+      lock
+      </span>Ports</p>
       <p onClick={() => {
-        props.updateModal(prevModal => {
-          return user ? {
+        props.updateModal(prevModal => ({
           ...prevModal,
-          asset: true
-          } : {
-            ...prevModal,
-            createanaccount: true
-            }
-        })
-      }}>Add Asset</p>
+          createanaccount: true
+        }))
+      }}><span class="material-icons">
+      lock
+      </span>Add Asset</p>
       <p
         className="auth"
         onClick={() => {
