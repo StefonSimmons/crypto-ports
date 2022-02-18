@@ -1,8 +1,14 @@
 import api from './apiConfig'
 
 export const getUserPortfolios = async (userID) => {
-  const res = await api.get(`/users/${userID}/portfolios`)
-  return res.data
+  const token = localStorage.getItem('authToken')
+  api.defaults.headers.common.authorization = `Bearer ${token}`
+  try {
+    const res = await api.get(`/users/${userID}/portfolios`)
+    return res.data
+  } catch (error) {
+    return error
+  }
 }
 
 export const addUserPortfolio = async (portfolio) => {
