@@ -47,7 +47,7 @@ export default function Header(props) {
           ...prevModal,
           createanaccount: true
         }))
-      }}><span class="material-icons">
+      }}><span className="material-icons">
       lock
       </span>Ports</p>
       <p onClick={() => {
@@ -55,7 +55,7 @@ export default function Header(props) {
           ...prevModal,
           createanaccount: true
         }))
-      }}><span class="material-icons">
+      }}><span className="material-icons">
       lock
       </span>Add Asset</p>
       <p

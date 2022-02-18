@@ -9,5 +9,11 @@
   height: 90vh;
   width: 55vw;
   border-radius: 90%;
+
+  @media (max-width: $xs) {
+    top: 25%;
+    height: 50vh;
+    width: 78vw;
+  }
 }
 

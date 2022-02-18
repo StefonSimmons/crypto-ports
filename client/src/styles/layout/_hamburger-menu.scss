@@ -6,6 +6,10 @@
 }
 
 .hamburger-menu{
+  display: none;
+  @media (max-width: $sm) {
+    display: flex;
+  }
   background-color:$full-moon;
   height: 100vh;
   width: 100vw;
@@ -18,6 +22,7 @@
     display: flex;
     justify-content: center;
     .links-lin{
+      display: none;
       @media (max-width: $sm) {
         display: flex;
         flex-direction: column;
@@ -32,6 +37,5 @@
   }
   &.closed{
     top: 120%;
-    animation: swoop-out .85s ease-out;
   }
 }

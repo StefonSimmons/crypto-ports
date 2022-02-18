@@ -35,6 +35,7 @@ header{
     align-items: center;
     @media (max-width: $sm) {
       display: none;
+      width: initial;
     }
     p {
       cursor: pointer;

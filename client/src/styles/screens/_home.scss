@@ -13,6 +13,9 @@
     p{
       font-size: 67px;
       text-transform: capitalize;
+      @media (max-width: $xs) {
+        font-size: 47px;
+      }
 
       &#add{
         color: #329930;

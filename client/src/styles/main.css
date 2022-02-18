@@ -41,15 +41,6 @@
   }
 }
 
-@keyframes swoop-out {
-  from {
-    top: 20%;
-  }
-  to {
-    top: 120%;
-  }
-}
-
 header {
   box-sizing: border-box;
   height: 20%;
@@ -100,6 +91,7 @@ header .links-lin {
 @media (max-width: 768px) {
   header .links-lin {
     display: none;
+    width: initial;
   }
 }
 
@@ -183,6 +175,14 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   border-radius: 90%;
 }
 
+@media (max-width: 576px) {
+  .layout-bg-circle {
+    top: 25%;
+    height: 50vh;
+    width: 78vw;
+  }
+}
+
 .hamburger-icon {
   display: none;
 }
@@ -194,6 +194,7 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 }
 
 .hamburger-menu {
+  display: none;
   background-color: #FFFDFD;
   height: 100vh;
   width: 100vw;
@@ -202,11 +203,21 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   z-index: 2;
 }
 
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+  }
+}
+
 .hamburger-menu.opened {
   top: 20%;
   animation: swoop-in .85s ease-in-out;
   display: flex;
   justify-content: center;
+}
+
+.hamburger-menu.opened .links-lin {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -225,7 +236,6 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 
 .hamburger-menu.closed {
   top: 120%;
-  animation: swoop-out .85s ease-out;
 }
 
 .home-screen {
@@ -245,6 +255,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 .home-screen .home-content p {
   font-size: 67px;
   text-transform: capitalize;
+}
+
+@media (max-width: 576px) {
+  .home-screen .home-content p {
+    font-size: 47px;
+  }
 }
 
 .home-screen .home-content p#add {
