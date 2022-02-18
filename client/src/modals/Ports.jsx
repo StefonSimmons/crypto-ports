@@ -50,7 +50,11 @@ export default function Ports(props) {
                             id: portfolio.id
                           })
                         }}
-                        className="delete-btn">🗑</button>
+                        className="delete-btn">
+                        <span class="material-icons">
+                        delete_outline
+                        </span>
+                      </button>
                     </div>
                   </div>
                   :
