@@ -21,14 +21,14 @@ export default function Header(props) {
           ...prevModal,
           port: true
         }))
-        setOpen(prev => !prev)
+        setOpen(false)
       }}>Ports</p>
       <p onClick={() => {
         props.updateModal(prevModal => ({
           ...prevModal,
           asset: true
         }))
-        setOpen(prev => !prev)
+        setOpen(false)
       }}>Add Asset</p>
 
       {
@@ -43,16 +43,26 @@ export default function Header(props) {
   const unauthenticated = (
     <nav className="links-lin">
       <p onClick={() => {
-        props.updateModal(prevModal => ({
+        props.updateModal(prevModal => {
+          return user ? {
           ...prevModal,
           port: true
-        }))
+          } : {
+            ...prevModal,
+            createanaccount: true
+            }
+        })
       }}>Ports</p>
       <p onClick={() => {
-        props.updateModal(prevModal => ({
+        props.updateModal(prevModal => {
+          return user ? {
           ...prevModal,
           asset: true
-        }))
+          } : {
+            ...prevModal,
+            createanaccount: true
+            }
+        })
       }}>Add Asset</p>
       <p
         className="auth"
