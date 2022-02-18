@@ -42,7 +42,7 @@ export default function SignIn(props) {
         />
         <button type="submit">Enter</button>
       </form>
-      <p class="signup-cta"
+      <p className="signup-cta"
         onClick={() => {
           props.updateModal(prevModal => ({
             ...prevModal,
