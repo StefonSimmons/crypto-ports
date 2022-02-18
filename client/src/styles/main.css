@@ -140,7 +140,7 @@ header .links-lin p.auth {
 }
 
 header .links-lin p.auth:hover {
-  background-color: #A93E37;
+  background-color: #ffa959;
   opacity: .8;
 }
 
@@ -156,7 +156,7 @@ header .links-lin p.auth:hover {
     text-align: center;
   }
   header .links-lin p.auth:hover {
-    background-color: #A93E37;
+    background-color: #ffa959;
     opacity: .8;
   }
 }

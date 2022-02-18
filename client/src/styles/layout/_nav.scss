@@ -1,4 +1,4 @@
-@mixin nav-auth-links($width){
+@mixin nav-auth-links($width, $bg-color){
   border: solid 1px black;
   padding: 5px;
   box-sizing: border-box;
@@ -8,10 +8,12 @@
   width: $width;
   text-align: center;
   &:hover{
-    background-color: $mars;
+    background-color: $bg-color;
     opacity: .8;
   }
 }
+
+
 header{
   .btns-lout {
     width: 25%;
@@ -41,12 +43,12 @@ header{
         color: $sun;
       }
       &.user{
-        @include nav-auth-links(175px);
+        @include nav-auth-links(175px, $mars);
       }
       &.auth{
-        @include nav-auth-links(85px);
+        @include nav-auth-links(85px, $sun);
         @media (max-width: $sm) {
-          @include nav-auth-links(175px);
+          @include nav-auth-links(175px, $sun);
         }
       }
       &:nth-child(1),
