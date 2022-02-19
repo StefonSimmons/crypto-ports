@@ -417,6 +417,7 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 
 .modal-bg .modal .forms .port-form .form-dropdown label {
   position: relative;
+  width: fit-content;
 }
 
 .modal-bg .modal .forms .port-form .form-dropdown input {
@@ -513,6 +514,7 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 
 .modal-bg .modal .forms .asset-form .form-dropdown label {
   position: relative;
+  width: fit-content;
 }
 
 .modal-bg .modal .forms .asset-form .form-dropdown input {
@@ -928,7 +930,7 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   padding: 10px;
   position: absolute;
   top: -375%;
-  right: -200%;
+  right: -250%;
 }
 
 body, #root {

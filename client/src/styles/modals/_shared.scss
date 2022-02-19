@@ -52,6 +52,7 @@
     width: $width;
     label{
       position: relative;
+      width: fit-content
     }
     input{
       box-sizing: border-box;
