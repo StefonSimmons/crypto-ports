@@ -35,6 +35,9 @@ export default function AddAsset(props) {
     symbol2: false
   })
 
+  // const [addAssetForm, showAddAssetForm] = useState(false)
+
+  // FETCH AND SET SYMBOLS
   useEffect(() => {
     const fetchSymbols = async () => {
       const symbols = await getAllSymbols()
@@ -47,7 +50,7 @@ export default function AddAsset(props) {
     fetchSymbols()
   }, [props.portfolios])
 
-
+  // HELPER FUNCTION
   const portFilter = (value) => {
     if (value) {
       updateQuery((prevQuery) => ({
@@ -69,6 +72,7 @@ export default function AddAsset(props) {
     }
   }
 
+  // HELPER FUNCTION
   const symbolFilter = (value) => {
     if (value) {
       updateQuery((prevQuery) => ({
@@ -84,6 +88,7 @@ export default function AddAsset(props) {
     }
   }
 
+  // HANDLE FORM INPUT SELECTIONS
   const handleChange = (e, dropdown) => {
     const { name, value } = e.target
 
@@ -107,6 +112,7 @@ export default function AddAsset(props) {
     }
   }
 
+  // HANDLE FORM DROPDOWN SELECTIONS
   const handleSelection = (e, dropdown) => {
     const { name, value } = e.target
     // set form data for assets or port
@@ -128,22 +134,27 @@ export default function AddAsset(props) {
     }))
   }
 
+  // CREATE AND GET NEW PORTFOLIO
   const getPort = async (e) => {
     const portfolio = await props.handleAddAsset(e, 'port', formData)
-    setFormData((prevData) => ({
-      ...prevData,
-      portfolio_id: portfolio.id,
-      allocation_currency: portfolio.name
-    }))
+    if (portfolio) {
+      // showAddAssetForm(true)
+      setFormData((prevData) => ({
+        ...prevData,
+        portfolio_id: portfolio.id,
+        allocation_currency: portfolio.name
+      }))
+    }
   }
 
+  // MORE INFO POPUP LOGIC
   const infoIcon = (idx) => (<span
     className="material-icons md-18"
     onMouseLeave={() => showMoreInfo(false)}
     onMouseEnter={() => showMoreInfo(idx)}
   >help_outline</span>)
 
-  const popup = (key, allocation_c="", symbol="") => {
+  const popup = (key, allocation_c = "", symbol = "") => {
     const info = {
       alias: 'The name of this portfolio',
       name: 'The currency you want to earn more of',
@@ -217,11 +228,13 @@ export default function AddAsset(props) {
               name="name"
             />
           </div>
-          <button disabled={queries.portfolioQueries.length} className="submit-btn" type="submit">✔</button>
+          <button disabled={queries.portfolioQueries.length} className="submit-btn" type="submit"><span class="material-icons">
+create_new_folder
+</span></button>
         </form>
 
         {/* CREATE ASSET FORM */}
-        <form className="asset-form" onSubmit={(e) => props.handleAddAsset(e, 'asset', formData)}>
+        {formData.portfolio_id && <form className="asset-form" onSubmit={(e) => props.handleAddAsset(e, 'asset', formData)}>
           <div className="form-dropdown"
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, symbol2: false }))}
             onMouseEnter={() => updateDropdown((prev) => (formData.portfolio_id && { ...prev, symbol2: true }))}
@@ -250,7 +263,7 @@ export default function AddAsset(props) {
           </div>
           <div className="asset-input-wrapper">
             <label htmlFor="allocation">
-              Allocation {infoIcon(4)}{moreInfo === 4 && popup('allocation',formData.allocation_currency,formData.symbol)}
+              Allocation {infoIcon(4)}{moreInfo === 4 && popup('allocation', formData.allocation_currency, formData.symbol)}
             </label>
             <input
               id="allocation"
@@ -265,7 +278,7 @@ export default function AddAsset(props) {
           </div>
           <div className="asset-input-wrapper">
             <label htmlFor="quantity">
-              Quantity  {infoIcon(5)}{moreInfo === 5 && popup('quantity',null, formData.symbol)}
+              Quantity  {infoIcon(5)}{moreInfo === 5 && popup('quantity', null, formData.symbol)}
             </label>
             <input
               id="quantity"
@@ -295,6 +308,7 @@ export default function AddAsset(props) {
           </div>
           <button type="submit" disabled={!queries.portfolioQueries.length}>SUBMIT</button>
         </form>
+        }
       </div>
     </ModalLayout>
   )

@@ -394,7 +394,6 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   flex-direction: column;
   box-sizing: border-box;
   padding: 24px 45px;
-  justify-content: space-evenly;
 }
 
 .modal-bg .modal .forms p {
@@ -492,6 +491,9 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   font-size: 24px;
   background-color: #ffa959;
   border: #ffa959 solid 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-bg .modal .forms .port-form button:disabled {

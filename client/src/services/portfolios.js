@@ -12,8 +12,12 @@ export const getUserPortfolios = async (userID) => {
 }
 
 export const addUserPortfolio = async (portfolio) => {
-  const res = await api.post("/portfolios/", { portfolio })
-  return res.data
+  try {
+    const res = await api.post("/portfolios/", { portfolio })
+    return res.data
+  } catch (error) {
+    return null
+  }
 }
 
 export const updateUserPorfolio = async (portID, portfolio) => {

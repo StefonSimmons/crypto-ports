@@ -2,7 +2,8 @@
 export default function DropdowMenu({ toggleDropdown, handleChange, noOptionsMsg, queriedOptions, value, name }) {
   return (
     <ul className={`form-options ${toggleDropdown[0] ? 'open' : 'close'}`}>
-      {queriedOptions.length && (name === "symbol" || name === "name") ? 
+      {queriedOptions.length && (name === "symbol" || name === "name") ?
+        // USD
         <li>
           <input
             id={`USD-${name}`}
@@ -18,6 +19,7 @@ export default function DropdowMenu({ toggleDropdown, handleChange, noOptionsMsg
       :""}
       {queriedOptions.length ?
         queriedOptions.map((option) => (
+          // DIGITAL ASSETS
           <li key={option.id}>
             <input
               id={`${option[value]}-${name}`}
