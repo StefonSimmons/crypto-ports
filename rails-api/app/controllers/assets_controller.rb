@@ -55,6 +55,7 @@ class AssetsController < ApplicationController
 
   # making http request for cmc data
   def cmc_assets(symbols)
+    # store ENV in /rails-api/config/app_env_vars.rb
     api_key = ENV["cmc_api_key"]
     url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=#{symbols}&CMC_PRO_API_KEY=#{api_key}"
 
