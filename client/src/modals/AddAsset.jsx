@@ -127,6 +127,14 @@ export default function AddAsset(props) {
     }))
   }
 
+  const getPort = async (e) => {
+    const portfolio = await props.handleAddAsset(e, 'port', formData)
+    setFormData((prevData) => ({
+      ...prevData,
+      portfolio_id: portfolio.id,
+      allocation_currency: portfolio.name
+    }))
+  }
 
   return (
     <ModalLayout modal='asset' updateModal={props.updateModal}>
@@ -135,17 +143,7 @@ export default function AddAsset(props) {
         {/* CREATE PORT FORM */}
         <form
           className="port-form"
-          onSubmit={(e) => {
-            const getPort = async () => {
-              const portfolio = await props.handleAddAsset(e, 'port', formData)
-              setFormData((prevData) => ({
-                ...prevData,
-                portfolio_id: portfolio.id,
-                allocation_currency: portfolio.name
-              }))
-            }
-            getPort()
-          }}>
+          onSubmit={(e) => getPort(e)}>
           <div
             className="form-dropdown"
             onMouseEnter={() => updateDropdown((prev) => ({ ...prev, portfolio: true }))}
