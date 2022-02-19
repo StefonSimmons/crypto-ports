@@ -415,6 +415,10 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   width: 40%;
 }
 
+.modal-bg .modal .forms .port-form .form-dropdown label {
+  position: relative;
+}
+
 .modal-bg .modal .forms .port-form .form-dropdown input {
   box-sizing: border-box;
   width: 100%;
@@ -507,6 +511,10 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   width: 100%;
 }
 
+.modal-bg .modal .forms .asset-form .form-dropdown label {
+  position: relative;
+}
+
 .modal-bg .modal .forms .asset-form .form-dropdown input {
   box-sizing: border-box;
   width: 100%;
@@ -561,6 +569,11 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 .modal-bg .modal .forms .asset-form .asset-input-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.modal-bg .modal .forms .asset-form .asset-input-wrapper label {
+  position: relative;
+  width: fit-content;
 }
 
 .modal-bg .modal .forms .asset-form .asset-input-wrapper input {
@@ -904,6 +917,18 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 
 .signin-cta:hover, .signup-cta:hover {
   color: #807d7d;
+}
+
+.popup {
+  border: black solid 1px;
+  box-sizing: border-box;
+  background: #FFFDFD;
+  min-height: 40px;
+  width: 150px;
+  padding: 10px;
+  position: absolute;
+  top: -375%;
+  right: -200%;
 }
 
 body, #root {

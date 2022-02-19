@@ -50,6 +50,9 @@
   .form-dropdown{
     position: relative;
     width: $width;
+    label{
+      position: relative;
+    }
     input{
       box-sizing: border-box;
       width: 100%;

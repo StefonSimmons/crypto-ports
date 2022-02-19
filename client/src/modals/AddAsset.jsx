@@ -9,6 +9,7 @@ export default function AddAsset(props) {
 
   const user = useContext(UserContext)
 
+  const [moreInfo, showMoreInfo] = useState(false)
 
   const [formData, setFormData] = useState({
     symbol: "",
@@ -136,6 +137,26 @@ export default function AddAsset(props) {
     }))
   }
 
+  const infoIcon = (idx) => (<span
+    className="material-icons md-18"
+    onMouseLeave={() => showMoreInfo(false)}
+    onMouseEnter={() => showMoreInfo(idx)}
+  >help_outline</span>)
+
+  const popup = (key, allocation_c="", symbol="") => {
+    const info = {
+      alias: 'The name of this portfolio',
+      name: 'The currency you want to earn more of',
+      symbol: `symbol of the asset you bought with ${allocation_c}`,
+      allocation: `How much ${allocation_c} you spent for ${symbol}`,
+      quantity: `How much ${symbol} did you buy with your allocation`,
+      allocation_currency: 'the asset you are tracking in this portfolio'
+    }
+    return (<div className="popup" >
+      <p>{info[key]}</p>
+    </div >)
+  }
+
   return (
     <ModalLayout modal='asset' updateModal={props.updateModal}>
       <div className="forms">
@@ -146,10 +167,12 @@ export default function AddAsset(props) {
           onSubmit={(e) => getPort(e)}>
           <div
             className="form-dropdown"
-            onMouseEnter={() => updateDropdown((prev) => ({ ...prev, portfolio: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, portfolio: false }))}
+            onMouseEnter={() => updateDropdown((prev) => ({ ...prev, portfolio: true }))}
           >
-            <label htmlFor="portfolio">Portfolio:</label>
+            <div>
+              <label htmlFor="portfolio">Portfolio {infoIcon(1)}{moreInfo === 1 && popup('alias')}</label>
+            </div>
             <input
               id="portfolio"
               required
@@ -171,10 +194,10 @@ export default function AddAsset(props) {
           </div>
           <div
             className="form-dropdown"
-            onMouseEnter={() => updateDropdown((prev) => (!queries.portfolioQueries.length && { ...prev, symbol1: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, symbol1: false }))}
+            onMouseEnter={() => updateDropdown((prev) => (!queries.portfolioQueries.length && { ...prev, symbol1: true }))}
           >
-            <label htmlFor="more">More of:</label>
+            <label htmlFor="more">More of {infoIcon(2)}{moreInfo === 2 && popup('name')}</label>
             <input
               id="more"
               required
@@ -198,15 +221,15 @@ export default function AddAsset(props) {
           </div>
           <button disabled={queries.portfolioQueries.length} className="submit-btn" type="submit">✔</button>
         </form>
-        
+
         {/* CREATE ASSET FORM */}
         <form className="asset-form" onSubmit={(e) => props.handleAddAsset(e, 'asset', formData)}>
           <div className="form-dropdown"
-            onMouseEnter={() => updateDropdown((prev) => (formData.portfolio_id && { ...prev, symbol2: true }))}
             onMouseLeave={() => updateDropdown((prev) => ({ ...prev, symbol2: false }))}
+            onMouseEnter={() => updateDropdown((prev) => (formData.portfolio_id && { ...prev, symbol2: true }))}
           >
             <label htmlFor="symbol">
-              Symbol:
+              Symbol {infoIcon(3)}{moreInfo === 3 && popup('symbol', formData.allocation_currency)}
             </label>
             <input
               id="symbol"
@@ -229,7 +252,7 @@ export default function AddAsset(props) {
           </div>
           <div className="asset-input-wrapper">
             <label htmlFor="allocation">
-              Allocation:
+              Allocation {infoIcon(4)}{moreInfo === 4 && popup('allocation',formData.allocation_currency,formData.symbol)}
             </label>
             <input
               id="allocation"
@@ -244,7 +267,7 @@ export default function AddAsset(props) {
           </div>
           <div className="asset-input-wrapper">
             <label htmlFor="quantity">
-              Quantity:
+              Quantity  {infoIcon(5)}{moreInfo === 5 && popup('quantity',null, formData.symbol)}
             </label>
             <input
               id="quantity"
@@ -259,7 +282,7 @@ export default function AddAsset(props) {
           </div>
           <div className="asset-input-wrapper">
             <label htmlFor="allocation_currency">
-              Allocation Currency:
+              Allocation Currency  {infoIcon(6)}{moreInfo === 6 && popup('allocation_currency')}
             </label>
             <input
               id="allocation_currency"

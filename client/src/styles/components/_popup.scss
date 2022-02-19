@@ -1,0 +1,14 @@
+
+
+.popup {
+    border: black solid 1px;
+    // border-radius: 15px;
+    box-sizing: border-box;
+    background: $full-moon;
+    min-height: 40px;
+    width: 150px;
+    padding: 10px;
+    position: absolute;
+    top: -375%;
+    right: -200%;
+}

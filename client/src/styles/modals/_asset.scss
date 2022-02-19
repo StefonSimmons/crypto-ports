@@ -63,6 +63,10 @@
         .asset-input-wrapper {
           display: flex;
           flex-direction: column;
+          label{
+            position: relative;
+            width: fit-content;
+          }
           input {
             width: auto;
           }

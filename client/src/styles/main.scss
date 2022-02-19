@@ -5,6 +5,7 @@
 @import './layout/header','./layout/nav', './layout/layout', './layout/hamburger-menu';
 @import './screens/home', './screens/port';
 @import './modals/asset', './modals/ports', './modals/delete', './modals/auth-form';
+@import './components/popup';
 
 body, #root{
   box-sizing: border-box;
