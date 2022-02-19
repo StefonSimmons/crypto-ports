@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
