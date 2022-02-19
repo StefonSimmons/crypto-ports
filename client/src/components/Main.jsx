@@ -19,7 +19,7 @@ import SignUp from '../modals/SignUp'
 export default function Main(props) {
   const [modal, updateModal] = useState({
     asset: false,
-    port: false,
+    ports: false,
     edit: false,
     signin: false,
     createanaccount: false
@@ -133,7 +133,7 @@ export default function Main(props) {
         portfolios={portfolios}
         handleAddAsset={handleAddAsset}
       />}
-      {modal.port && <Ports
+      {modal.ports && <Ports
         updateModal={updateModal}
         portfolios={portfolios}
         handleEditPort={handleEditPort}

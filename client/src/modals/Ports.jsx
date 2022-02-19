@@ -24,7 +24,7 @@ export default function Ports(props) {
 
 
   return (
-    <ModalLayout modal='port' updateModal={props.updateModal}>
+    <ModalLayout modal='ports' updateModal={props.updateModal}>
       <div className="portfolios">
         { props.portfolios.length ?
             props.portfolios.map(portfolio => (
@@ -35,7 +35,7 @@ export default function Ports(props) {
                     <Link
                       to={`/portfolios/${portfolio.id}`}
                       onClick={() => {
-                        props.updateModal(prevModal => ({ ...prevModal, port: false }))
+                        props.updateModal(prevModal => ({ ...prevModal, ports: false }))
                       }}
                     >
                       {portfolio.alias}
@@ -51,7 +51,7 @@ export default function Ports(props) {
                           })
                         }}
                         className="delete-btn">
-                        <span class="material-icons">
+                        <span className="material-icons">
                         delete_outline
                         </span>
                       </button>
@@ -79,9 +79,9 @@ export default function Ports(props) {
               </React.Fragment>
             ))
           :
-          <h2>{`We didn't find any portfolios here. Create portfolios when you `} 
+          <h2>{`You dont have any portfolios yet. Create portfolios when you `} 
             <button onClick={() => {
-            props.updateModal(prevModal => ({ ...prevModal, asset: true, port: false }))
+            props.updateModal(prevModal => ({ ...prevModal, asset: true, ports: false }))
             }}>add an asset</button>
           </h2>
         }

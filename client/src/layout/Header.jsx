@@ -19,7 +19,7 @@ export default function Header(props) {
       <p onClick={() => {
         props.updateModal(prevModal => ({
           ...prevModal,
-          port: true
+          ports: true
         }))
         setOpen(false)
       }}>Ports</p>
