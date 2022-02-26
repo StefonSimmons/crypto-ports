@@ -45,7 +45,10 @@ export default function Main(props) {
       const data = await getUserPortfolios(user?.id)
       setPortfolios(data)
     }
-    fetchPortfolios()
+    // wait to verify user before getting user portfolios
+    if (user?.id) {
+      fetchPortfolios()
+    }
   }, [user?.id])
 
   // EDIT PORT
