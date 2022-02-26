@@ -69,6 +69,7 @@ export default function Main(props) {
       ))
       updateMsgModal(false)
     }
+    history.push("/")
   }
 
   // ADD PORTFOLIO AND ASSET
