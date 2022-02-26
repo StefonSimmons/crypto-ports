@@ -45,6 +45,9 @@
   flex-direction: column;
   box-sizing: border-box;
   padding: 24px 45px;
+  @media (max-width: $xs) {
+    padding: 24px 0px;
+  }
 }
 
 
