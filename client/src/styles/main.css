@@ -390,6 +390,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   border-radius: 15px;
 }
 
+@media (max-width: 576px) {
+  .modal-bg .modal {
+    min-height: 100vh;
+  }
+}
+
 .modal-bg .modal .modal-header {
   display: flex;
   align-items: center;
@@ -434,6 +440,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   margin-bottom: 15px;
 }
 
+@media (max-width: 576px) {
+  .modal-bg .modal .forms p {
+    margin: 15px;
+  }
+}
+
 .modal-bg .modal .forms .port-form {
   display: flex;
   justify-content: space-between;
@@ -443,9 +455,25 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   border-bottom: solid #f6f1f1 2px;
 }
 
+@media (max-width: 576px) {
+  .modal-bg .modal .forms .port-form {
+    margin: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+  }
+}
+
 .modal-bg .modal .forms .port-form .form-dropdown {
   position: relative;
   width: 40%;
+}
+
+@media (max-width: 576px) {
+  .modal-bg .modal .forms .port-form .form-dropdown {
+    margin-bottom: 15px;
+    width: 80%;
+  }
 }
 
 .modal-bg .modal .forms .port-form .form-dropdown label {
@@ -543,9 +571,22 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   justify-content: space-around;
 }
 
+@media (max-width: 576px) {
+  .modal-bg .modal .forms .asset-form {
+    margin: 0 15px;
+  }
+}
+
 .modal-bg .modal .forms .asset-form .form-dropdown {
   position: relative;
   width: 100%;
+}
+
+@media (max-width: 576px) {
+  .modal-bg .modal .forms .asset-form .form-dropdown {
+    margin-bottom: 15px;
+    width: 80%;
+  }
 }
 
 .modal-bg .modal .forms .asset-form .form-dropdown label {
@@ -690,6 +731,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   color: darkgray;
 }
 
+@media (max-width: 576px) {
+  .modal-bg .modal .forms input {
+    padding: 0 15px;
+  }
+}
+
 .buttons {
   display: flex;
 }
@@ -712,6 +759,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   width: 675px;
   background-color: #FFFDFD;
   border-radius: 15px;
+}
+
+@media (max-width: 576px) {
+  .modal-bg .modal {
+    min-height: 100vh;
+  }
 }
 
 .modal-bg .modal .modal-header {
