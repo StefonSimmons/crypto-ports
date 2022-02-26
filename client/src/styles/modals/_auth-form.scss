@@ -5,6 +5,9 @@
   width: 50%;
   height: 60%;
   margin: 0 auto;
+  @media (max-width: $xs) {
+    width: 75%;
+  }
 
   input {
     height: 42px;

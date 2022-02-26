@@ -887,6 +887,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   margin: 0 auto;
 }
 
+@media (max-width: 576px) {
+  .auth-form {
+    width: 75%;
+  }
+}
+
 .auth-form input {
   height: 42px;
   padding: 0 30px;
