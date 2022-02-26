@@ -59,9 +59,13 @@ class AssetsController < ApplicationController
     api_key = ENV["cmc_api_key"]
     url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=#{symbols}&CMC_PRO_API_KEY=#{api_key}"
 
-    response = RestClient.get(url)
-    json_response = JSON.parse response.gsub("=>", ":")
-    return json_response["data"]
+    begin
+      response = RestClient.get(url)
+      json_response = JSON.parse response.gsub("=>", ":")
+      return json_response["data"]
+    rescue => e
+      nil
+    end
   end
 
   # FORM USER'S ASSETS
@@ -70,12 +74,6 @@ class AssetsController < ApplicationController
     formed_assets = @partially_formed_assets.map { |asset| form_one_asset_2(asset) }
     return formed_assets
   end
-
-  # def form_asset
-  #   partially_formed_asset = form_one_asset_1(@user_asset)
-  #   formed_asset = form_one_asset_2(partially_formed_asset)
-  #   return form_asset
-  # end
 
   # FORM ONE ASSET pt. 1
   def form_one_asset_1(asset)
