@@ -21,6 +21,9 @@
     animation: swoop-in .85s ease-in-out;
     display: flex;
     justify-content: center;
+    @media (max-width: $xs) {
+      top: 12%;
+    }
     .links-lin{
       display: none;
       @media (max-width: $sm) {

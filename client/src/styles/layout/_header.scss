@@ -8,12 +8,19 @@ header {
   background-color: $moon;
   position: relative;
   padding-right: 30px;
+  @media (max-width: $xs) {
+    height: 12%;
+  }
   img {
     width: 130px;
     height: 136px;
     margin-left: 30px;
     &:hover {
       animation: shake 0.75s infinite;
+    }
+    @media (max-width: $xs) {
+      width: 65px;
+      height: 68px;
     }
   }
 }
