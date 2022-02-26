@@ -29,7 +29,11 @@ function App() {
   const handleLogin = async (e, loginData) => {
     e.preventDefault()
     const userData = await login(loginData)
-    setUser(userData)
+    if (userData.response) {
+      return 'unauthorized'
+    } else {
+      setUser(userData)
+    }
   }
 
   const handleLogout = () => {

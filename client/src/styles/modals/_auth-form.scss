@@ -35,6 +35,11 @@
       padding: 0 15px;
     }
   }
+  .unauthorized-msg {
+    text-align: center;
+    margin-top: 15px;
+    color: $mars;
+  }
   button {
     background-color: $sun;
     border-radius: 5px;

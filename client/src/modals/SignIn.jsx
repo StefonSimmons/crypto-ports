@@ -8,6 +8,8 @@ export default function SignIn(props) {
     password: ""
   })
 
+  const [unauthorizedMsg, setUnauthorizedMsg ] = useState(null)
+
   const handleChange = (e) => {
     const { value, name } = e.target
     setLoginData(prevData => ({
@@ -17,12 +19,16 @@ export default function SignIn(props) {
   }
   return (
     <ModalLayout modal='sign in' updateModal={props.updateModal}>
-      <form className="auth-form" onSubmit={(e) => {
-        props.handleLogin(e, loginData)
-        props.updateModal(prevModal => ({
-          ...prevModal,
-          signin: false
-        }))
+      <form className="auth-form" onSubmit={async (e) => {
+        const unauthorized = await  props.handleLogin(e, loginData)
+        if (unauthorized) {
+          setUnauthorizedMsg('incorrect username or password')
+        } else {
+          props.updateModal(prevModal => ({
+            ...prevModal,
+            signin: false
+          }))
+        }
       }}>
         <input
           type="email"
@@ -41,6 +47,7 @@ export default function SignIn(props) {
           onChange={(e) => handleChange(e)}
         />
         <button type="submit">Enter</button>
+        <p className="unauthorized-msg">{unauthorizedMsg}</p>
       </form>
       <p className="signup-cta"
         onClick={() => {

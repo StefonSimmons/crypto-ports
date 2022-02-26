@@ -43,7 +43,7 @@ export default function Ports(props) {
 
                   <div className="mutables">
                     <button onClick={() => initPortEdit(portfolio.id)} className="edit-btn">
-                      <span class="material-icons">
+                      <span className="material-icons">
                         drive_file_rename_outline
                       </span></button>
                     <button
@@ -77,7 +77,7 @@ export default function Ports(props) {
                     className='port-alias'
                   />
                   <button type="submit" className="save-btn">
-                    <span class="material-icons">
+                    <span className="material-icons">
                       check
                     </span>
                   </button>

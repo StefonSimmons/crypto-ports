@@ -81,7 +81,7 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
             </div>
             )
           }) :
-          <h2 class="no-assets-msg">{`You dont have any assets here. `} 
+          <h2 className="no-assets-msg">{`You dont have any assets here. `} 
             <button onClick={() => {
             updateModal(prevModal => ({ ...prevModal, asset: true}))
             }}>add an asset</button>

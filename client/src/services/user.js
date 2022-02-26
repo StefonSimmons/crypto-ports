@@ -11,11 +11,15 @@ export const register = async (userData) => {
 }
 
 export const login = async (userData) => {
-  const res = await api.post('/users/login', { user: userData })
-  const {token, user} = res.data
-  if (token) {
-    localStorage.setItem('authToken', token)
-    return user
+  try {
+    const res = await api.post('/users/login', { user: userData })
+    const { token, user } = res.data
+    if (token) {
+      localStorage.setItem('authToken', token)
+      return user
+    }
+  } catch (error) {
+    return error
   }
 }
 

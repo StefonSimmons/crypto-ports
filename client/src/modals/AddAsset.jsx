@@ -228,9 +228,11 @@ export default function AddAsset(props) {
               name="name"
             />
           </div>
-          <button disabled={queries.portfolioQueries.length} className="submit-btn" type="submit"><span class="material-icons">
-create_new_folder
-</span></button>
+          <button disabled={queries.portfolioQueries.length} className="submit-btn" type="submit">
+            <span className="material-icons">
+              create_new_folder
+            </span>
+          </button>
         </form>
 
         {/* CREATE ASSET FORM */}

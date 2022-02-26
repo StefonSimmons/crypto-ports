@@ -1033,6 +1033,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   }
 }
 
+.auth-form .unauthorized-msg {
+  text-align: center;
+  margin-top: 15px;
+  color: #A93E37;
+}
+
 .auth-form button {
   background-color: #ffa959;
   border-radius: 5px;
