@@ -347,6 +347,10 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   margin: auto 0;
 }
 
+.port-screen .port-asset-container .port-assets .no-assets-msg {
+  text-align: center;
+}
+
 .modal-bg {
   position: absolute;
   top: 0;

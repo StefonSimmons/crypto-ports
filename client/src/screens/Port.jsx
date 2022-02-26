@@ -48,7 +48,7 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
         </div>
         <hr />
         <div className="port-assets">
-          {assets.map(asset => {
+          {assets.length ? assets.map(asset => {
             // eslint-disable-next-line
             Number.prototype.round = function (dollar = true, percentage=false) {
               if (asset.allocation_currency === 'USD' || percentage) {
@@ -80,7 +80,12 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
               <p>{`${asset.percent_of_curr_port.round(false, true)}%`}</p>
             </div>
             )
-          })}
+          }) :
+          <h2 class="no-assets-msg">{`You dont have any assets here. `} 
+            <button onClick={() => {
+            updateModal(prevModal => ({ ...prevModal, asset: true}))
+            }}>add an asset</button>
+          </h2>}
         </div>
       </div>
     </section>
