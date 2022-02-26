@@ -848,13 +848,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 
 .modal-bg .modal .portfolios .portfolio .mutables button.edit-btn {
   border: solid 1px #ffa959;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: #ffa959;
 }
 
 .modal-bg .modal .portfolios .portfolio .mutables button.edit-btn:hover {
   background-color: #FFFDFD;
-  border: solid 1px black;
   color: #ffa959;
 }
 
@@ -893,7 +892,6 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   border: #ffa959 solid 1px;
   height: 40px;
   width: 147px;
-  justify-self: flex-start;
   transition: .25s all ease-in;
 }
 
@@ -907,7 +905,6 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 
 .modal-bg .modal .portfolios .portfolio .save-btn:hover {
   background-color: #FFFDFD;
-  border: solid 1px black;
   color: #ffa959;
 }
 

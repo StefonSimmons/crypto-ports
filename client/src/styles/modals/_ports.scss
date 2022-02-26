@@ -38,11 +38,10 @@
             }
             &.edit-btn{
               border: solid 1px $sun;
-              border-radius: 5px;
+              border-radius: 3px;
               background-color: $sun;
               &:hover{
                 background-color: $full-moon;
-                border: solid 1px black;
                 color: $sun;
               }
             }
@@ -78,7 +77,6 @@
           border: $sun solid 1px;
           height: 40px;
           width: 147px;
-          justify-self: flex-start;
           transition: .25s all ease-in;
           @media (max-width: $xs) {
             width: 20%;
@@ -87,7 +85,6 @@
           }
           &:hover{
             background-color: $full-moon;
-            border: solid 1px black;
             color: $sun;
           }
         }
