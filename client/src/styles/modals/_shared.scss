@@ -26,13 +26,15 @@
   padding: 0 30px;
   position: relative;
   background: $moon;
+  @media (max-width: $xs) {
+    padding: 0 15px;
+  }
   h1 {
     font-size: 24px;
     margin: 0 auto;
     text-transform: capitalize;
   }
   .close {
-    position: absolute;
     cursor: pointer;
   }
 }

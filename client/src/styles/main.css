@@ -400,6 +400,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   background: #f6f1f1;
 }
 
+@media (max-width: 576px) {
+  .modal-bg .modal .modal-header {
+    padding: 0 15px;
+  }
+}
+
 .modal-bg .modal .modal-header h1 {
   font-size: 24px;
   margin: 0 auto;
@@ -407,7 +413,6 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 }
 
 .modal-bg .modal .modal-header .close {
-  position: absolute;
   cursor: pointer;
 }
 
@@ -713,6 +718,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   background: #f6f1f1;
 }
 
+@media (max-width: 576px) {
+  .modal-bg .modal .modal-header {
+    padding: 0 15px;
+  }
+}
+
 .modal-bg .modal .modal-header h1 {
   font-size: 24px;
   margin: 0 auto;
@@ -720,7 +731,6 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 }
 
 .modal-bg .modal .modal-header .close {
-  position: absolute;
   cursor: pointer;
 }
 
@@ -919,6 +929,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 .auth-form input::placeholder {
   font-size: 18px;
   color: #807d7d;
+}
+
+@media (max-width: 576px) {
+  .auth-form input {
+    padding: 0 15px;
+  }
 }
 
 .auth-form button {

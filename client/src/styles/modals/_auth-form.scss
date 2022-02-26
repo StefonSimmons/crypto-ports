@@ -31,6 +31,9 @@
       font-size: 18px;
       color: $crater;
     }
+    @media (max-width: $xs) {
+      padding: 0 15px;
+    }
   }
   button {
     background-color: $sun;
