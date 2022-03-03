@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = process.NODE_ENV === 'production' ? 'https://simmports-api.herokuapp.com' : 'http://localhost:3000'
+const baseURL = process.env.NODE_ENV === 'production' ? 'https://simmports-api.herokuapp.com' : 'http://localhost:3000'
 
 
 const api = axios.create({
