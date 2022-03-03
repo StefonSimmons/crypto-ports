@@ -18,6 +18,9 @@
     display: flex;
     justify-content: space-evenly;
     width: 90vw;
+    h2 {
+      font-weight: 700;
+    }
   }
   .port-asset-container {
     min-height: 80%;

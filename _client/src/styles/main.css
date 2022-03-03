@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Questrial:wght@700&display=swap");
 .material-icons.md-18 {
   font-size: 18px;
 }
@@ -322,6 +322,10 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   display: flex;
   justify-content: space-evenly;
   width: 90vw;
+}
+
+.port-screen .port-sum-container h2 {
+  font-weight: 700;
 }
 
 .port-screen .port-asset-container {

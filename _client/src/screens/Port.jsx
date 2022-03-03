@@ -8,6 +8,8 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
 
   const user = useContext(UserContext)
 
+  const [totalValue, setTotalValue] = useState(0)
+
   const { id } = useParams()
 
   useEffect(() => {
@@ -23,16 +25,21 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
     if (user?.id) {
       fetchPortfolioAssets()
     }
+  }, [id, user?.id, reload, setAssets])
+
+
+  useEffect(() => {
     // eslint-disable-next-line
     Number.prototype.roundSum = function (port) {
-      if (port.name === "USD") {
+      if (port?.name === "USD") {
         return `$${this?.toFixed(2)}`
       }
       return this?.toFixed(8)
     }
-  }, [id, user?.id, reload, setAssets])
 
-
+    const portSum = assets.reduce((acc, curr) => curr.value + acc, 0)
+    setTotalValue(portSum)
+  }, [assets])
 
   return (
     <section className="port-screen">
@@ -43,8 +50,8 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
         <hr />
         <div className="port-sum-container">
           <h2>Total Allocation: {portfolio?.total_allocation?.roundSum(portfolio)}</h2>
-          <h2>Total Value:</h2>
-          <h2>Total Earned: </h2>
+          <h2>Total Value: {totalValue.roundSum(portfolio)}</h2>
+          <h2>Total Earned: {(totalValue - portfolio?.total_allocation).roundSum(portfolio)}</h2>
         </div>
         <hr />
       </div>
