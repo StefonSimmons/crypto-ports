@@ -5,7 +5,8 @@ class PortfoliosController < ApplicationController
   # GET /users/:user_id/portfolios
   def index
     user = User.find(params[:user_id])
-    render json: user.portfolios
+    user_portfolios = user.portfolios
+    render json: user_portfolios.to_json(:methods => :total_allocation)
   end
 
   # POST /portfolios

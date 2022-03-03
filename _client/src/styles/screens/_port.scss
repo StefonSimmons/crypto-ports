@@ -5,13 +5,19 @@
   flex-direction: column;
   align-items: center;
   .port-name-container {
-    height: 20%;
+    margin-top: 40px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     h1 {
       text-transform: uppercase;
       font-size: 36px;
     }
+  }
+  .port-sum-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90vw;
   }
   .port-asset-container {
     min-height: 80%;
