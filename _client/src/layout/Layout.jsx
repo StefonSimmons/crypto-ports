@@ -12,7 +12,7 @@ export default function Layout(props) {
         handleRegister={props.handleRegister}
       />
       {props.children}
-      <footer>&#169; StefonSimmons</footer>
+      <footer style={{textAlign: "center"}}>&#169; StefonSimmons</footer>
       <div className="layout-bg-circle"></div>
     </>
   )

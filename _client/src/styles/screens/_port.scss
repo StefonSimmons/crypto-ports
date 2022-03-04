@@ -20,6 +20,9 @@
     width: 90vw;
     h2 {
       font-weight: 700;
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
     }
   }
   .port-asset-container {
