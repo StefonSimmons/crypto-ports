@@ -49,7 +49,7 @@ export default function Main(props) {
     if (user?.id) {
       fetchPortfolios()
     }
-  }, [user?.id])
+  }, [user?.id, assets])
 
   // EDIT PORT
   const handleEditPort = async (e, portID, portData) => {
