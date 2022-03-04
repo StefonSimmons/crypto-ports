@@ -1,5 +1,6 @@
 import { useState, createContext, useEffect } from "react";
 import { useHistory } from "react-router";
+import "./utils/helpers"
 import Main from "./components/Main";
 import { login, logout, register, verify } from "./services/user"
 import "./styles/main.css"

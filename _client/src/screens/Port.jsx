@@ -29,17 +29,9 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
 
 
   useEffect(() => {
-    // eslint-disable-next-line
-    Number.prototype.roundSum = function (port) {
-      if (port?.name === "USD") {
-        return `$${this?.toFixed(2)}`
-      }
-      return this?.toFixed(8)
-    }
-
-    const portSum = assets.reduce((acc, curr) => curr.value + acc, 0)
+    const portSum = assets?.reduce((acc, curr) => curr.value + acc, 0)
     setTotalValue(portSum)
-  }, [assets])
+  }, [assets, totalValue])
 
   return (
     <section className="port-screen">
