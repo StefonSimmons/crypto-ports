@@ -328,6 +328,12 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
   font-weight: 700;
 }
 
+@media (max-width: 768px) {
+  .port-screen .port-sum-container h2 {
+    font-size: 14px;
+  }
+}
+
 .port-screen .port-asset-container {
   min-height: 80%;
   box-sizing: border-box;
@@ -379,6 +385,14 @@ header .links-lin p:nth-child(1) span, header .links-lin p:nth-child(2) span {
 
 .port-screen .port-asset-container .port-assets .no-assets-msg {
   text-align: center;
+}
+
+.green {
+  color: #035a03;
+}
+
+.red {
+  color: #A93E37;
 }
 
 .modal-bg {

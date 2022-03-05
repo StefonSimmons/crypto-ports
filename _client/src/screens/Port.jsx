@@ -43,7 +43,11 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
         <div className="port-sum-container">
           <h2>Total Allocation: {portfolio?.total_allocation?.roundSum(portfolio)}</h2>
           <h2>Total Value: {totalValue.roundSum(portfolio)}</h2>
-          <h2>Total Earned: {(totalValue - portfolio?.total_allocation).roundSum(portfolio)}</h2>
+          <h2>{`Total Earned: `} 
+            <span className={(totalValue - portfolio?.total_allocation) > 0 ? 'green' : 'red'}>
+              {(totalValue - portfolio?.total_allocation).roundSum(portfolio)}
+            </span>
+          </h2>
         </div>
         <hr />
       </div>
@@ -90,7 +94,7 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
                 <p>{asset.price.round()}</p>
                 <p>{asset.value.round()}</p>
                 <p>{asset.value_change.round()}</p>
-                <p>{`${asset.percent_change.round(false, true)}%`}</p>
+                <p className={asset.percent_change > 0 ? 'green' : 'red'}>{`${asset.percent_change.round(false, true)}%`}</p>
                 <p>{`${asset.percent_of_port.round(false, true)}%`}</p>
                 <p>{`${asset.percent_of_curr_port.round(false, true)}%`}</p>
               </div>
