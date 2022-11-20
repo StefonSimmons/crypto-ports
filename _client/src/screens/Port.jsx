@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import { getPortfolioAssets } from "../services/assets"
 import { UserContext } from "../App"
 
@@ -9,13 +9,32 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
   const user = useContext(UserContext)
 
   const [totalValue, setTotalValue] = useState(0)
+  
+  const [isDisabled, setIsDisabled] = useState({prev: false, next: false})
+
+  const [currentIndex, setCurrentIndex] = useState(null)
 
   const { id } = useParams()
+
+  const history = useHistory()
 
   useEffect(() => {
     const port = portfolios.find(port => port.id === parseInt(id))
     setPortfolio(port)
+    const currIndex = portfolios.findIndex((port) => port.id === parseInt(id))
+    setCurrentIndex(currIndex)
   }, [id, portfolios])
+
+  useEffect(() => {
+    const max = portfolios.length -1
+    if(currentIndex === 0){
+      setIsDisabled({prev: true, next: false})
+    }else if(currentIndex === max && currentIndex !== -1){
+      setIsDisabled({prev: false, next: true})
+    }else{
+      setIsDisabled({prev: false, next: false})
+    }
+  }, [currentIndex, portfolios.length])
 
   useEffect(() => {
     const fetchPortfolioAssets = async () => {
@@ -33,10 +52,32 @@ export default function Port({ portfolios, updateModal, setAsset, setAssets, ass
     setTotalValue(portSum)
   }, [assets, totalValue])
 
+  const navigatePorts = (direction) => {
+      const nextPort = portfolios.find((_,idx) => idx === (currentIndex + direction))
+      history.push(`/portfolios/${nextPort?.id}`)   
+  }
+
+  // useEffect(() => {
+  //   document.addEventListener('keydown', (e) => {
+  //     console.log(e.key)
+  //     if(e.key === "ArrowLeft"){
+  //       navigatePorts(-1)
+  //     }else if(e.key === "ArrowRight"){
+  //       navigatePorts(1)
+  //     }
+  //   })
+  // }, [navigatePorts])
+
   return (
     <section className="port-screen">
       <div className="port-name-container">
+        <div className="prev-container">
+          <button onClick={() => navigatePorts(-1)} disabled={isDisabled.prev}><div className="arrow arrow-prev"></div></button>
+        </div>
         <h1>{portfolio?.alias}</h1>
+        <div className="next-container">
+          <button onClick={() => navigatePorts(1)} disabled={isDisabled.next}><div className="arrow arrow-next"></div></button>
+        </div>
       </div>
       <div>
         <hr />
