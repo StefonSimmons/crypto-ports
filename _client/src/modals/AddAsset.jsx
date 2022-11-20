@@ -35,8 +35,6 @@ export default function AddAsset(props) {
     symbol2: false
   })
 
-  // const [addAssetForm, showAddAssetForm] = useState(false)
-
   // FETCH AND SET SYMBOLS
   useEffect(() => {
     const fetchSymbols = async () => {
