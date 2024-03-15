@@ -35,8 +35,6 @@ export default function AddAsset(props) {
     symbol2: false
   })
 
-  // const [addAssetForm, showAddAssetForm] = useState(false)
-
   // FETCH AND SET SYMBOLS
   useEffect(() => {
     const fetchSymbols = async () => {
@@ -138,7 +136,7 @@ export default function AddAsset(props) {
   const getPort = async (e) => {
     const portfolio = await props.handleAddAsset(e, 'port', formData)
     if (portfolio) {
-      // showAddAssetForm(true)
+      
       setFormData((prevData) => ({
         ...prevData,
         portfolio_id: portfolio.id,

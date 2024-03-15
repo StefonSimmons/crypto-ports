@@ -8,7 +8,6 @@ export default function HamburgerMenu(props) {
 
   // code reference from https://thewebdev.info/2021/05/26/how-to-get-the-viewport-or-window-height-in-react/
   // watch width resize
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -19,7 +18,6 @@ export default function HamburgerMenu(props) {
     // clean up
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
   // end of reference
 
   return (
